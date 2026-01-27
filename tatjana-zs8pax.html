@@ -1307,7 +1307,7 @@
     <div class="toast" id="toast"></div>
 
     <script>
-        var appData = {"clientName":"Tatjana","lastUpdated":"2026-01-27T11:37:26.634Z","coachMessages":[{"id":1769511848249,"text":"Hey","date":"27.1.2026 12:04"},{"id":1769513804892,"text":"okay","date":"27.1.2026 12:36"}],"coachMindsetTip":"super cool","coachFoodTip":"bier ok","coachTasks":[{"id":1769511872506,"text":"bier trinken","done":false,"isCoach":true},{"id":1769513839364,"text":"merh kiffen","done":false,"isCoach":true}],"coachShopItems":[{"id":1769511880044,"text":"mehr äpfel","done":false,"isCoach":true},{"id":1769513845513,"text":"und bohnen","done":false,"isCoach":true}],"clientReply":"","mindset":{"mood":null,"motivation":"","dankbarkeit":"","reflexion":""},"mahlzeiten":[],"clientTasks":[],"clientShopItems":[],"history":[]};
+        var appData = {"clientName":"Tatjana","lastUpdated":"2026-01-27T11:47:52.261Z","coachMessages":[{"id":1769511848249,"text":"Hey","date":"27.1.2026 12:04"},{"id":1769513804892,"text":"okay","date":"27.1.2026 12:36"}],"coachMindsetTip":"super cool","coachFoodTip":"bier ok","coachTasks":[{"id":1769511872506,"text":"bier trinken","done":false,"isCoach":true},{"id":1769513839364,"text":"merh kiffen","done":false,"isCoach":true}],"coachShopItems":[{"id":1769511880044,"text":"mehr äpfel","done":false,"isCoach":true},{"id":1769513845513,"text":"und bohnen","done":false,"isCoach":true}],"clientReply":"","mindset":{"mood":null,"motivation":"","dankbarkeit":"","reflexion":""},"mahlzeiten":[],"clientTasks":[],"clientShopItems":[],"history":[]};
         var webhookUrl = 'https://flow.zoho.eu/20077340494/flow/webhook/incoming?zapikey=1001.3a1905b30f50dd264b19d05d9c1b463a.aa932e68201ea64597b9c071d53b71c3&isdebug=false';
 
         // Init
@@ -1619,13 +1619,14 @@
             var tasksTotal = (appData.coachTasks || []).length + (appData.clientTasks || []).length;
             var tasksDone = (appData.coachTasks || []).filter(function(t) { return t.done; }).length +
                            (appData.clientTasks || []).filter(function(t) { return t.done; }).length;
+            var mealsCount = (appData.mahlzeiten || []).length;
             
             var historyEntry = {
                 date: today,
                 mood: appData.mindset.mood || 0,
                 tasksCompleted: tasksDone,
                 tasksTotal: tasksTotal,
-                mealsCount: (appData.mahlzeiten || []).length,
+                mealsCount: mealsCount,
                 note: appData.mindset.reflexion || appData.clientReply || ''
             };
             
@@ -1638,39 +1639,50 @@
                 appData.history.push(historyEntry);
             }
 
-            var data = {
-                timestamp: new Date().toISOString(),
-                clientName: appData.clientName,
-                date: new Date().toLocaleDateString('de-CH'),
-                time: new Date().toLocaleTimeString('de-CH', {hour: '2-digit', minute: '2-digit'}),
-                reply: appData.clientReply,
-                mindset: appData.mindset,
-                mahlzeiten: appData.mahlzeiten,
-                coachTasks: appData.coachTasks,
-                clientTasks: appData.clientTasks,
-                history: appData.history
-            };
+            // URL-Parameter aufbauen (GET-Request)
+            var params = new URLSearchParams();
+            params.append('clientName', appData.clientName || '');
+            params.append('date', today);
+            params.append('time', new Date().toLocaleTimeString('de-CH', {hour: '2-digit', minute: '2-digit'}));
+            params.append('mood', appData.mindset.mood || 5);
+            params.append('reply', (appData.clientReply || '').substring(0, 500));
+            params.append('motivation', (appData.mindset.motivation || '').substring(0, 500));
+            params.append('dankbarkeit', (appData.mindset.dankbarkeit || '').substring(0, 500));
+            params.append('reflexion', (appData.mindset.reflexion || '').substring(0, 500));
+            params.append('tasksCompleted', tasksDone);
+            params.append('tasksTotal', tasksTotal);
+            params.append('mealsCount', mealsCount);
+            
+            // Mahlzeiten als formatierten Text
+            var mahlzeitenText = (appData.mahlzeiten || []).map(function(m) {
+                var emoji = {'Frühstück': '🌅', 'Mittag': '☀️', 'Abend': '🌙', 'Snack': '🍎'}[m.type] || '🍽️';
+                return emoji + ' ' + m.type + ' (' + m.time + '): ' + m.description;
+            }).join(' | ');
+            params.append('mahlzeiten', mahlzeitenText.substring(0, 1000));
+            
+            // Aufgaben als Text
+            var tasksText = (appData.coachTasks || []).concat(appData.clientTasks || []).map(function(t) {
+                return (t.done ? '✅' : '⬜') + ' ' + t.text;
+            }).join(' | ');
+            params.append('tasks', tasksText.substring(0, 1000));
 
             showToast('Wird gesendet... 📤');
 
-            fetch(webhookUrl, {
-                method: 'POST',
-                headers: { 'Content-Type': 'application/json' },
-                body: JSON.stringify(data)
-            }).then(function(response) {
-                if (response.ok) {
-                    showToast('Erfolgreich an Tatjana gesendet! ✓');
-                } else {
-                    showToast('Gesendet ✓');
-                }
+            // Send via GET
+            var fullUrl = webhookUrl + '&' + params.toString();
+            
+            fetch(fullUrl, {
+                method: 'GET',
+                mode: 'no-cors'
+            }).then(function() {
+                showToast('An Tatjana gesendet! ✓');
                 saveToLocalStorage();
                 renderHistory();
             }).catch(function(err) {
                 console.error('Error:', err);
-                // Trotzdem lokal speichern
                 saveToLocalStorage();
                 renderHistory();
-                showToast('Offline gespeichert (wird später gesendet)');
+                showToast('Lokal gespeichert ✓');
             });
         }
 
