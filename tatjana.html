@@ -1,0 +1,2011 @@
+<html lang="de"><head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Coaching by Tatjana</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;1,400&amp;family=Nunito:wght@400;500;600;700&amp;display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary: #C4A484;
+            --primary-light: #E8DDD4;
+            --primary-dark: #A68B6A;
+            --accent: #D4A5A5;
+            --accent-light: #F5E6E6;
+            --text-dark: #3D3D3D;
+            --text-light: #6B6B6B;
+            --bg-cream: #FDF9F6;
+            --bg-white: #FFFFFF;
+            --success: #7FB285;
+            --success-light: #E8F5EA;
+            --coach-color: #8B5CF6;
+            --coach-light: #EDE9FE;
+            --shadow: 0 4px 20px rgba(196, 164, 132, 0.15);
+            --shadow-hover: 0 8px 30px rgba(196, 164, 132, 0.25);
+            --radius: 16px;
+            --radius-sm: 10px;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Nunito', sans-serif;
+            background: var(--bg-cream);
+            color: var(--text-dark);
+            min-height: 100vh;
+            line-height: 1.6;
+        }
+
+        /* Header */
+        .header {
+            background: linear-gradient(135deg, var(--primary) 0%, var(--accent) 100%);
+            padding: 1.5rem 1rem;
+            text-align: center;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            box-shadow: var(--shadow);
+        }
+
+        .header.coach-mode {
+            background: linear-gradient(135deg, var(--coach-color) 0%, #A78BFA 100%);
+        }
+
+        .logo {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 1.8rem;
+            font-weight: 600;
+            color: white;
+            letter-spacing: 1px;
+        }
+
+        .logo span {
+            font-style: italic;
+            font-weight: 400;
+        }
+
+        .subtitle {
+            font-size: 0.85rem;
+            color: rgba(255,255,255,0.9);
+            margin-top: 0.25rem;
+            font-weight: 500;
+        }
+
+        .client-name-display {
+            font-size: 1rem;
+            color: white;
+            margin-top: 0.5rem;
+            font-weight: 600;
+            background: rgba(255,255,255,0.2);
+            padding: 0.3rem 1rem;
+            border-radius: 20px;
+            display: inline-block;
+        }
+
+        /* Mode Toggle */
+        .mode-toggle {
+            padding: 0.75rem;
+            background: var(--bg-white);
+            border-bottom: 1px solid var(--primary-light);
+            display: flex;
+            justify-content: center;
+            gap: 0.5rem;
+        }
+
+        .mode-btn {
+            padding: 0.6rem 1.5rem;
+            border: 2px solid var(--primary-light);
+            border-radius: 25px;
+            background: var(--bg-white);
+            font-family: inherit;
+            font-size: 0.9rem;
+            font-weight: 600;
+            color: var(--text-light);
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .mode-btn:hover {
+            border-color: var(--primary);
+        }
+
+        .mode-btn.active {
+            background: var(--primary);
+            border-color: var(--primary);
+            color: white;
+        }
+
+        .mode-btn.coach.active {
+            background: var(--coach-color);
+            border-color: var(--coach-color);
+        }
+
+        /* Client Setup (Coach Mode) */
+        .client-setup {
+            padding: 1rem;
+            background: var(--coach-light);
+            border-bottom: 2px solid var(--coach-color);
+        }
+
+        .client-setup input {
+            width: 100%;
+            max-width: 400px;
+            padding: 0.75rem 1rem;
+            border: 2px solid var(--coach-color);
+            border-radius: var(--radius-sm);
+            font-size: 1rem;
+            font-family: inherit;
+            margin: 0 auto;
+            display: block;
+        }
+
+        .client-setup input:focus {
+            outline: none;
+            box-shadow: 0 0 0 3px rgba(139, 92, 246, 0.2);
+        }
+
+        /* Settings Section */
+        .settings-section {
+            padding: 0.75rem 1rem;
+            background: var(--coach-light);
+            border-bottom: 1px solid var(--coach-color);
+        }
+
+        .settings-row {
+            display: flex;
+            gap: 0.75rem;
+            flex-wrap: wrap;
+        }
+
+        .settings-group {
+            flex: 1;
+            min-width: 150px;
+        }
+
+        .settings-group label {
+            display: block;
+            font-size: 0.75rem;
+            font-weight: 600;
+            color: var(--coach-color);
+            margin-bottom: 0.25rem;
+        }
+
+        .settings-input {
+            width: 100%;
+            padding: 0.5rem 0.75rem;
+            border: 2px solid var(--coach-color);
+            border-radius: var(--radius-sm);
+            font-size: 0.85rem;
+            font-family: inherit;
+            background: var(--bg-white);
+        }
+
+        .settings-input:focus {
+            outline: none;
+            box-shadow: 0 0 0 3px rgba(139, 92, 246, 0.2);
+        }
+
+        .settings-hint {
+            font-size: 0.7rem;
+            color: var(--text-light);
+            margin-top: 0.5rem;
+            text-align: center;
+        }
+
+        /* Navigation Tabs */
+        .nav-tabs {
+            display: flex;
+            overflow-x: auto;
+            background: var(--bg-white);
+            padding: 0.5rem;
+            gap: 0.5rem;
+            border-bottom: 1px solid var(--primary-light);
+            -webkit-overflow-scrolling: touch;
+        }
+
+        .nav-tabs::-webkit-scrollbar {
+            display: none;
+        }
+
+        .tab-btn {
+            flex: 1;
+            min-width: 70px;
+            padding: 0.6rem 0.75rem;
+            border: none;
+            background: transparent;
+            border-radius: var(--radius-sm);
+            font-family: inherit;
+            font-size: 0.8rem;
+            font-weight: 600;
+            color: var(--text-light);
+            cursor: pointer;
+            transition: all 0.3s ease;
+            white-space: nowrap;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 0.2rem;
+        }
+
+        .tab-btn .icon {
+            font-size: 1.2rem;
+        }
+
+        .tab-btn:hover {
+            background: var(--primary-light);
+            color: var(--text-dark);
+        }
+
+        .tab-btn.active {
+            background: var(--primary);
+            color: white;
+            box-shadow: var(--shadow);
+        }
+
+        /* Main Content */
+        .main-content {
+            padding: 1rem;
+            max-width: 600px;
+            margin: 0 auto;
+            padding-bottom: 120px;
+        }
+
+        .tab-content {
+            display: none;
+            animation: fadeIn 0.4s ease;
+        }
+
+        .tab-content.active {
+            display: block;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        /* Cards */
+        .card {
+            background: var(--bg-white);
+            border-radius: var(--radius);
+            padding: 1.25rem;
+            margin-bottom: 1rem;
+            box-shadow: var(--shadow);
+            border: 1px solid var(--primary-light);
+        }
+
+        .card.coach-card {
+            border: 2px solid var(--coach-color);
+            background: linear-gradient(to bottom, var(--coach-light) 0%, var(--bg-white) 100%);
+        }
+
+        .card-title {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 1.2rem;
+            font-weight: 600;
+            color: var(--primary-dark);
+            margin-bottom: 1rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .card.coach-card .card-title {
+            color: var(--coach-color);
+        }
+
+        .coach-badge {
+            font-size: 0.7rem;
+            background: var(--coach-color);
+            color: white;
+            padding: 0.2rem 0.5rem;
+            border-radius: 10px;
+            font-family: 'Nunito', sans-serif;
+            font-weight: 600;
+        }
+
+        /* Form Elements */
+        .form-group {
+            margin-bottom: 1rem;
+        }
+
+        .form-label {
+            display: block;
+            font-weight: 600;
+            color: var(--text-dark);
+            margin-bottom: 0.5rem;
+            font-size: 0.9rem;
+        }
+
+        .form-input,
+        .form-textarea,
+        .form-select {
+            width: 100%;
+            padding: 0.75rem 1rem;
+            border: 2px solid var(--primary-light);
+            border-radius: var(--radius-sm);
+            font-family: inherit;
+            font-size: 1rem;
+            transition: all 0.3s ease;
+            background: var(--bg-white);
+        }
+
+        .form-textarea {
+            resize: vertical;
+            min-height: 80px;
+        }
+
+        .form-input:focus,
+        .form-textarea:focus,
+        .form-select:focus {
+            outline: none;
+            border-color: var(--primary);
+            box-shadow: 0 0 0 3px rgba(196, 164, 132, 0.2);
+        }
+
+        .coach-input {
+            border-color: var(--coach-color);
+        }
+
+        .coach-input:focus {
+            box-shadow: 0 0 0 3px rgba(139, 92, 246, 0.2);
+        }
+
+        /* Coach Message Display */
+        .coach-message {
+            background: var(--coach-light);
+            border-left: 4px solid var(--coach-color);
+            padding: 1rem;
+            border-radius: 0 var(--radius-sm) var(--radius-sm) 0;
+            margin-bottom: 1rem;
+        }
+
+        .coach-message-header {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            margin-bottom: 0.5rem;
+            font-weight: 600;
+            color: var(--coach-color);
+            font-size: 0.85rem;
+        }
+
+        .coach-message-text {
+            color: var(--text-dark);
+            white-space: pre-wrap;
+        }
+
+        .coach-message-date {
+            font-size: 0.75rem;
+            color: var(--text-light);
+            margin-top: 0.5rem;
+        }
+
+        /* Mood Rating */
+        .mood-rating {
+            display: flex;
+            gap: 0.4rem;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+
+        .mood-btn {
+            width: 40px;
+            height: 40px;
+            border: 2px solid var(--primary-light);
+            border-radius: 50%;
+            background: var(--bg-white);
+            font-size: 0.9rem;
+            font-weight: 600;
+            color: var(--text-light);
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .mood-btn:hover {
+            border-color: var(--primary);
+            transform: scale(1.1);
+        }
+
+        .mood-btn.selected {
+            background: var(--primary);
+            border-color: var(--primary);
+            color: white;
+            transform: scale(1.15);
+            box-shadow: var(--shadow);
+        }
+
+        /* Checklist Items */
+        .checklist {
+            display: flex;
+            flex-direction: column;
+            gap: 0.6rem;
+        }
+
+        .checklist-item {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            padding: 0.75rem 1rem;
+            background: var(--bg-cream);
+            border-radius: var(--radius-sm);
+            border: 1px solid var(--primary-light);
+            transition: all 0.3s ease;
+        }
+
+        .checklist-item.coach-task {
+            background: var(--coach-light);
+            border-color: var(--coach-color);
+        }
+
+        .checklist-item.completed {
+            background: var(--success-light);
+            border-color: var(--success);
+        }
+
+        .checklist-item.completed .item-text {
+            text-decoration: line-through;
+            color: var(--text-light);
+        }
+
+        .checkbox-custom {
+            width: 24px;
+            height: 24px;
+            border: 2px solid var(--primary);
+            border-radius: 6px;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.3s ease;
+            flex-shrink: 0;
+        }
+
+        .checkbox-custom:hover {
+            background: var(--primary-light);
+        }
+
+        .checkbox-custom.checked {
+            background: var(--success);
+            border-color: var(--success);
+        }
+
+        .checkbox-custom.checked::after {
+            content: '✓';
+            color: white;
+            font-weight: bold;
+            font-size: 0.85rem;
+        }
+
+        .item-content {
+            flex: 1;
+            min-width: 0;
+        }
+
+        .item-text {
+            font-weight: 500;
+            word-break: break-word;
+            font-size: 0.95rem;
+        }
+
+        .item-meta {
+            font-size: 0.75rem;
+            color: var(--text-light);
+            margin-top: 0.2rem;
+        }
+
+        .delete-btn {
+            width: 30px;
+            height: 30px;
+            border: none;
+            background: transparent;
+            color: var(--accent);
+            cursor: pointer;
+            border-radius: 50%;
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.1rem;
+        }
+
+        .delete-btn:hover {
+            background: var(--accent-light);
+            color: var(--primary-dark);
+        }
+
+        /* Priority Badge */
+        .priority-badge {
+            font-size: 0.65rem;
+            padding: 0.15rem 0.4rem;
+            border-radius: 20px;
+            font-weight: 600;
+            text-transform: uppercase;
+        }
+
+        .priority-hoch {
+            background: #FFE5E5;
+            color: #D46A6A;
+        }
+
+        .priority-mittel {
+            background: #FFF3E0;
+            color: #E09C4A;
+        }
+
+        .priority-niedrig {
+            background: var(--success-light);
+            color: var(--success);
+        }
+
+        /* Buttons */
+        .btn {
+            padding: 0.75rem 1.5rem;
+            border: none;
+            border-radius: var(--radius-sm);
+            font-family: inherit;
+            font-size: 0.95rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .btn-primary {
+            background: var(--primary);
+            color: white;
+        }
+
+        .btn-primary:hover {
+            background: var(--primary-dark);
+            box-shadow: var(--shadow);
+        }
+
+        .btn-coach {
+            background: var(--coach-color);
+            color: white;
+        }
+
+        .btn-coach:hover {
+            background: #7C3AED;
+        }
+
+        .btn-success {
+            background: var(--success);
+            color: white;
+        }
+
+        .btn-success:hover {
+            background: #6BA071;
+        }
+
+        .btn-block {
+            width: 100%;
+            padding: 1rem;
+            font-size: 1rem;
+        }
+
+        .btn-icon {
+            padding: 0.75rem;
+            min-width: 44px;
+        }
+
+        .btn-sm {
+            padding: 0.5rem 1rem;
+            font-size: 0.85rem;
+        }
+
+        /* Add Form */
+        .add-form {
+            display: flex;
+            gap: 0.5rem;
+            margin-bottom: 1rem;
+            flex-wrap: wrap;
+        }
+
+        .add-form input {
+            flex: 1;
+            min-width: 120px;
+        }
+
+        /* Meal Type Selector */
+        .meal-type-selector {
+            display: flex;
+            gap: 0.4rem;
+            flex-wrap: wrap;
+            margin-bottom: 1rem;
+        }
+
+        .meal-type-btn {
+            padding: 0.4rem 0.8rem;
+            border: 2px solid var(--primary-light);
+            border-radius: 20px;
+            background: var(--bg-white);
+            font-family: inherit;
+            font-size: 0.8rem;
+            font-weight: 500;
+            color: var(--text-light);
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .meal-type-btn:hover {
+            border-color: var(--primary);
+        }
+
+        .meal-type-btn.selected {
+            background: var(--primary);
+            border-color: var(--primary);
+            color: white;
+        }
+
+        /* Entry List */
+        .entry-list {
+            display: flex;
+            flex-direction: column;
+            gap: 0.6rem;
+        }
+
+        .entry-item {
+            padding: 0.75rem 1rem;
+            background: var(--bg-cream);
+            border-radius: var(--radius-sm);
+            border-left: 4px solid var(--primary);
+        }
+
+        .entry-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            margin-bottom: 0.3rem;
+        }
+
+        .entry-date {
+            font-size: 0.75rem;
+            color: var(--text-light);
+        }
+
+        .entry-text {
+            color: var(--text-dark);
+            font-size: 0.9rem;
+        }
+
+        /* Empty State */
+        .empty-state {
+            text-align: center;
+            padding: 1.5rem;
+            color: var(--text-light);
+        }
+
+        .empty-state .icon {
+            font-size: 2.5rem;
+            margin-bottom: 0.75rem;
+            opacity: 0.5;
+        }
+
+        /* Bottom Actions */
+        .bottom-actions {
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            padding: 1rem;
+            background: linear-gradient(to top, var(--bg-cream) 80%, transparent);
+            display: flex;
+            flex-direction: column;
+            gap: 0.5rem;
+        }
+
+        .bottom-actions .btn {
+            max-width: 600px;
+            margin: 0 auto;
+            width: 100%;
+        }
+
+        /* Success Modal */
+        .modal-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(0,0,0,0.5);
+            display: none;
+            align-items: center;
+            justify-content: center;
+            z-index: 1000;
+            padding: 1rem;
+        }
+
+        .modal-overlay.show {
+            display: flex;
+        }
+
+        .modal {
+            background: var(--bg-white);
+            border-radius: var(--radius);
+            padding: 1.5rem;
+            max-width: 400px;
+            width: 100%;
+            text-align: center;
+            box-shadow: var(--shadow-hover);
+        }
+
+        .modal h3 {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 1.5rem;
+            color: var(--success);
+            margin-bottom: 1rem;
+        }
+
+        .modal .link-box {
+            background: var(--bg-cream);
+            border: 2px solid var(--primary-light);
+            border-radius: var(--radius-sm);
+            padding: 0.75rem;
+            margin: 1rem 0;
+            word-break: break-all;
+            font-size: 0.85rem;
+            color: var(--text-dark);
+        }
+
+        .modal .btn {
+            margin-top: 0.5rem;
+        }
+
+        /* Toast */
+        .toast {
+            position: fixed;
+            bottom: 140px;
+            left: 50%;
+            transform: translateX(-50%) translateY(100px);
+            background: var(--success);
+            color: white;
+            padding: 0.75rem 1.25rem;
+            border-radius: var(--radius);
+            box-shadow: var(--shadow-hover);
+            opacity: 0;
+            transition: all 0.4s ease;
+            z-index: 1000;
+            font-weight: 600;
+            font-size: 0.9rem;
+        }
+
+        .toast.show {
+            transform: translateX(-50%) translateY(0);
+            opacity: 1;
+        }
+
+        /* Hide elements based on mode */
+        .coach-only {
+            display: none;
+        }
+
+        body.coach-mode .coach-only {
+            display: block;
+        }
+
+        body.coach-mode .client-only {
+            display: none;
+        }
+
+        /* Responsive */
+        @media (max-width: 480px) {
+            .logo {
+                font-size: 1.4rem;
+            }
+            
+            .tab-btn {
+                font-size: 0.7rem;
+                padding: 0.5rem;
+            }
+            
+            .tab-btn .icon {
+                font-size: 1rem;
+            }
+
+            .mood-btn {
+                width: 34px;
+                height: 34px;
+                font-size: 0.8rem;
+            }
+        }
+    </style>
+</head>
+<body class="coach-mode">
+    <header class="header" id="header">
+        <div class="logo">Coaching <span>by</span> Tatjana</div>
+        <div class="subtitle" id="headerSubtitle">Persönlicher Coaching-Plan</div>
+        <div class="client-name-display" id="clientNameDisplay" style="display: inline-block;">👤 Tatjana</div>
+    </header>
+
+    <div class="mode-toggle coach-only">
+        <button class="mode-btn coach active" onclick="setMode('coach')">👩‍💼 Coach</button>
+        <button class="mode-btn" onclick="setMode('client')">👤 Klient-Vorschau</button>
+    </div>
+
+    <section class="settings-section coach-only" id="settingsSection">
+        <div class="settings-row">
+            <div class="settings-group">
+                <label>🔐 GitHub Token</label>
+                <input type="password" id="githubTokenInput" class="settings-input" placeholder="ghp_..." onchange="saveSettings()">
+            </div>
+            <div class="settings-group">
+                <label>📂 GitHub Repo</label>
+                <input type="text" id="githubRepoInput" class="settings-input" placeholder="User/Repo" value="SAMSGYM/coachingbytatjana" onchange="saveSettings()">
+            </div>
+        </div>
+        <div class="settings-hint">💡 Token &amp; Repo werden lokal im Browser gespeichert</div>
+    </section>
+
+    <section class="client-setup coach-only" id="clientSetup">
+        <input type="text" id="clientName" placeholder="Name der Klientin eingeben..." onchange="updateClientName()">
+    </section>
+
+    <nav class="nav-tabs">
+        <button class="tab-btn" data-tab="nachrichten">
+            <span class="icon">💬</span>
+            Nachrichten
+        </button>
+        <button class="tab-btn" data-tab="mindset">
+            <span class="icon">💭</span>
+            Mindset
+        </button>
+        <button class="tab-btn" data-tab="mahlzeiten">
+            <span class="icon">🍽️</span>
+            Mahlzeiten
+        </button>
+        <button class="tab-btn" data-tab="aufgaben">
+            <span class="icon">✅</span>
+            Aufgaben
+        </button>
+        <button class="tab-btn active" data-tab="einkauf">
+            <span class="icon">🛒</span>
+            Einkauf
+        </button>
+    </nav>
+
+    <main class="main-content">
+        <!-- NACHRICHTEN TAB -->
+        <div id="nachrichten" class="tab-content">
+            <!-- Coach schreibt Nachricht -->
+            <div class="card coach-card coach-only">
+                <h2 class="card-title">✍️ Nachricht an Klientin <span class="coach-badge">COACH</span></h2>
+                <div class="form-group">
+                    <textarea class="form-textarea coach-input" id="coachMessage" placeholder="Schreibe eine persönliche Nachricht, Tipps oder Motivation für deine Klientin..."></textarea>
+                </div>
+                <button class="btn btn-coach btn-sm" onclick="addCoachMessage()">+ Nachricht hinzufügen</button>
+            </div>
+
+            <!-- Nachrichten-Liste -->
+            <div class="card">
+                <h2 class="card-title">💬 Nachrichten von Tatjana</h2>
+                <div id="messagesList">
+                <div class="coach-message">
+                    <div class="coach-message-header">
+                        💜 Tatjana
+                        <button class="delete-btn" onclick="deleteMessage(1769510075256)" style="margin-left: auto;">×</button>
+                    </div>
+                    <div class="coach-message-text">Hoi du</div>
+                    <div class="coach-message-date">27.1.2026 11:34</div>
+                </div>
+            </div>
+            </div>
+
+            <!-- Klientin antwortet -->
+            <div class="card client-only">
+                <h2 class="card-title">✉️ Deine Antwort an Tatjana</h2>
+                <div class="form-group">
+                    <textarea class="form-textarea" id="clientReply" placeholder="Schreibe Tatjana eine Nachricht..."></textarea>
+                </div>
+            </div>
+        </div>
+
+        <!-- MINDSET TAB -->
+        <div id="mindset" class="tab-content">
+            <!-- Coach Tipp -->
+            <div class="card coach-card coach-only">
+                <h2 class="card-title">💡 Mindset-Tipp für Klientin <span class="coach-badge">COACH</span></h2>
+                <div class="form-group">
+                    <textarea class="form-textarea coach-input" id="coachMindsetTip" placeholder="Einen motivierenden Tipp oder eine Reflexionsfrage..."></textarea>
+                </div>
+            </div>
+
+            <!-- Gespeicherter Coach-Tipp (sichtbar für Klientin) -->
+            <div id="mindsetTipDisplay" style="display: none;">
+                <div class="coach-message">
+                    <div class="coach-message-header">💡 Tatjanas Tipp für dich</div>
+                    <div class="coach-message-text" id="mindsetTipText"></div>
+                </div>
+            </div>
+
+            <div class="card">
+                <h2 class="card-title">🌟 Wie fühlst du dich heute?</h2>
+                <div class="mood-rating" id="moodRating">
+                    <button class="mood-btn" data-mood="1">1</button>
+                    <button class="mood-btn" data-mood="2">2</button>
+                    <button class="mood-btn" data-mood="3">3</button>
+                    <button class="mood-btn" data-mood="4">4</button>
+                    <button class="mood-btn" data-mood="5">5</button>
+                    <button class="mood-btn" data-mood="6">6</button>
+                    <button class="mood-btn" data-mood="7">7</button>
+                    <button class="mood-btn" data-mood="8">8</button>
+                    <button class="mood-btn" data-mood="9">9</button>
+                    <button class="mood-btn" data-mood="10">10</button>
+                </div>
+            </div>
+
+            <div class="card">
+                <h2 class="card-title">💪 Was motiviert dich heute?</h2>
+                <textarea class="form-textarea" id="motivation" placeholder="Schreib auf, was dich heute antreibt..."></textarea>
+            </div>
+
+            <div class="card">
+                <h2 class="card-title">🙏 Wofür bist du dankbar?</h2>
+                <textarea class="form-textarea" id="dankbarkeit" placeholder="3 Dinge, für die du heute dankbar bist..."></textarea>
+            </div>
+
+            <div class="card">
+                <h2 class="card-title">🌙 Tagesreflexion</h2>
+                <textarea class="form-textarea" id="reflexion" placeholder="Wie war dein Tag? Was hast du gelernt?"></textarea>
+            </div>
+        </div>
+
+        <!-- MAHLZEITEN TAB -->
+        <div id="mahlzeiten" class="tab-content">
+            <!-- Coach Essens-Tipp -->
+            <div class="card coach-card coach-only">
+                <h2 class="card-title">🥗 Ernährungs-Tipp <span class="coach-badge">COACH</span></h2>
+                <div class="form-group">
+                    <textarea class="form-textarea coach-input" id="coachFoodTip" placeholder="Tipps zur Ernährung, Rezeptideen..."></textarea>
+                </div>
+            </div>
+
+            <!-- Gespeicherter Food-Tipp -->
+            <div id="foodTipDisplay" style="display: none;">
+                <div class="coach-message">
+                    <div class="coach-message-header">🥗 Tatjanas Ernährungs-Tipp</div>
+                    <div class="coach-message-text" id="foodTipText"></div>
+                </div>
+            </div>
+
+            <div class="card">
+                <h2 class="card-title">🍽️ Mahlzeit eintragen</h2>
+                
+                <div class="meal-type-selector" id="mealType">
+                    <button class="meal-type-btn selected" data-type="Frühstück">🌅 Frühstück</button>
+                    <button class="meal-type-btn" data-type="Mittag">☀️ Mittag</button>
+                    <button class="meal-type-btn" data-type="Abend">🌙 Abend</button>
+                    <button class="meal-type-btn" data-type="Snack">🍎 Snack</button>
+                </div>
+
+                <div class="form-group">
+                    <textarea class="form-textarea" id="mealDescription" placeholder="Was hast du gegessen?"></textarea>
+                </div>
+
+                <button class="btn btn-primary btn-block" onclick="addMeal()">+ Mahlzeit hinzufügen</button>
+            </div>
+
+            <div class="card">
+                <h2 class="card-title">📋 Heutige Mahlzeiten</h2>
+                <div class="entry-list" id="mealList"><div class="empty-state"><div class="icon">🍽️</div><p>Noch keine Mahlzeiten</p></div></div>
+            </div>
+        </div>
+
+        <!-- AUFGABEN TAB -->
+        <div id="aufgaben" class="tab-content">
+            <!-- Coach Aufgaben -->
+            <div class="card coach-card coach-only">
+                <h2 class="card-title">📝 Aufgabe für Klientin <span class="coach-badge">COACH</span></h2>
+                <div class="add-form">
+                    <input type="text" class="form-input coach-input" id="coachTask" placeholder="Neue Aufgabe...">
+                    <button class="btn btn-coach btn-icon" onclick="addCoachTask()">+</button>
+                </div>
+            </div>
+
+            <div class="card">
+                <h2 class="card-title">✅ Deine Aufgaben</h2>
+                <div class="checklist" id="taskList">
+                <div class="checklist-item coach-task ">
+                    <div class="checkbox-custom " onclick="toggleTask(1769510067156, true)"></div>
+                    <div class="item-content">
+                        <div class="item-text">bitte mehr Sport</div>
+                        <div class="item-meta">📋 Von Tatjana</div>
+                    </div>
+                    <button class="delete-btn" onclick="deleteTask(1769510067156, true)">×</button>
+                </div>
+            </div>
+            </div>
+
+            <!-- Eigene Aufgaben hinzufügen -->
+            <div class="card client-only">
+                <h2 class="card-title">➕ Eigene Aufgabe</h2>
+                <div class="add-form">
+                    <input type="text" class="form-input" id="clientTask" placeholder="Deine eigene Aufgabe...">
+                    <button class="btn btn-primary btn-icon" onclick="addClientTask()">+</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- EINKAUF TAB -->
+        <div id="einkauf" class="tab-content active">
+            <!-- Coach Einkaufsliste -->
+            <div class="card coach-card coach-only">
+                <h2 class="card-title">🛒 Einkaufs-Empfehlung <span class="coach-badge">COACH</span></h2>
+                <div class="add-form">
+                    <input type="text" class="form-input coach-input" id="coachShopItem" placeholder="Artikel empfehlen...">
+                    <button class="btn btn-coach btn-icon" onclick="addCoachShopItem()">+</button>
+                </div>
+            </div>
+
+            <div class="card">
+                <h2 class="card-title">🛒 Einkaufsliste</h2>
+                <div class="add-form client-only">
+                    <input type="text" class="form-input" id="clientShopItem" placeholder="Artikel hinzufügen...">
+                    <button class="btn btn-primary btn-icon" onclick="addClientShopItem()">+</button>
+                </div>
+                <div class="checklist" id="shoppingList">
+                <div class="checklist-item coach-task ">
+                    <div class="checkbox-custom " onclick="toggleShopItem(1769510101372, true)"></div>
+                    <div class="item-content">
+                        <div class="item-text">Äpfel sind top</div>
+                        <div class="item-meta">💜 Empfohlen von Tatjana</div>
+                    </div>
+                    <button class="delete-btn" onclick="deleteShopItem(1769510101372, true)">×</button>
+                </div>
+            </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- Bottom Actions -->
+    <div class="bottom-actions">
+        <button class="btn btn-coach btn-block coach-only" onclick="publishPlan()">🚀 Veröffentlichen</button>
+        <button class="btn btn-success btn-block client-only" onclick="sendToCoach()">📤 An Tatjana senden</button>
+    </div>
+
+    <!-- Success Modal -->
+    <div class="modal-overlay" id="publishModal">
+        <div class="modal">
+            <h3>✅ Veröffentlicht!</h3>
+            <p>Der Plan ist jetzt online. Teile diesen Link mit deiner Klientin:</p>
+            <div class="link-box" id="publishedLink"></div>
+            <button class="btn btn-primary" onclick="copyLink()">📋 Link kopieren</button>
+            <button class="btn btn-coach" onclick="closeModal()" style="margin-left: 0.5rem;">Schliessen</button>
+        </div>
+    </div>
+
+    <div class="toast" id="toast">Artikel hinzugefügt ✓</div>
+
+    <script>
+        // ========== CONFIGURATION ==========
+        var githubToken = '';
+        var githubRepo = 'SAMSGYM/coachingbytatjana';
+        var githubPages = 'https://samsgym.github.io/coachingbytatjana/';
+
+        function saveSettings() {
+            var token = document.getElementById('githubTokenInput').value;
+            var repo = document.getElementById('githubRepoInput').value;
+            
+            localStorage.setItem('coaching-tatjana-token', token);
+            localStorage.setItem('coaching-tatjana-repo', repo);
+            
+            githubToken = token;
+            githubRepo = repo;
+            
+            // Update GitHub Pages URL based on repo
+            var parts = repo.split('/');
+            if (parts.length === 2) {
+                githubPages = 'https://' + parts[0].toLowerCase() + '.github.io/' + parts[1] + '/';
+            }
+        }
+
+        function loadSettings() {
+            var token = localStorage.getItem('coaching-tatjana-token') || '';
+            var repo = localStorage.getItem('coaching-tatjana-repo') || 'SAMSGYM/coachingbytatjana';
+            
+            document.getElementById('githubTokenInput').value = token;
+            document.getElementById('githubRepoInput').value = repo;
+            
+            githubToken = token;
+            githubRepo = repo;
+            
+            // Update GitHub Pages URL based on repo
+            var parts = repo.split('/');
+            if (parts.length === 2) {
+                githubPages = 'https://' + parts[0].toLowerCase() + '.github.io/' + parts[1] + '/';
+            }
+        }
+        
+        // Webhook URL für Klienten-Antworten (optional)
+        var webhookUrl = 'https://flow.zoho.eu/20077340494/flow/webhook/incoming?zapikey=1001.3a1905b30f50dd264b19d05d9c1b463a.aa932e68201ea64597b9c071d53b71c3&isdebug=false';
+
+        // ========== DATA ==========
+        var appData = {
+            clientName: '',
+            lastUpdated: '',
+            coachMessages: [],
+            coachMindsetTip: '',
+            coachFoodTip: '',
+            coachTasks: [],
+            coachShopItems: [],
+            // Klienten-Daten
+            clientReply: '',
+            mindset: { mood: null, motivation: '', dankbarkeit: '', reflexion: '' },
+            mahlzeiten: [],
+            clientTasks: [],
+            clientShopItems: []
+        };
+
+        var isCoachMode = true;
+
+        // ========== INITIALIZATION ==========
+        document.addEventListener('DOMContentLoaded', function() {
+            // Check URL for client mode
+            var urlParams = new URLSearchParams(window.location.search);
+            if (urlParams.has('view')) {
+                isCoachMode = false;
+                document.body.classList.remove('coach-mode');
+            } else {
+                isCoachMode = true;
+                document.body.classList.add('coach-mode');
+            }
+
+            initTabs();
+            initMoodButtons();
+            initMealTypeButtons();
+            initAutoSave();
+            
+            // Load settings (Token, Repo)
+            if (isCoachMode) {
+                loadSettings();
+            }
+            
+            // Load localStorage data for client
+            if (!isCoachMode) {
+                loadFromLocalStorage();
+            }
+            
+            renderAll();
+        });
+
+        // ========== MODE TOGGLE ==========
+        function setMode(mode) {
+            isCoachMode = (mode === 'coach');
+            
+            document.querySelectorAll('.mode-btn').forEach(btn => {
+                btn.classList.remove('active');
+            });
+            
+            if (isCoachMode) {
+                document.body.classList.add('coach-mode');
+                document.querySelector('.mode-btn.coach').classList.add('active');
+                document.getElementById('header').classList.add('coach-mode');
+            } else {
+                document.body.classList.remove('coach-mode');
+                document.querySelectorAll('.mode-btn')[1].classList.add('active');
+                document.getElementById('header').classList.remove('coach-mode');
+            }
+            
+            renderAll();
+        }
+
+        // ========== CLIENT NAME ==========
+        function updateClientName() {
+            appData.clientName = document.getElementById('clientName').value.trim();
+            updateClientNameDisplay();
+        }
+
+        function updateClientNameDisplay() {
+            var display = document.getElementById('clientNameDisplay');
+            var subtitle = document.getElementById('headerSubtitle');
+            
+            if (appData.clientName) {
+                display.textContent = '👤 ' + appData.clientName;
+                display.style.display = 'inline-block';
+                subtitle.textContent = 'Persönlicher Coaching-Plan';
+            } else {
+                display.style.display = 'none';
+                subtitle.textContent = 'Dein persönliches Coaching-Journal';
+            }
+        }
+
+        // ========== TAB NAVIGATION ==========
+        function initTabs() {
+            document.querySelectorAll('.tab-btn').forEach(btn => {
+                btn.addEventListener('click', () => {
+                    document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
+                    document.querySelectorAll('.tab-content').forEach(c => c.classList.remove('active'));
+                    btn.classList.add('active');
+                    document.getElementById(btn.dataset.tab).classList.add('active');
+                });
+            });
+        }
+
+        // ========== MOOD BUTTONS ==========
+        function initMoodButtons() {
+            document.querySelectorAll('.mood-btn').forEach(btn => {
+                btn.addEventListener('click', () => {
+                    document.querySelectorAll('.mood-btn').forEach(b => b.classList.remove('selected'));
+                    btn.classList.add('selected');
+                    appData.mindset.mood = parseInt(btn.dataset.mood);
+                    saveToLocalStorage();
+                });
+            });
+        }
+
+        // ========== MEAL TYPE BUTTONS ==========
+        function initMealTypeButtons() {
+            document.querySelectorAll('.meal-type-btn').forEach(btn => {
+                btn.addEventListener('click', () => {
+                    document.querySelectorAll('.meal-type-btn').forEach(b => b.classList.remove('selected'));
+                    btn.classList.add('selected');
+                });
+            });
+        }
+
+        // ========== AUTO SAVE ==========
+        function initAutoSave() {
+            ['motivation', 'dankbarkeit', 'reflexion', 'clientReply'].forEach(id => {
+                var el = document.getElementById(id);
+                if (el) {
+                    el.addEventListener('input', (e) => {
+                        if (id === 'clientReply') {
+                            appData.clientReply = e.target.value;
+                        } else {
+                            appData.mindset[id] = e.target.value;
+                        }
+                        saveToLocalStorage();
+                    });
+                }
+            });
+
+            // Coach tips
+            ['coachMindsetTip', 'coachFoodTip'].forEach(id => {
+                var el = document.getElementById(id);
+                if (el) {
+                    el.addEventListener('input', (e) => {
+                        if (id === 'coachMindsetTip') appData.coachMindsetTip = e.target.value;
+                        if (id === 'coachFoodTip') appData.coachFoodTip = e.target.value;
+                    });
+                }
+            });
+
+            // Auto-save every 5 seconds
+            setInterval(saveToLocalStorage, 5000);
+        }
+
+        // ========== LOCAL STORAGE ==========
+        function getStorageKey() {
+            return 'coaching-tatjana-' + (appData.clientName || 'default').toLowerCase().replace(/[^a-z0-9]/g, '-');
+        }
+
+        function saveToLocalStorage() {
+            if (!isCoachMode && appData.clientName) {
+                var clientData = {
+                    date: new Date().toLocaleDateString('de-CH'),
+                    clientReply: appData.clientReply,
+                    mindset: appData.mindset,
+                    mahlzeiten: appData.mahlzeiten,
+                    clientTasks: appData.clientTasks,
+                    clientShopItems: appData.clientShopItems,
+                    coachTasksStatus: appData.coachTasks.map(t => ({ id: t.id, done: t.done })),
+                    coachShopItemsStatus: appData.coachShopItems.map(i => ({ id: i.id, done: i.done }))
+                };
+                localStorage.setItem(getStorageKey(), JSON.stringify(clientData));
+            }
+        }
+
+        function loadFromLocalStorage() {
+            if (!isCoachMode && appData.clientName) {
+                var saved = localStorage.getItem(getStorageKey());
+                if (saved) {
+                    try {
+                        var clientData = JSON.parse(saved);
+                        appData.clientReply = clientData.clientReply || '';
+                        appData.mindset = clientData.mindset || { mood: null, motivation: '', dankbarkeit: '', reflexion: '' };
+                        appData.mahlzeiten = clientData.mahlzeiten || [];
+                        appData.clientTasks = clientData.clientTasks || [];
+                        appData.clientShopItems = clientData.clientShopItems || [];
+                        
+                        if (clientData.coachTasksStatus) {
+                            clientData.coachTasksStatus.forEach(status => {
+                                var task = appData.coachTasks.find(t => t.id === status.id);
+                                if (task) task.done = status.done;
+                            });
+                        }
+                        if (clientData.coachShopItemsStatus) {
+                            clientData.coachShopItemsStatus.forEach(status => {
+                                var item = appData.coachShopItems.find(i => i.id === status.id);
+                                if (item) item.done = status.done;
+                            });
+                        }
+                    } catch (e) {
+                        console.error('Fehler beim Laden:', e);
+                    }
+                }
+            }
+        }
+
+        // ========== COACH MESSAGES ==========
+        function addCoachMessage() {
+            var text = document.getElementById('coachMessage').value.trim();
+            if (!text) return;
+
+            appData.coachMessages.push({
+                id: Date.now(),
+                text: text,
+                date: new Date().toLocaleDateString('de-CH') + ' ' + new Date().toLocaleTimeString('de-CH', {hour: '2-digit', minute: '2-digit'})
+            });
+
+            document.getElementById('coachMessage').value = '';
+            renderMessages();
+            showToast('Nachricht hinzugefügt ✓');
+        }
+
+        function deleteMessage(id) {
+            appData.coachMessages = appData.coachMessages.filter(m => m.id !== id);
+            renderMessages();
+        }
+
+        function renderMessages() {
+            var list = document.getElementById('messagesList');
+            
+            if (appData.coachMessages.length === 0) {
+                list.innerHTML = '<div class="empty-state"><div class="icon">💬</div><p>Noch keine Nachrichten</p></div>';
+                return;
+            }
+
+            list.innerHTML = appData.coachMessages.map(msg => `
+                <div class="coach-message">
+                    <div class="coach-message-header">
+                        💜 Tatjana
+                        ${isCoachMode ? `<button class="delete-btn" onclick="deleteMessage(${msg.id})" style="margin-left: auto;">×</button>` : ''}
+                    </div>
+                    <div class="coach-message-text">${msg.text}</div>
+                    <div class="coach-message-date">${msg.date}</div>
+                </div>
+            `).join('');
+        }
+
+        // ========== COACH TASKS ==========
+        function addCoachTask() {
+            var text = document.getElementById('coachTask').value.trim();
+            if (!text) return;
+
+            appData.coachTasks.push({
+                id: Date.now(),
+                text: text,
+                done: false,
+                isCoach: true
+            });
+
+            document.getElementById('coachTask').value = '';
+            renderTasks();
+            showToast('Aufgabe hinzugefügt ✓');
+        }
+
+        function addClientTask() {
+            var text = document.getElementById('clientTask').value.trim();
+            if (!text) return;
+
+            appData.clientTasks.push({
+                id: Date.now(),
+                text: text,
+                done: false,
+                isCoach: false
+            });
+
+            document.getElementById('clientTask').value = '';
+            renderTasks();
+            saveToLocalStorage();
+        }
+
+        function toggleTask(id, isCoach) {
+            var list = isCoach ? appData.coachTasks : appData.clientTasks;
+            var task = list.find(t => t.id === id);
+            if (task) task.done = !task.done;
+            renderTasks();
+            saveToLocalStorage();
+        }
+
+        function deleteTask(id, isCoach) {
+            if (isCoach) {
+                appData.coachTasks = appData.coachTasks.filter(t => t.id !== id);
+            } else {
+                appData.clientTasks = appData.clientTasks.filter(t => t.id !== id);
+            }
+            renderTasks();
+            saveToLocalStorage();
+        }
+
+        function renderTasks() {
+            var list = document.getElementById('taskList');
+            var allTasks = [...appData.coachTasks, ...appData.clientTasks];
+            
+            if (allTasks.length === 0) {
+                list.innerHTML = '<div class="empty-state"><div class="icon">📝</div><p>Keine Aufgaben</p></div>';
+                return;
+            }
+
+            list.innerHTML = allTasks.map(task => `
+                <div class="checklist-item ${task.isCoach ? 'coach-task' : ''} ${task.done ? 'completed' : ''}">
+                    <div class="checkbox-custom ${task.done ? 'checked' : ''}" onclick="toggleTask(${task.id}, ${task.isCoach})"></div>
+                    <div class="item-content">
+                        <div class="item-text">${task.text}</div>
+                        ${task.isCoach ? '<div class="item-meta">📋 Von Tatjana</div>' : ''}
+                    </div>
+                    ${(isCoachMode || !task.isCoach) ? `<button class="delete-btn" onclick="deleteTask(${task.id}, ${task.isCoach})">×</button>` : ''}
+                </div>
+            `).join('');
+        }
+
+        // ========== SHOPPING LIST ==========
+        function addCoachShopItem() {
+            var text = document.getElementById('coachShopItem').value.trim();
+            if (!text) return;
+
+            appData.coachShopItems.push({
+                id: Date.now(),
+                text: text,
+                done: false,
+                isCoach: true
+            });
+
+            document.getElementById('coachShopItem').value = '';
+            renderShopping();
+            showToast('Artikel hinzugefügt ✓');
+        }
+
+        function addClientShopItem() {
+            var text = document.getElementById('clientShopItem').value.trim();
+            if (!text) return;
+
+            appData.clientShopItems.push({
+                id: Date.now(),
+                text: text,
+                done: false,
+                isCoach: false
+            });
+
+            document.getElementById('clientShopItem').value = '';
+            renderShopping();
+            saveToLocalStorage();
+        }
+
+        function toggleShopItem(id, isCoach) {
+            var list = isCoach ? appData.coachShopItems : appData.clientShopItems;
+            var item = list.find(i => i.id === id);
+            if (item) item.done = !item.done;
+            renderShopping();
+            saveToLocalStorage();
+        }
+
+        function deleteShopItem(id, isCoach) {
+            if (isCoach) {
+                appData.coachShopItems = appData.coachShopItems.filter(i => i.id !== id);
+            } else {
+                appData.clientShopItems = appData.clientShopItems.filter(i => i.id !== id);
+            }
+            renderShopping();
+            saveToLocalStorage();
+        }
+
+        function renderShopping() {
+            var list = document.getElementById('shoppingList');
+            var allItems = [...appData.coachShopItems, ...appData.clientShopItems];
+            
+            if (allItems.length === 0) {
+                list.innerHTML = '<div class="empty-state"><div class="icon">🛒</div><p>Einkaufsliste leer</p></div>';
+                return;
+            }
+
+            list.innerHTML = allItems.map(item => `
+                <div class="checklist-item ${item.isCoach ? 'coach-task' : ''} ${item.done ? 'completed' : ''}">
+                    <div class="checkbox-custom ${item.done ? 'checked' : ''}" onclick="toggleShopItem(${item.id}, ${item.isCoach})"></div>
+                    <div class="item-content">
+                        <div class="item-text">${item.text}</div>
+                        ${item.isCoach ? '<div class="item-meta">💜 Empfohlen von Tatjana</div>' : ''}
+                    </div>
+                    ${(isCoachMode || !item.isCoach) ? `<button class="delete-btn" onclick="deleteShopItem(${item.id}, ${item.isCoach})">×</button>` : ''}
+                </div>
+            `).join('');
+        }
+
+        // ========== MEALS ==========
+        function addMeal() {
+            var type = document.querySelector('.meal-type-btn.selected').dataset.type;
+            var desc = document.getElementById('mealDescription').value.trim();
+            if (!desc) {
+                showToast('Bitte beschreibe die Mahlzeit');
+                return;
+            }
+
+            appData.mahlzeiten.push({
+                id: Date.now(),
+                type: type,
+                description: desc,
+                time: new Date().toLocaleTimeString('de-CH', {hour: '2-digit', minute: '2-digit'})
+            });
+
+            document.getElementById('mealDescription').value = '';
+            renderMeals();
+            saveToLocalStorage();
+            showToast('Mahlzeit hinzugefügt ✓');
+        }
+
+        function renderMeals() {
+            var list = document.getElementById('mealList');
+            
+            if (appData.mahlzeiten.length === 0) {
+                list.innerHTML = '<div class="empty-state"><div class="icon">🍽️</div><p>Noch keine Mahlzeiten</p></div>';
+                return;
+            }
+
+            var emojis = {'Frühstück': '🌅', 'Mittag': '☀️', 'Abend': '🌙', 'Snack': '🍎'};
+
+            list.innerHTML = appData.mahlzeiten.map(m => `
+                <div class="entry-item">
+                    <div class="entry-header">
+                        <strong>${emojis[m.type] || '🍽️'} ${m.type}</strong>
+                        <span class="entry-date">${m.time}</span>
+                    </div>
+                    <div class="entry-text">${m.description}</div>
+                </div>
+            `).join('');
+        }
+
+        // ========== RENDER ALL ==========
+        function renderAll() {
+            updateClientNameDisplay();
+            renderMessages();
+            renderTasks();
+            renderShopping();
+            renderMeals();
+
+            // Coach tips display
+            if (appData.coachMindsetTip) {
+                document.getElementById('mindsetTipDisplay').style.display = 'block';
+                document.getElementById('mindsetTipText').textContent = appData.coachMindsetTip;
+                document.getElementById('coachMindsetTip').value = appData.coachMindsetTip;
+            }
+
+            if (appData.coachFoodTip) {
+                document.getElementById('foodTipDisplay').style.display = 'block';
+                document.getElementById('foodTipText').textContent = appData.coachFoodTip;
+                document.getElementById('coachFoodTip').value = appData.coachFoodTip;
+            }
+
+            // Client name
+            if (appData.clientName) {
+                document.getElementById('clientName').value = appData.clientName;
+            }
+
+            // Mindset
+            if (appData.mindset.mood) {
+                document.querySelector(`.mood-btn[data-mood="${appData.mindset.mood}"]`)?.classList.add('selected');
+            }
+            document.getElementById('motivation').value = appData.mindset.motivation || '';
+            document.getElementById('dankbarkeit').value = appData.mindset.dankbarkeit || '';
+            document.getElementById('reflexion').value = appData.mindset.reflexion || '';
+            document.getElementById('clientReply').value = appData.clientReply || '';
+        }
+
+        // ========== PUBLISH TO GITHUB ==========
+        async function publishPlan() {
+            if (!appData.clientName) {
+                showToast('Bitte Klienten-Namen eingeben!');
+                return;
+            }
+
+            // Token aus Settings holen
+            githubToken = document.getElementById('githubTokenInput').value.trim();
+            githubRepo = document.getElementById('githubRepoInput').value.trim();
+            
+            if (!githubToken || !githubRepo) {
+                showToast('Bitte Token & Repo oben eingeben!');
+                return;
+            }
+            
+            // Update GitHub Pages URL
+            var parts = githubRepo.split('/');
+            if (parts.length === 2) {
+                githubPages = 'https://' + parts[0].toLowerCase() + '.github.io/' + parts[1] + '/';
+            }
+
+            // Update timestamps
+            appData.lastUpdated = new Date().toISOString();
+            appData.coachMindsetTip = document.getElementById('coachMindsetTip').value;
+            appData.coachFoodTip = document.getElementById('coachFoodTip').value;
+
+            // Create HTML content for client
+            var clientHTML = generateClientHTML();
+            var filename = appData.clientName.toLowerCase().replace(/[^a-z0-9]/g, '-') + '.html';
+
+            try {
+                // Check if file exists
+                var checkResponse = await fetch(`https://api.github.com/repos/${githubRepo}/contents/${filename}`, {
+                    headers: { 'Authorization': 'token ' + githubToken }
+                });
+
+                var sha = null;
+                if (checkResponse.ok) {
+                    var existingFile = await checkResponse.json();
+                    sha = existingFile.sha;
+                }
+
+                // Upload file
+                var uploadData = {
+                    message: 'Update ' + appData.clientName,
+                    content: btoa(unescape(encodeURIComponent(clientHTML)))
+                };
+                if (sha) uploadData.sha = sha;
+
+                var response = await fetch(`https://api.github.com/repos/${githubRepo}/contents/${filename}`, {
+                    method: 'PUT',
+                    headers: {
+                        'Authorization': 'token ' + githubToken,
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify(uploadData)
+                });
+
+                if (response.ok) {
+                    var url = githubPages + filename;
+                    document.getElementById('publishedLink').textContent = url;
+                    document.getElementById('publishModal').classList.add('show');
+                } else {
+                    var error = await response.json();
+                    showToast('Fehler: ' + (error.message || 'Upload fehlgeschlagen'));
+                }
+            } catch (err) {
+                console.error(err);
+                showToast('Verbindungsfehler');
+            }
+        }
+
+        function generateClientHTML() {
+            // Embed current HTML with data
+            var dataScript = `<script>
+                var appData = ${JSON.stringify(appData)};
+                var isCoachMode = false;
+            <\/script>`;
+            
+            var html = document.documentElement.outerHTML;
+            // Insert data before closing body
+            html = html.replace('<script>
+                var appData = {"clientName":"Tatjana","lastUpdated":"2026-01-27T10:35:13.229Z","coachMessages":[{"id":1769510075256,"text":"Hoi du","date":"27.1.2026 11:34"}],"coachMindsetTip":"Super","coachFoodTip":"Mehr Fisch","coachTasks":[{"id":1769510067156,"text":"bitte mehr Sport","done":false,"isCoach":true}],"coachShopItems":[{"id":1769510101372,"text":"Äpfel sind top","done":false,"isCoach":true}],"clientReply":"","mindset":{"mood":null,"motivation":"","dankbarkeit":"","reflexion":""},"mahlzeiten":[],"clientTasks":[],"clientShopItems":[]};
+                var isCoachMode = false;
+            </script>
+<script>document.addEventListener("DOMContentLoaded", function() { document.body.classList.remove("coach-mode"); renderAll(); });</script>
+</body>', dataScript + '\n<script>document.addEventListener("DOMContentLoaded", function() { document.body.classList.remove("coach-mode"); renderAll(); });<\/script>\n</body>');
+            
+            return html;
+        }
+
+        function copyLink() {
+            var link = document.getElementById('publishedLink').textContent;
+            navigator.clipboard.writeText(link).then(() => {
+                showToast('Link kopiert! ✓');
+            });
+        }
+
+        function closeModal() {
+            document.getElementById('publishModal').classList.remove('show');
+        }
+
+        // ========== LOCAL STORAGE FOR CLIENT ==========
+        function saveClientData() {
+            if (isCoachMode) return; // Coach speichert nicht lokal
+            
+            var clientData = {
+                savedAt: new Date().toISOString(),
+                clientReply: document.getElementById('clientReply')?.value || '',
+                mindset: {
+                    mood: appData.mindset.mood,
+                    motivation: document.getElementById('motivation')?.value || '',
+                    dankbarkeit: document.getElementById('dankbarkeit')?.value || '',
+                    reflexion: document.getElementById('reflexion')?.value || ''
+                },
+                mahlzeiten: appData.mahlzeiten,
+                clientTasks: appData.clientTasks,
+                clientShopItems: appData.clientShopItems,
+                // Track which coach items were completed
+                completedCoachTasks: appData.coachTasks.filter(t => t.done).map(t => t.id),
+                completedCoachShop: appData.coachShopItems.filter(i => i.done).map(i => i.id)
+            };
+            
+            var storageKey = 'coaching-' + (appData.clientName || 'default').toLowerCase().replace(/[^a-z0-9]/g, '');
+            localStorage.setItem(storageKey, JSON.stringify(clientData));
+        }
+
+        function loadClientData() {
+            if (isCoachMode) return;
+            
+            var storageKey = 'coaching-' + (appData.clientName || 'default').toLowerCase().replace(/[^a-z0-9]/g, '');
+            var saved = localStorage.getItem(storageKey);
+            
+            if (!saved) return;
+            
+            try {
+                var clientData = JSON.parse(saved);
+                
+                // Check if data is from today (optional: could also load older data)
+                var savedDate = new Date(clientData.savedAt).toLocaleDateString('de-CH');
+                var today = new Date().toLocaleDateString('de-CH');
+                
+                // Load saved data
+                appData.clientReply = clientData.clientReply || '';
+                appData.mindset = clientData.mindset || appData.mindset;
+                appData.mahlzeiten = clientData.mahlzeiten || [];
+                appData.clientTasks = clientData.clientTasks || [];
+                appData.clientShopItems = clientData.clientShopItems || [];
+                
+                // Restore completed states for coach items
+                if (clientData.completedCoachTasks) {
+                    appData.coachTasks.forEach(t => {
+                        if (clientData.completedCoachTasks.includes(t.id)) t.done = true;
+                    });
+                }
+                if (clientData.completedCoachShop) {
+                    appData.coachShopItems.forEach(i => {
+                        if (clientData.completedCoachShop.includes(i.id)) i.done = true;
+                    });
+                }
+                
+                console.log('Daten vom ' + savedDate + ' geladen');
+            } catch (e) {
+                console.error('Fehler beim Laden:', e);
+            }
+        }
+
+        // Auto-save every 3 seconds
+        setInterval(saveClientData, 3000);
+
+        // ========== SEND TO COACH ==========
+        function sendToCoach() {
+            // Collect client data
+            appData.clientReply = document.getElementById('clientReply')?.value || '';
+            appData.mindset.motivation = document.getElementById('motivation')?.value || '';
+            appData.mindset.dankbarkeit = document.getElementById('dankbarkeit')?.value || '';
+            appData.mindset.reflexion = document.getElementById('reflexion')?.value || '';
+
+            var data = {
+                timestamp: new Date().toISOString(),
+                clientName: appData.clientName,
+                date: new Date().toLocaleDateString('de-CH'),
+                time: new Date().toLocaleTimeString('de-CH', {hour: '2-digit', minute: '2-digit'}),
+                reply: appData.clientReply,
+                mindset: appData.mindset,
+                mahlzeiten: appData.mahlzeiten,
+                coachTasks: appData.coachTasks,
+                clientTasks: appData.clientTasks,
+                coachShopItems: appData.coachShopItems,
+                clientShopItems: appData.clientShopItems,
+                // HTML-E-Mail für Zoho Flow
+                htmlEmail: generateHTMLEmail({
+                    clientName: appData.clientName,
+                    date: new Date().toLocaleDateString('de-CH'),
+                    time: new Date().toLocaleTimeString('de-CH', {hour: '2-digit', minute: '2-digit'}),
+                    reply: appData.clientReply,
+                    mindset: appData.mindset,
+                    mahlzeiten: appData.mahlzeiten,
+                    coachTasks: appData.coachTasks,
+                    clientTasks: appData.clientTasks
+                })
+            };
+
+            showToast('Wird gesendet... 📤');
+
+            // Send via Webhook
+            fetch(webhookUrl, {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                mode: 'no-cors',
+                body: JSON.stringify(data)
+            })
+            .then(() => {
+                showToast('Erfolgreich an Tatjana gesendet! ✓');
+                saveToLocalStorage();
+            })
+            .catch((err) => {
+                console.error('Webhook Error:', err);
+                // Fallback: E-Mail öffnen
+                var subject = encodeURIComponent('💜 ' + appData.clientName + ' – Tagesfeedback ' + data.date);
+                var body = encodeURIComponent(formatEmailBody(data));
+                window.open('mailto:info@coachingbytatjana.ch?subject=' + subject + '&body=' + body);
+                showToast('E-Mail wird geöffnet... 📧');
+            });
+        }
+
+        function generateHTMLEmail(data) {
+            // This would be used for webhook/server-side email
+            return `
+<!DOCTYPE html>
+<html>
+<head>
+    <style>
+        body { font-family: 'Segoe UI', Arial, sans-serif; background: #FDF9F6; padding: 20px; }
+        .container { max-width: 500px; margin: 0 auto; background: white; border-radius: 16px; overflow: hidden; box-shadow: 0 4px 20px rgba(196,164,132,0.15); }
+        .header { background: linear-gradient(135deg, #C4A484, #D4A5A5); color: white; padding: 20px; text-align: center; }
+        .header h1 { margin: 0; font-size: 1.5rem; }
+        .header p { margin: 5px 0 0; opacity: 0.9; }
+        .section { padding: 15px 20px; border-bottom: 1px solid #E8DDD4; }
+        .section-title { color: #A68B6A; font-weight: 600; margin-bottom: 10px; display: flex; align-items: center; gap: 8px; }
+        .mood-display { font-size: 2rem; text-align: center; padding: 10px; }
+        .item { padding: 8px 12px; background: #FDF9F6; border-radius: 8px; margin: 5px 0; }
+        .item.done { background: #E8F5EA; text-decoration: line-through; color: #6B6B6B; }
+        .check { color: #7FB285; margin-right: 8px; }
+        .message-box { background: #F5E6E6; padding: 12px; border-radius: 8px; border-left: 4px solid #D4A5A5; }
+        .footer { padding: 15px 20px; text-align: center; color: #6B6B6B; font-size: 0.85rem; }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>💜 ${data.clientName}</h1>
+            <p>Tagesfeedback vom ${data.date} um ${data.time}</p>
+        </div>
+        
+        ${data.reply ? `
+        <div class="section">
+            <div class="section-title">✉️ Nachricht</div>
+            <div class="message-box">${data.reply.replace(/\n/g, '<br>')}</div>
+        </div>
+        ` : ''}
+        
+        <div class="section">
+            <div class="section-title">🌟 Stimmung heute</div>
+            <div class="mood-display">${getMoodEmoji(data.mindset.mood)} ${data.mindset.mood || '–'}/10</div>
+        </div>
+        
+        ${data.mindset.motivation ? `
+        <div class="section">
+            <div class="section-title">💪 Motivation</div>
+            <p>${data.mindset.motivation.replace(/\n/g, '<br>')}</p>
+        </div>
+        ` : ''}
+        
+        ${data.mindset.dankbarkeit ? `
+        <div class="section">
+            <div class="section-title">🙏 Dankbarkeit</div>
+            <p>${data.mindset.dankbarkeit.replace(/\n/g, '<br>')}</p>
+        </div>
+        ` : ''}
+        
+        ${data.mindset.reflexion ? `
+        <div class="section">
+            <div class="section-title">🌙 Tagesreflexion</div>
+            <p>${data.mindset.reflexion.replace(/\n/g, '<br>')}</p>
+        </div>
+        ` : ''}
+        
+        ${data.mahlzeiten.length > 0 ? `
+        <div class="section">
+            <div class="section-title">🍽️ Mahlzeiten</div>
+            ${data.mahlzeiten.map(m => `<div class="item"><strong>${m.type}</strong> (${m.time}): ${m.description}</div>`).join('')}
+        </div>
+        ` : ''}
+        
+        ${data.coachTasks.length > 0 ? `
+        <div class="section">
+            <div class="section-title">✅ Aufgaben von dir</div>
+            ${data.coachTasks.map(t => `<div class="item ${t.done ? 'done' : ''}">${t.done ? '<span class="check">✓</span>' : '○'} ${t.text}</div>`).join('')}
+        </div>
+        ` : ''}
+        
+        <div class="footer">
+            Gesendet via Coaching by Tatjana App
+        </div>
+    </div>
+</body>
+</html>`;
+        }
+
+        function getMoodEmoji(mood) {
+            if (!mood) return '😐';
+            if (mood <= 2) return '😢';
+            if (mood <= 4) return '😕';
+            if (mood <= 6) return '😐';
+            if (mood <= 8) return '🙂';
+            return '😄';
+        }
+
+        function formatEmailBody(data) {
+            var body = '═══════════════════════════════\n';
+            body += '💜 COACHING JOURNAL\n';
+            body += '═══════════════════════════════\n\n';
+            body += '📅 Datum: ' + data.date + ' um ' + data.time + '\n';
+            body += '👤 Klientin: ' + data.clientName + '\n\n';
+            
+            if (data.reply) {
+                body += '───────────────────────────────\n';
+                body += '✉️ NACHRICHT AN DICH\n';
+                body += '───────────────────────────────\n';
+                body += data.reply + '\n\n';
+            }
+            
+            body += '───────────────────────────────\n';
+            body += '🌟 STIMMUNG HEUTE\n';
+            body += '───────────────────────────────\n';
+            body += getMoodEmoji(data.mindset.mood) + ' ' + (data.mindset.mood || '–') + ' von 10\n\n';
+            
+            if (data.mindset.motivation) {
+                body += '───────────────────────────────\n';
+                body += '💪 WAS MICH HEUTE MOTIVIERT\n';
+                body += '───────────────────────────────\n';
+                body += data.mindset.motivation + '\n\n';
+            }
+            
+            if (data.mindset.dankbarkeit) {
+                body += '───────────────────────────────\n';
+                body += '🙏 WOFÜR ICH DANKBAR BIN\n';
+                body += '───────────────────────────────\n';
+                body += data.mindset.dankbarkeit + '\n\n';
+            }
+            
+            if (data.mindset.reflexion) {
+                body += '───────────────────────────────\n';
+                body += '🌙 MEINE TAGESREFLEXION\n';
+                body += '───────────────────────────────\n';
+                body += data.mindset.reflexion + '\n\n';
+            }
+            
+            if (data.mahlzeiten.length > 0) {
+                body += '───────────────────────────────\n';
+                body += '🍽️ MEINE MAHLZEITEN HEUTE\n';
+                body += '───────────────────────────────\n';
+                data.mahlzeiten.forEach(m => {
+                    body += '• ' + m.type + ' (' + m.time + '): ' + m.description + '\n';
+                });
+                body += '\n';
+            }
+            
+            if (data.coachTasks.length > 0) {
+                body += '───────────────────────────────\n';
+                body += '✅ DEINE AUFGABEN FÜR MICH\n';
+                body += '───────────────────────────────\n';
+                var done = data.coachTasks.filter(t => t.done);
+                var notDone = data.coachTasks.filter(t => !t.done);
+                
+                if (done.length > 0) {
+                    body += 'Erledigt (' + done.length + '/' + data.coachTasks.length + '):\n';
+                    done.forEach(t => body += '  ✓ ' + t.text + '\n');
+                }
+                if (notDone.length > 0) {
+                    body += 'Noch offen:\n';
+                    notDone.forEach(t => body += '  ○ ' + t.text + '\n');
+                }
+                body += '\n';
+            }
+            
+            body += '═══════════════════════════════\n';
+            body += 'Gesendet via Coaching by Tatjana\n';
+            
+            return body;
+        }
+
+        // ========== TOAST ==========
+        function showToast(msg) {
+            var toast = document.getElementById('toast');
+            toast.textContent = msg;
+            toast.classList.add('show');
+            setTimeout(() => toast.classList.remove('show'), 3000);
+        }
+
+        // ========== ENTER KEY SUPPORT ==========
+        document.addEventListener('keypress', function(e) {
+            if (e.key === 'Enter' && e.target.tagName !== 'TEXTAREA') {
+                if (e.target.id === 'coachTask') addCoachTask();
+                if (e.target.id === 'clientTask') addClientTask();
+                if (e.target.id === 'coachShopItem') addCoachShopItem();
+                if (e.target.id === 'clientShopItem') addClientShopItem();
+            }
+        });
+    </script>
+
+
+</body></html>
