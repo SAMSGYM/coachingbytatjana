@@ -1273,6 +1273,23 @@
         .main-content {
             padding-top: 0.5rem !important;
         }
+        .btn-help-client {
+            position: absolute;
+            bottom: 0.5rem;
+            right: 1rem;
+            background: rgba(139,92,246,0.2);
+            border: 1px solid rgba(139,92,246,0.3);
+            color: white;
+            padding: 0.3rem 0.6rem;
+            border-radius: 20px;
+            font-size: 0.7rem;
+            cursor: pointer;
+            transition: all 0.2s;
+            text-decoration: none;
+        }
+        .btn-help-client:hover {
+            background: rgba(139,92,246,0.4);
+        }
     </style>
 </head>
 <body>
@@ -1281,6 +1298,7 @@
         <div class="subtitle">Persönlicher Coaching-Plan</div>
         <div class="client-name-display">👤 Samuel</div>
         <button class="btn-new-day" onclick="showResetModal()" title="Neuen Tag starten">🌅 Neuer Tag</button>
+        <a href="https://samsgym.github.io/coachingbytatjana/hilfe.html" target="_blank" class="btn-help-client" title="Hilfe & Anleitung">❓ Hilfe</a>
     </header>
 
     <nav class="nav-tabs">
@@ -1431,7 +1449,7 @@
     </div>
 
     <script>
-        var appData = {"clientName":"Samuel","lastUpdated":"2026-01-27T13:17:11.140Z","coachMessages":[{"id":1769519822708,"text":"test 4","date":"27.1.2026 14:17"}],"coachMindsetTip":"","coachFoodTip":"","coachTasks":[{"id":1769519829309,"text":"test 4","done":false,"isCoach":true}],"coachShopItems":[],"clientReply":"","mindset":{"mood":null,"motivation":"","dankbarkeit":"","reflexion":""},"mahlzeiten":[],"clientTasks":[],"clientShopItems":[],"history":[{"timestamp":"2026-01-27T13:02:36.318Z","date":"27.1.2026","time":"13:59","mood":10,"tasksCompleted":2,"tasksTotal":3,"mealsCount":2,"reply":"danke","motivation":"super","dankbarkeit":"rest","reflexion":"toll","mahlzeiten":"🍎 Snack (13:58): fusch | ☀️ Mittag (13:59): tom","tasks":"✅ Test 2 | ✅ laufen | ⬜ nicht","einkauf":"✅ Test 2 | ✅ schlegel | ⬜ fisch"},{"timestamp":"2026-01-27T13:11:29.999Z","date":"26.1.2026","time":"13:59","mood":10,"tasksCompleted":2,"tasksTotal":3,"mealsCount":2,"reply":"danke","motivation":"super","dankbarkeit":"rest","reflexion":"toll","mahlzeiten":"🍎 Snack (13:58): fusch | ☀️ Mittag (13:59): tom","tasks":"✅ Test 2 | ✅ laufen | ⬜ nicht","einkauf":"✅ Test 2 | ✅ schlegel | ⬜ fisch"},{"timestamp":"2026-01-27T13:16:40.502Z","date":"28.1.2026","time":"14:14","mood":4,"tasksCompleted":2,"tasksTotal":2,"mealsCount":1,"reply":"Test 3","motivation":"sksk","dankbarkeit":"Kzk","reflexion":"zjzj","mahlzeiten":"🍎 Snack (14:13): zkzjsk","tasks":"✅ test 3 | ✅ fisch","einkauf":"✅ test 3 | ✅ essen"}],"coachMindsetTips":[],"coachFoodTips":[],"coachVersion":"2026-01-27T13:17:11.140Z"};
+        var appData = {"clientName":"Samuel","lastUpdated":"2026-01-27T13:32:06.245Z","coachMessages":[{"id":1769519822708,"text":"test 4","date":"27.1.2026 14:17"}],"coachMindsetTip":"","coachFoodTip":"","coachTasks":[{"id":1769519829309,"text":"test 4","done":false,"isCoach":true}],"coachShopItems":[],"clientReply":"","mindset":{"mood":null,"motivation":"","dankbarkeit":"","reflexion":""},"mahlzeiten":[],"clientTasks":[],"clientShopItems":[],"history":[{"timestamp":"2026-01-27T13:02:36.318Z","date":"27.1.2026","time":"13:59","mood":10,"tasksCompleted":2,"tasksTotal":3,"mealsCount":2,"reply":"danke","motivation":"super","dankbarkeit":"rest","reflexion":"toll","mahlzeiten":"🍎 Snack (13:58): fusch | ☀️ Mittag (13:59): tom","tasks":"✅ Test 2 | ✅ laufen | ⬜ nicht","einkauf":"✅ Test 2 | ✅ schlegel | ⬜ fisch"},{"timestamp":"2026-01-27T13:11:29.999Z","date":"26.1.2026","time":"13:59","mood":10,"tasksCompleted":2,"tasksTotal":3,"mealsCount":2,"reply":"danke","motivation":"super","dankbarkeit":"rest","reflexion":"toll","mahlzeiten":"🍎 Snack (13:58): fusch | ☀️ Mittag (13:59): tom","tasks":"✅ Test 2 | ✅ laufen | ⬜ nicht","einkauf":"✅ Test 2 | ✅ schlegel | ⬜ fisch"},{"timestamp":"2026-01-27T13:16:40.502Z","date":"28.1.2026","time":"14:14","mood":4,"tasksCompleted":2,"tasksTotal":2,"mealsCount":1,"reply":"Test 3","motivation":"sksk","dankbarkeit":"Kzk","reflexion":"zjzj","mahlzeiten":"🍎 Snack (14:13): zkzjsk","tasks":"✅ test 3 | ✅ fisch","einkauf":"✅ test 3 | ✅ essen"}],"coachMindsetTips":[],"coachFoodTips":[],"coachVersion":"2026-01-27T13:32:06.246Z"};
         var webhookUrl = 'https://flow.zoho.eu/20077340494/flow/webhook/incoming?zapikey=1001.3a1905b30f50dd264b19d05d9c1b463a.aa932e68201ea64597b9c071d53b71c3&isdebug=false';
 
         // Init
