@@ -1147,6 +1147,22 @@
             position: relative !important;
             padding: 0.75rem 1rem !important;
         }
+        .btn-new-day {
+            position: absolute;
+            bottom: 0.5rem;
+            left: 1rem;
+            background: rgba(255,255,255,0.2);
+            border: 1px solid rgba(255,255,255,0.3);
+            color: white;
+            padding: 0.3rem 0.6rem;
+            border-radius: 20px;
+            font-size: 0.7rem;
+            cursor: pointer;
+            transition: all 0.2s;
+        }
+        .btn-new-day:hover {
+            background: rgba(255,255,255,0.3);
+        }
         .header .logo {
             font-size: 1.2rem !important;
         }
@@ -1176,7 +1192,8 @@
     <header class="header">
         <div class="logo">Coaching <span>by</span> Tatjana</div>
         <div class="subtitle">Persönlicher Coaching-Plan</div>
-        <div class="client-name-display">👤 Tatjana</div>
+        <div class="client-name-display">👤 ${appData.clientName}</div>
+        <button class="btn-new-day" onclick="resetDay()" title="Neuen Tag starten">🌅 Neuer Tag</button>
     </header>
 
     <nav class="nav-tabs">
@@ -1307,7 +1324,7 @@
     <div class="toast" id="toast"></div>
 
     <script>
-        var appData = {"clientName":"Tatjana","lastUpdated":"2026-01-27T11:52:12.944Z","coachMessages":[{"id":1769511848249,"text":"Hey","date":"27.1.2026 12:04"},{"id":1769513804892,"text":"okay","date":"27.1.2026 12:36"}],"coachMindsetTip":"super cool","coachFoodTip":"bier ok","coachTasks":[{"id":1769511872506,"text":"bier trinken","done":false,"isCoach":true},{"id":1769513839364,"text":"merh kiffen","done":false,"isCoach":true}],"coachShopItems":[{"id":1769511880044,"text":"mehr äpfel","done":false,"isCoach":true},{"id":1769513845513,"text":"und bohnen","done":false,"isCoach":true}],"clientReply":"","mindset":{"mood":null,"motivation":"","dankbarkeit":"","reflexion":""},"mahlzeiten":[],"clientTasks":[],"clientShopItems":[],"history":[]};
+        var appData = {"clientName":"Tatjana","lastUpdated":"2026-01-27T12:08:25.898Z","coachMessages":[{"id":1769511848249,"text":"Hey","date":"27.1.2026 12:04"},{"id":1769513804892,"text":"okay","date":"27.1.2026 12:36"}],"coachMindsetTip":"mehr Tanzen\n","coachFoodTip":"Fisch auch","coachTasks":[{"id":1769511872506,"text":"bier trinken","done":false,"isCoach":true},{"id":1769513839364,"text":"merh kiffen","done":false,"isCoach":true},{"id":1769515698681,"text":"Tanzen","done":false,"isCoach":true}],"coachShopItems":[{"id":1769511880044,"text":"mehr äpfel","done":false,"isCoach":true},{"id":1769513845513,"text":"und bohnen","done":false,"isCoach":true}],"clientReply":"","mindset":{"mood":null,"motivation":"","dankbarkeit":"","reflexion":""},"mahlzeiten":[],"clientTasks":[],"clientShopItems":[],"history":[],"coachVersion":"2026-01-27T12:08:25.899Z"};
         var webhookUrl = 'https://flow.zoho.eu/20077340494/flow/webhook/incoming?zapikey=1001.3a1905b30f50dd264b19d05d9c1b463a.aa932e68201ea64597b9c071d53b71c3&isdebug=false';
 
         // Init
@@ -1371,6 +1388,7 @@
         function saveToLocalStorage() {
             var data = {
                 savedAt: new Date().toISOString(),
+                savedCoachVersion: appData.coachVersion,
                 clientReply: appData.clientReply || '',
                 mindset: appData.mindset,
                 mahlzeiten: appData.mahlzeiten || [],
@@ -1388,6 +1406,20 @@
                 var saved = localStorage.getItem(getStorageKey());
                 if (saved) {
                     var data = JSON.parse(saved);
+                    
+                    // Prüfen ob Coach neue Version publiziert hat
+                    var isNewCoachVersion = !data.savedCoachVersion || 
+                        new Date(appData.coachVersion) > new Date(data.savedCoachVersion);
+                    
+                    if (isNewCoachVersion) {
+                        // Neue Coach-Version: Nur History behalten, Rest resetten
+                        console.log('Neue Coach-Version erkannt - Daten werden zurückgesetzt');
+                        if (data.history) appData.history = data.history;
+                        showToast('Neue Inhalte von Tatjana! 💜');
+                        return;
+                    }
+                    
+                    // Gleiche Version: Alle Klienten-Daten laden
                     appData.clientReply = data.clientReply || '';
                     if (data.mindset) appData.mindset = data.mindset;
                     if (data.mahlzeiten) appData.mahlzeiten = data.mahlzeiten;
@@ -1408,6 +1440,38 @@
                     }
                 }
             } catch(e) { console.log('LocalStorage error:', e); }
+        }
+        
+        function resetDay() {
+            if (!confirm('Neuen Tag starten?\n\nDas setzt zurück:\n• Deine Mahlzeiten\n• Deine Antwort\n• Mindset-Einträge\n• Aufgaben-Status\n\nTatjanas Inhalte bleiben erhalten.')) {
+                return;
+            }
+            
+            // Mindset zurücksetzen
+            appData.mindset = { mood: null, motivation: '', dankbarkeit: '', reflexion: '' };
+            appData.clientReply = '';
+            appData.mahlzeiten = [];
+            
+            // Nur Status der Aufgaben zurücksetzen, nicht die Aufgaben selbst
+            appData.coachTasks.forEach(function(t) { t.done = false; });
+            appData.clientTasks = [];
+            
+            // Nur Status der Einkäufe zurücksetzen
+            appData.coachShopItems.forEach(function(i) { i.done = false; });
+            appData.clientShopItems = [];
+            
+            // Speichern und neu rendern
+            saveToLocalStorage();
+            renderAll();
+            
+            // UI zurücksetzen
+            document.querySelectorAll('.mood-btn').forEach(function(b) { b.classList.remove('selected'); });
+            document.getElementById('motivation').value = '';
+            document.getElementById('dankbarkeit').value = '';
+            document.getElementById('reflexion').value = '';
+            document.getElementById('clientReply').value = '';
+            
+            showToast('Neuer Tag gestartet! 🌅');
         }
 
         function renderAll() {
