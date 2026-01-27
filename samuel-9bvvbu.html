@@ -60,7 +60,7 @@
 
         /* Header */
         .header {
-            background: linear-gradient(135deg, var(--primary) 0%, var(--accent) 100%);
+            background: #B8936A;
             padding: 1.5rem 1rem;
             text-align: center;
             position: sticky;
@@ -1164,23 +1164,50 @@
         
         /* Client-specific overrides */
         .header {
-            position: relative !important;
-            padding: 0.75rem 1rem !important;
+            display: flex !important;
+            align-items: center !important;
+            justify-content: space-between !important;
+            padding: 0.6rem 1rem !important;
+            background: #B8936A !important;
+            position: sticky !important;
+            top: 0 !important;
+            z-index: 100 !important;
+        }
+        .header .logo {
+            font-size: 1.2rem !important;
+            flex: 1;
+            text-align: center;
+        }
+        .header .subtitle {
+            display: none !important;
         }
         .btn-new-day {
-            position: absolute;
-            bottom: 0.5rem;
-            left: 1rem;
             background: rgba(255,255,255,0.2);
             border: 1px solid rgba(255,255,255,0.3);
             color: white;
-            padding: 0.3rem 0.6rem;
+            padding: 0.4rem 0.75rem;
             border-radius: 20px;
-            font-size: 0.7rem;
+            font-size: 0.75rem;
             cursor: pointer;
             transition: all 0.2s;
+            white-space: nowrap;
         }
         .btn-new-day:hover {
+            background: rgba(255,255,255,0.3);
+        }
+        .btn-help-client {
+            background: rgba(255,255,255,0.2);
+            border: 1px solid rgba(255,255,255,0.3);
+            color: white;
+            padding: 0.4rem 0.75rem;
+            border-radius: 20px;
+            font-size: 0.75rem;
+            cursor: pointer;
+            transition: all 0.2s;
+            text-decoration: none;
+            white-space: nowrap;
+        }
+        .btn-help-client:hover {
             background: rgba(255,255,255,0.3);
         }
         .modal-overlay {
@@ -1264,30 +1291,12 @@
         .main-content {
             padding-top: 0.5rem !important;
         }
-        .btn-help-client {
-            position: absolute;
-            top: 0.5rem;
-            right: 1rem;
-            background: rgba(255,255,255,0.2);
-            border: 1px solid rgba(255,255,255,0.3);
-            color: white;
-            padding: 0.3rem 0.6rem;
-            border-radius: 20px;
-            font-size: 0.7rem;
-            cursor: pointer;
-            transition: all 0.2s;
-            text-decoration: none;
-        }
-        .btn-help-client:hover {
-            background: rgba(255,255,255,0.3);
-        }
     </style>
 </head>
 <body>
     <header class="header">
-        <div class="logo">Coaching <span>by</span> Tatjana</div>
-        <div class="subtitle">Persönlicher Coaching-Plan</div>
         <button class="btn-new-day" onclick="showResetModal()" title="Neuen Tag starten">🌅 Neuer Tag</button>
+        <div class="logo">Coaching <span>by</span> Tatjana</div>
         <a href="https://samsgym.github.io/coachingbytatjana/hilfe.html" target="_blank" class="btn-help-client" title="Hilfe & Anleitung">❓ Hilfe</a>
     </header>
 
@@ -1439,7 +1448,7 @@
     </div>
 
     <script>
-        var appData = {"clientName":"Samuel","lastUpdated":"2026-01-27T13:46:12.915Z","coachMessages":[{"id":1769521543763,"text":"test 5","date":"27.1.2026 14:45"}],"coachMindsetTip":"","coachFoodTip":"","coachTasks":[{"id":1769521559891,"text":"test 5","done":false,"isCoach":true}],"coachShopItems":[{"id":1769521565792,"text":"test 5","done":false,"isCoach":true}],"clientReply":"","mindset":{"mood":null,"motivation":"","dankbarkeit":"","reflexion":""},"mahlzeiten":[],"clientTasks":[],"clientShopItems":[],"history":[{"timestamp":"2026-01-27T13:02:36.318Z","date":"27.1.2026","time":"13:59","mood":10,"tasksCompleted":2,"tasksTotal":3,"mealsCount":2,"reply":"danke","motivation":"super","dankbarkeit":"rest","reflexion":"toll","mahlzeiten":"🍎 Snack (13:58): fusch | ☀️ Mittag (13:59): tom","tasks":"✅ Test 2 | ✅ laufen | ⬜ nicht","einkauf":"✅ Test 2 | ✅ schlegel | ⬜ fisch"},{"timestamp":"2026-01-27T13:11:29.999Z","date":"26.1.2026","time":"13:59","mood":10,"tasksCompleted":2,"tasksTotal":3,"mealsCount":2,"reply":"danke","motivation":"super","dankbarkeit":"rest","reflexion":"toll","mahlzeiten":"🍎 Snack (13:58): fusch | ☀️ Mittag (13:59): tom","tasks":"✅ Test 2 | ✅ laufen | ⬜ nicht","einkauf":"✅ Test 2 | ✅ schlegel | ⬜ fisch"}],"coachMindsetTips":[{"id":1769521550047,"text":"test 5","date":"27.1.2026 14:45"}],"coachFoodTips":[{"id":1769521554749,"text":"test 5","date":"27.1.2026 14:45"}],"coachVersion":"2026-01-27T13:46:12.916Z"};
+        var appData = {"clientName":"Samuel","lastUpdated":"2026-01-27T14:00:38.698Z","coachMessages":[{"id":1769518532054,"text":"Test 2","date":"27.1.2026 13:55"},{"id":1769522418308,"text":"test 5","date":"27.1.2026 15:00"}],"coachMindsetTip":"","coachFoodTip":"","coachTasks":[{"id":1769518549247,"text":"Test 2","done":false,"isCoach":true},{"id":1769522432542,"text":"test 6","done":false,"isCoach":true}],"coachShopItems":[{"id":1769518553850,"text":"Test 2","done":false,"isCoach":true},{"id":1769522437140,"text":"test 6","done":false,"isCoach":true}],"clientReply":"","mindset":{"mood":null,"motivation":"","dankbarkeit":"","reflexion":""},"mahlzeiten":[],"clientTasks":[],"clientShopItems":[],"history":[{"timestamp":"2026-01-27T13:00:41.973Z","date":"27.1.2026","time":"13:59","mood":10,"tasksCompleted":2,"tasksTotal":3,"mealsCount":2,"reply":"danke","motivation":"super","dankbarkeit":"rest","reflexion":"toll","mahlzeiten":"🍎 Snack (13:58): fusch | ☀️ Mittag (13:59): tom","tasks":"✅ Test 2 | ✅ laufen | ⬜ nicht","einkauf":"✅ Test 2 | ✅ schlegel | ⬜ fisch"}],"coachMindsetTips":[{"id":1769518537846,"text":"Test 2","date":"27.1.2026 13:55"},{"id":1769522423593,"text":"test 6","date":"27.1.2026 15:00"}],"coachFoodTips":[{"id":1769518544197,"text":"Trst 2","date":"27.1.2026 13:55"},{"id":1769522427403,"text":"test 6","date":"27.1.2026 15:00"}],"coachVersion":"2026-01-27T14:00:38.698Z"};
         var webhookUrl = 'https://flow.zoho.eu/20077340494/flow/webhook/incoming?zapikey=1001.3a1905b30f50dd264b19d05d9c1b463a.aa932e68201ea64597b9c071d53b71c3&isdebug=false';
 
         // Init
