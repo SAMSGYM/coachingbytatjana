@@ -11,11 +11,11 @@
     <meta name="apple-mobile-web-app-status-bar-style" content="default">
     <meta name="apple-mobile-web-app-title" content="Coaching">
     <meta name="application-name" content="Coaching by Tatjana">
-    <meta name="theme-color" content="#C4A484">
-    <meta name="msapplication-TileColor" content="#C4A484">
+    <meta name="theme-color" content="#B8936A">
+    <meta name="msapplication-TileColor" content="#B8936A">
     
     <!-- App Icon -->
-    <link rel="manifest" href="data:application/json,%7B%22name%22%3A%22Coaching%20by%20Tatjana%22%2C%22short_name%22%3A%22Coaching%22%2C%22display%22%3A%22standalone%22%2C%22background_color%22%3A%22%23FDF9F6%22%2C%22theme_color%22%3A%22%23C4A484%22%7D">
+    <link rel="manifest" href="data:application/json,%7B%22name%22%3A%22Coaching%20by%20Tatjana%22%2C%22short_name%22%3A%22Coaching%22%2C%22display%22%3A%22standalone%22%2C%22background_color%22%3A%22%23FDF9F6%22%2C%22theme_color%22%3A%22%23B8936A%22%7D">
     <link rel="apple-touch-icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect fill='%23C4A484' width='100' height='100' rx='20'/><text x='50' y='65' font-size='50' text-anchor='middle' fill='white'>💜</text></svg>">
     <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect fill='%23C4A484' width='100' height='100' rx='20'/><text x='50' y='65' font-size='50' text-anchor='middle' fill='white'>💜</text></svg>">
     
@@ -25,9 +25,9 @@
     <style>
         
         :root {
-            --primary: #C4A484;
+            --primary: #B8936A;
             --primary-light: #E8DDD4;
-            --primary-dark: #A68B6A;
+            --primary-dark: #9A7A57;
             --accent: #D4A5A5;
             --accent-light: #F5E6E6;
             --text-dark: #3D3D3D;
@@ -1213,7 +1213,7 @@
             margin-bottom: 0.5rem;
         }
         .modal-title {
-            color: #C4A484;
+            color: #B8936A;
             margin: 0 0 1rem;
             font-size: 1.2rem;
         }
@@ -1256,15 +1256,6 @@
         .header .subtitle {
             display: none !important;
         }
-        .header .client-name-display {
-            position: absolute !important;
-            right: 1rem !important;
-            top: 50% !important;
-            transform: translateY(-50%) !important;
-            margin: 0 !important;
-            font-size: 0.85rem !important;
-            padding: 0.3rem 0.6rem !important;
-        }
         .nav-tabs {
             position: sticky !important;
             top: 0 !important;
@@ -1275,10 +1266,10 @@
         }
         .btn-help-client {
             position: absolute;
-            bottom: 0.5rem;
+            top: 0.5rem;
             right: 1rem;
-            background: rgba(139,92,246,0.2);
-            border: 1px solid rgba(139,92,246,0.3);
+            background: rgba(255,255,255,0.2);
+            border: 1px solid rgba(255,255,255,0.3);
             color: white;
             padding: 0.3rem 0.6rem;
             border-radius: 20px;
@@ -1288,7 +1279,7 @@
             text-decoration: none;
         }
         .btn-help-client:hover {
-            background: rgba(139,92,246,0.4);
+            background: rgba(255,255,255,0.3);
         }
     </style>
 </head>
@@ -1296,7 +1287,6 @@
     <header class="header">
         <div class="logo">Coaching <span>by</span> Tatjana</div>
         <div class="subtitle">Persönlicher Coaching-Plan</div>
-        <div class="client-name-display">👤 Samuel</div>
         <button class="btn-new-day" onclick="showResetModal()" title="Neuen Tag starten">🌅 Neuer Tag</button>
         <a href="https://samsgym.github.io/coachingbytatjana/hilfe.html" target="_blank" class="btn-help-client" title="Hilfe & Anleitung">❓ Hilfe</a>
     </header>
@@ -1449,7 +1439,7 @@
     </div>
 
     <script>
-        var appData = {"clientName":"Samuel","lastUpdated":"2026-01-27T13:32:06.245Z","coachMessages":[{"id":1769519822708,"text":"test 4","date":"27.1.2026 14:17"}],"coachMindsetTip":"","coachFoodTip":"","coachTasks":[{"id":1769519829309,"text":"test 4","done":false,"isCoach":true}],"coachShopItems":[],"clientReply":"","mindset":{"mood":null,"motivation":"","dankbarkeit":"","reflexion":""},"mahlzeiten":[],"clientTasks":[],"clientShopItems":[],"history":[{"timestamp":"2026-01-27T13:02:36.318Z","date":"27.1.2026","time":"13:59","mood":10,"tasksCompleted":2,"tasksTotal":3,"mealsCount":2,"reply":"danke","motivation":"super","dankbarkeit":"rest","reflexion":"toll","mahlzeiten":"🍎 Snack (13:58): fusch | ☀️ Mittag (13:59): tom","tasks":"✅ Test 2 | ✅ laufen | ⬜ nicht","einkauf":"✅ Test 2 | ✅ schlegel | ⬜ fisch"},{"timestamp":"2026-01-27T13:11:29.999Z","date":"26.1.2026","time":"13:59","mood":10,"tasksCompleted":2,"tasksTotal":3,"mealsCount":2,"reply":"danke","motivation":"super","dankbarkeit":"rest","reflexion":"toll","mahlzeiten":"🍎 Snack (13:58): fusch | ☀️ Mittag (13:59): tom","tasks":"✅ Test 2 | ✅ laufen | ⬜ nicht","einkauf":"✅ Test 2 | ✅ schlegel | ⬜ fisch"},{"timestamp":"2026-01-27T13:16:40.502Z","date":"28.1.2026","time":"14:14","mood":4,"tasksCompleted":2,"tasksTotal":2,"mealsCount":1,"reply":"Test 3","motivation":"sksk","dankbarkeit":"Kzk","reflexion":"zjzj","mahlzeiten":"🍎 Snack (14:13): zkzjsk","tasks":"✅ test 3 | ✅ fisch","einkauf":"✅ test 3 | ✅ essen"}],"coachMindsetTips":[],"coachFoodTips":[],"coachVersion":"2026-01-27T13:32:06.246Z"};
+        var appData = {"clientName":"Samuel","lastUpdated":"2026-01-27T13:46:12.915Z","coachMessages":[{"id":1769521543763,"text":"test 5","date":"27.1.2026 14:45"}],"coachMindsetTip":"","coachFoodTip":"","coachTasks":[{"id":1769521559891,"text":"test 5","done":false,"isCoach":true}],"coachShopItems":[{"id":1769521565792,"text":"test 5","done":false,"isCoach":true}],"clientReply":"","mindset":{"mood":null,"motivation":"","dankbarkeit":"","reflexion":""},"mahlzeiten":[],"clientTasks":[],"clientShopItems":[],"history":[{"timestamp":"2026-01-27T13:02:36.318Z","date":"27.1.2026","time":"13:59","mood":10,"tasksCompleted":2,"tasksTotal":3,"mealsCount":2,"reply":"danke","motivation":"super","dankbarkeit":"rest","reflexion":"toll","mahlzeiten":"🍎 Snack (13:58): fusch | ☀️ Mittag (13:59): tom","tasks":"✅ Test 2 | ✅ laufen | ⬜ nicht","einkauf":"✅ Test 2 | ✅ schlegel | ⬜ fisch"},{"timestamp":"2026-01-27T13:11:29.999Z","date":"26.1.2026","time":"13:59","mood":10,"tasksCompleted":2,"tasksTotal":3,"mealsCount":2,"reply":"danke","motivation":"super","dankbarkeit":"rest","reflexion":"toll","mahlzeiten":"🍎 Snack (13:58): fusch | ☀️ Mittag (13:59): tom","tasks":"✅ Test 2 | ✅ laufen | ⬜ nicht","einkauf":"✅ Test 2 | ✅ schlegel | ⬜ fisch"}],"coachMindsetTips":[{"id":1769521550047,"text":"test 5","date":"27.1.2026 14:45"}],"coachFoodTips":[{"id":1769521554749,"text":"test 5","date":"27.1.2026 14:45"}],"coachVersion":"2026-01-27T13:46:12.916Z"};
         var webhookUrl = 'https://flow.zoho.eu/20077340494/flow/webhook/incoming?zapikey=1001.3a1905b30f50dd264b19d05d9c1b463a.aa932e68201ea64597b9c071d53b71c3&isdebug=false';
 
         // Init
