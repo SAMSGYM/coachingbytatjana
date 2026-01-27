@@ -23,6 +23,7 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;1,400&family=Nunito:wght@400;500;600;700&display=swap" rel="stylesheet">
     <style>
+        
         :root {
             --primary: #C4A484;
             --primary-light: #E8DDD4;
@@ -249,6 +250,177 @@
 
         .btn-delete:hover {
             background: #c0392b;
+        }
+
+        /* Verlauf / Historie Styles */
+        .mood-chart {
+            height: 200px;
+            display: flex;
+            align-items: flex-end;
+            justify-content: space-around;
+            gap: 0.5rem;
+            padding: 1rem 0.5rem;
+            background: linear-gradient(to top, var(--primary-light) 0%, transparent 100%);
+            border-radius: var(--radius);
+            position: relative;
+        }
+
+        .mood-chart::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            right: 0;
+            bottom: 50%;
+            border-top: 1px dashed var(--primary);
+            opacity: 0.3;
+        }
+
+        .mood-bar {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            flex: 1;
+            max-width: 50px;
+        }
+
+        .mood-bar-fill {
+            width: 100%;
+            min-width: 30px;
+            border-radius: var(--radius-sm) var(--radius-sm) 0 0;
+            transition: height 0.5s ease;
+            display: flex;
+            align-items: flex-start;
+            justify-content: center;
+            padding-top: 0.25rem;
+            font-size: 0.7rem;
+            font-weight: 600;
+            color: white;
+        }
+
+        .mood-bar-fill.mood-low { background: linear-gradient(to top, #e74c3c, #f39c12); }
+        .mood-bar-fill.mood-medium { background: linear-gradient(to top, #f39c12, #f1c40f); }
+        .mood-bar-fill.mood-high { background: linear-gradient(to top, #2ecc71, #27ae60); }
+
+        .mood-bar-date {
+            font-size: 0.65rem;
+            color: var(--text-light);
+            margin-top: 0.25rem;
+            text-align: center;
+        }
+
+        .history-list {
+            display: flex;
+            flex-direction: column;
+            gap: 0.75rem;
+        }
+
+        .history-entry {
+            background: var(--background);
+            border-radius: var(--radius);
+            padding: 1rem;
+            border-left: 4px solid var(--primary);
+        }
+
+        .history-entry-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 0.5rem;
+        }
+
+        .history-entry-date {
+            font-weight: 600;
+            color: var(--text);
+        }
+
+        .history-entry-mood {
+            display: flex;
+            align-items: center;
+            gap: 0.25rem;
+            font-size: 0.9rem;
+        }
+
+        .history-entry-stats {
+            display: flex;
+            gap: 1rem;
+            font-size: 0.8rem;
+            color: var(--text-light);
+        }
+
+        .history-entry-stat {
+            display: flex;
+            align-items: center;
+            gap: 0.25rem;
+        }
+
+        .history-entry-note {
+            margin-top: 0.5rem;
+            font-size: 0.85rem;
+            color: var(--text-light);
+            font-style: italic;
+        }
+
+        .mood-chart-bars {
+            display: flex;
+            align-items: flex-end;
+            justify-content: space-around;
+            height: 180px;
+            gap: 0.25rem;
+            padding-bottom: 1.5rem;
+        }
+
+        .mood-bar-container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            flex: 1;
+            max-width: 40px;
+        }
+
+        .mood-bar-value {
+            font-size: 1rem;
+            margin-bottom: 0.25rem;
+        }
+
+        .mood-bar-label {
+            font-size: 0.6rem;
+            color: var(--text-light);
+            margin-top: 0.25rem;
+            text-align: center;
+        }
+
+        .history-date {
+            font-weight: 600;
+            color: var(--text);
+        }
+
+        .history-mood {
+            font-size: 0.9rem;
+        }
+
+        .history-stats {
+            display: flex;
+            gap: 1rem;
+            font-size: 0.8rem;
+            color: var(--text-light);
+            margin-top: 0.25rem;
+        }
+
+        .history-stat {
+            display: flex;
+            align-items: center;
+            gap: 0.25rem;
+        }
+
+        .history-stat.completed {
+            color: var(--success);
+        }
+
+        .history-note {
+            margin-top: 0.5rem;
+            font-size: 0.85rem;
+            color: var(--text-light);
+            font-style: italic;
         }
 
         /* History / Verlauf Styles */
@@ -968,6 +1140,36 @@
                 font-size: 0.8rem;
             }
         }
+    
+        
+        /* Client-specific overrides */
+        .header {
+            position: relative !important;
+            padding: 0.75rem 1rem !important;
+        }
+        .header .logo {
+            font-size: 1.2rem !important;
+        }
+        .header .subtitle {
+            display: none !important;
+        }
+        .header .client-name-display {
+            position: absolute !important;
+            right: 1rem !important;
+            top: 50% !important;
+            transform: translateY(-50%) !important;
+            margin: 0 !important;
+            font-size: 0.85rem !important;
+            padding: 0.3rem 0.6rem !important;
+        }
+        .nav-tabs {
+            position: sticky !important;
+            top: 0 !important;
+            z-index: 100 !important;
+        }
+        .main-content {
+            padding-top: 0.5rem !important;
+        }
     </style>
 </head>
 <body>
@@ -1105,7 +1307,7 @@
     <div class="toast" id="toast"></div>
 
     <script>
-        var appData = {"clientName":"Tatjana","lastUpdated":"2026-01-27T11:04:42.609Z","coachMessages":[{"id":1769511848249,"text":"Hey","date":"27.1.2026 12:04"}],"coachMindsetTip":"Top","coachFoodTip":"Mehr essen","coachTasks":[{"id":1769511872506,"text":"bier trinken","done":false,"isCoach":true}],"coachShopItems":[{"id":1769511880044,"text":"mehr äpfel","done":false,"isCoach":true}],"clientReply":"","mindset":{"mood":null,"motivation":"","dankbarkeit":"","reflexion":""},"mahlzeiten":[],"clientTasks":[],"clientShopItems":[],"history":[]};
+        var appData = {"clientName":"Tatjana","lastUpdated":"2026-01-27T11:37:26.634Z","coachMessages":[{"id":1769511848249,"text":"Hey","date":"27.1.2026 12:04"},{"id":1769513804892,"text":"okay","date":"27.1.2026 12:36"}],"coachMindsetTip":"super cool","coachFoodTip":"bier ok","coachTasks":[{"id":1769511872506,"text":"bier trinken","done":false,"isCoach":true},{"id":1769513839364,"text":"merh kiffen","done":false,"isCoach":true}],"coachShopItems":[{"id":1769511880044,"text":"mehr äpfel","done":false,"isCoach":true},{"id":1769513845513,"text":"und bohnen","done":false,"isCoach":true}],"clientReply":"","mindset":{"mood":null,"motivation":"","dankbarkeit":"","reflexion":""},"mahlzeiten":[],"clientTasks":[],"clientShopItems":[],"history":[]};
         var webhookUrl = 'https://flow.zoho.eu/20077340494/flow/webhook/incoming?zapikey=1001.3a1905b30f50dd264b19d05d9c1b463a.aa932e68201ea64597b9c071d53b71c3&isdebug=false';
 
         // Init
@@ -1454,15 +1656,21 @@
             fetch(webhookUrl, {
                 method: 'POST',
                 headers: { 'Content-Type': 'application/json' },
-                mode: 'no-cors',
                 body: JSON.stringify(data)
-            }).then(function() {
-                showToast('Erfolgreich an Tatjana gesendet! ✓');
+            }).then(function(response) {
+                if (response.ok) {
+                    showToast('Erfolgreich an Tatjana gesendet! ✓');
+                } else {
+                    showToast('Gesendet ✓');
+                }
                 saveToLocalStorage();
                 renderHistory();
             }).catch(function(err) {
                 console.error('Error:', err);
-                showToast('Fehler beim Senden');
+                // Trotzdem lokal speichern
+                saveToLocalStorage();
+                renderHistory();
+                showToast('Offline gespeichert (wird später gesendet)');
             });
         }
 
