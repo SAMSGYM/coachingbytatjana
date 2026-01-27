@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hilfe - Coaching by Tatjana</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+        body {
+            font-family: 'Nunito', system-ui, sans-serif;
+            background: linear-gradient(135deg, #FDF9F6 0%, #F5F0EB 100%);
+            color: #333;
+            line-height: 1.6;
+            min-height: 100vh;
+            padding: 1rem;
+        }
+        .container {
+            max-width: 600px;
+            margin: 0 auto;
+        }
+        .header {
+            text-align: center;
+            padding: 1.5rem 0;
+            margin-bottom: 1rem;
+        }
+        .header h1 {
+            color: #C4A484;
+            font-size: 1.5rem;
+            margin-bottom: 0.25rem;
+        }
+        .header p {
+            color: #A68B6A;
+            font-size: 0.9rem;
+        }
+        .card {
+            background: white;
+            border-radius: 16px;
+            padding: 1.25rem;
+            margin-bottom: 1rem;
+            box-shadow: 0 2px 15px rgba(196,164,132,0.12);
+        }
+        .card h2 {
+            color: #8B5CF6;
+            font-size: 1.1rem;
+            margin-bottom: 0.75rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+        .card p {
+            font-size: 0.95rem;
+            margin-bottom: 0.75rem;
+        }
+        .card ul {
+            margin-left: 1.25rem;
+            margin-bottom: 0.75rem;
+        }
+        .card li {
+            margin-bottom: 0.4rem;
+            font-size: 0.95rem;
+        }
+        .highlight {
+            background: #F5F3FF;
+            border-left: 4px solid #8B5CF6;
+            padding: 0.75rem 1rem;
+            margin: 0.75rem 0;
+            border-radius: 0 8px 8px 0;
+            font-size: 0.9rem;
+        }
+        .warning {
+            background: #FEF3C7;
+            border-left: 4px solid #F59E0B;
+            padding: 0.75rem 1rem;
+            margin: 0.75rem 0;
+            border-radius: 0 8px 8px 0;
+            font-size: 0.9rem;
+        }
+        .success {
+            background: #ECFDF5;
+            border-left: 4px solid #10b981;
+            padding: 0.75rem 1rem;
+            margin: 0.75rem 0;
+            border-radius: 0 8px 8px 0;
+            font-size: 0.9rem;
+        }
+        .step {
+            display: flex;
+            gap: 0.75rem;
+            margin-bottom: 0.75rem;
+            align-items: flex-start;
+        }
+        .step-num {
+            background: #C4A484;
+            color: white;
+            width: 28px;
+            height: 28px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 600;
+            font-size: 0.9rem;
+            flex-shrink: 0;
+        }
+        .step-text {
+            padding-top: 0.2rem;
+        }
+        .btn-back {
+            display: inline-block;
+            background: #C4A484;
+            color: white;
+            padding: 0.75rem 1.5rem;
+            border-radius: 25px;
+            text-decoration: none;
+            font-weight: 600;
+            margin-top: 1rem;
+            transition: background 0.2s;
+        }
+        .btn-back:hover {
+            background: #A68B6A;
+        }
+        .footer {
+            text-align: center;
+            padding: 1.5rem 0;
+            color: #A68B6A;
+            font-size: 0.85rem;
+        }
+        .emoji-big {
+            font-size: 2rem;
+            display: block;
+            text-align: center;
+            margin-bottom: 0.5rem;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>💜 Hilfe & Anleitung</h1>
+            <p>So nutzt du dein Coaching-Tool optimal</p>
+        </div>
+
+        <div class="card">
+            <h2>👋 Willkommen!</h2>
+            <p>Dein persönliches Coaching-Tool hilft dir, deine Ziele zu erreichen. Hier erfährst du, wie alles funktioniert.</p>
+        </div>
+
+        <div class="card">
+            <h2>📝 Dein täglicher Ablauf</h2>
+            
+            <div class="step">
+                <div class="step-num">1</div>
+                <div class="step-text"><strong>Öffne dein Tool</strong> über den Link von Tatjana</div>
+            </div>
+            
+            <div class="step">
+                <div class="step-num">2</div>
+                <div class="step-text"><strong>Fülle alles aus:</strong> Stimmung, Mahlzeiten, Aufgaben abhaken, Mindset-Fragen beantworten</div>
+            </div>
+            
+            <div class="step">
+                <div class="step-num">3</div>
+                <div class="step-text"><strong>Erst wenn du fertig bist:</strong> Klicke auf "📤 An Tatjana senden"</div>
+            </div>
+            
+            <div class="highlight">
+                <strong>💡 Wichtig:</strong> Klicke "An Tatjana senden" nur <strong>einmal pro Tag</strong>, wenn du alles ausgefüllt hast. Nicht nach jedem einzelnen Eintrag!
+            </div>
+        </div>
+
+        <div class="card">
+            <h2>💾 Speicherung deiner Daten</h2>
+            
+            <div class="success">
+                <strong>✅ Gute Nachricht:</strong> Deine Eingaben werden automatisch im Browser gespeichert! Du kannst das Tool schliessen und später weitermachen.
+            </div>
+            
+            <p><strong>Deine Daten bleiben erhalten wenn du:</strong></p>
+            <ul>
+                <li>Den Tab schliesst und später wieder öffnest</li>
+                <li>Den Browser schliesst und neu startest</li>
+                <li>Den Computer neu startest</li>
+            </ul>
+            
+            <div class="warning">
+                <strong>⚠️ Deine Daten gehen verloren wenn du:</strong>
+                <ul style="margin-top: 0.5rem; margin-bottom: 0;">
+                    <li>Den Browser-Cache/Verlauf löschst</li>
+                    <li>Im <strong>Inkognito/Privat-Modus</strong> surfst</li>
+                    <li>Einen anderen Browser oder ein anderes Gerät verwendest</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="card">
+            <h2>🌅 Neuer Tag starten</h2>
+            <p>Am nächsten Tag siehst du einen Button <strong>"🌅 Neuer Tag"</strong> oben links.</p>
+            <p>Dieser löscht deine Einträge vom Vortag (Mahlzeiten, Antworten), damit du frisch starten kannst.</p>
+            
+            <div class="success">
+                <strong>✅ Dein Verlauf bleibt!</strong> Alle vergangenen Tage bleiben gespeichert und du kannst sie unter "📊 Verlauf" anschauen.
+            </div>
+        </div>
+
+        <div class="card">
+            <h2>📊 Dein Verlauf</h2>
+            <p>Im Tab "Verlauf" siehst du:</p>
+            <ul>
+                <li><strong>Stimmungskurve</strong> - Wie hat sich deine Stimmung entwickelt?</li>
+                <li><strong>Alle Einträge</strong> - Klicke auf "▼ Details" um alles zu sehen</li>
+            </ul>
+            <p>So kannst du deine Fortschritte verfolgen! 🎉</p>
+        </div>
+
+        <div class="card">
+            <h2>❓ Häufige Fragen</h2>
+            
+            <p><strong>Muss ich alles auf einmal ausfüllen?</strong></p>
+            <p style="color: #666; margin-bottom: 1rem;">Nein! Du kannst zwischendurch speichern (passiert automatisch) und später weitermachen.</p>
+            
+            <p><strong>Was passiert wenn ich "An Tatjana senden" klicke?</strong></p>
+            <p style="color: #666; margin-bottom: 1rem;">Tatjana erhält eine E-Mail mit deinem Tagesbericht. Ein Eintrag wird in deinem Verlauf erstellt.</p>
+            
+            <p><strong>Kann ich mehrmals am Tag senden?</strong></p>
+            <p style="color: #666; margin-bottom: 1rem;">Ja, aber der Eintrag für heute wird überschrieben. Am besten sendest du nur einmal, wenn alles fertig ist.</p>
+            
+            <p><strong>Sieht Tatjana meine Daten live?</strong></p>
+            <p style="color: #666;">Nein, erst wenn du auf "An Tatjana senden" klickst, erhält sie dein Update.</p>
+        </div>
+
+        <div class="card">
+            <h2>📱 Auf dem Handy installieren</h2>
+            <p>Du kannst das Tool wie eine App auf deinem Handy speichern:</p>
+            
+            <p><strong>iPhone (Safari):</strong></p>
+            <p style="color: #666; margin-bottom: 0.75rem;">Teilen-Button → "Zum Home-Bildschirm"</p>
+            
+            <p><strong>Android (Chrome):</strong></p>
+            <p style="color: #666;">Menü (3 Punkte) → "Zum Startbildschirm hinzufügen"</p>
+        </div>
+
+        <div class="card" style="text-align: center;">
+            <span class="emoji-big">💜</span>
+            <p><strong>Noch Fragen?</strong></p>
+            <p>Schreib Tatjana einfach eine Nachricht im Tool!</p>
+            <a href="javascript:history.back()" class="btn-back">← Zurück zum Tool</a>
+        </div>
+
+        <div class="footer">
+            💜 Coaching by Tatjana
+        </div>
+    </div>
+</body>
+</html>
