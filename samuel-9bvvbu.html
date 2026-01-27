@@ -1431,7 +1431,7 @@
     </div>
 
     <script>
-        var appData = {"clientName":"Samuel","lastUpdated":"2026-01-27T12:56:17.848Z","coachMessages":[{"id":1769518532054,"text":"Test 2","date":"27.1.2026 13:55"}],"coachMindsetTip":"","coachFoodTip":"","coachTasks":[{"id":1769518549247,"text":"Test 2","done":false,"isCoach":true}],"coachShopItems":[{"id":1769518553850,"text":"Test 2","done":false,"isCoach":true}],"clientReply":"","mindset":{"mood":null,"motivation":"","dankbarkeit":"","reflexion":""},"mahlzeiten":[],"clientTasks":[],"clientShopItems":[],"history":[{"timestamp":"2026-01-27T12:45:53.241Z","date":"27.1.2026","mood":6,"tasksCompleted":1,"tasksTotal":2,"mealsCount":1,"note":"du nicht "}],"coachMindsetTips":[{"id":1769518537846,"text":"Test 2","date":"27.1.2026 13:55"}],"coachFoodTips":[{"id":1769518544197,"text":"Trst 2","date":"27.1.2026 13:55"}],"coachVersion":"2026-01-27T12:56:17.849Z"};
+        var appData = {"clientName":"Samuel","lastUpdated":"2026-01-27T13:12:31.274Z","coachMessages":[{"id":1769519526277,"text":"test 3","date":"27.1.2026 14:12"}],"coachMindsetTip":"","coachFoodTip":"","coachTasks":[{"id":1769519543930,"text":"test 3","done":false,"isCoach":true}],"coachShopItems":[{"id":1769519549614,"text":"test 3","done":false,"isCoach":true}],"clientReply":"","mindset":{"mood":null,"motivation":"","dankbarkeit":"","reflexion":""},"mahlzeiten":[],"clientTasks":[],"clientShopItems":[],"history":[{"timestamp":"2026-01-27T13:02:36.318Z","date":"27.1.2026","time":"13:59","mood":10,"tasksCompleted":2,"tasksTotal":3,"mealsCount":2,"reply":"danke","motivation":"super","dankbarkeit":"rest","reflexion":"toll","mahlzeiten":"🍎 Snack (13:58): fusch | ☀️ Mittag (13:59): tom","tasks":"✅ Test 2 | ✅ laufen | ⬜ nicht","einkauf":"✅ Test 2 | ✅ schlegel | ⬜ fisch"},{"timestamp":"2026-01-27T13:11:29.999Z","date":"26.1.2026","time":"13:59","mood":10,"tasksCompleted":2,"tasksTotal":3,"mealsCount":2,"reply":"danke","motivation":"super","dankbarkeit":"rest","reflexion":"toll","mahlzeiten":"🍎 Snack (13:58): fusch | ☀️ Mittag (13:59): tom","tasks":"✅ Test 2 | ✅ laufen | ⬜ nicht","einkauf":"✅ Test 2 | ✅ schlegel | ⬜ fisch"}],"coachMindsetTips":[{"id":1769519532343,"text":"test 3","date":"27.1.2026 14:12"}],"coachFoodTips":[{"id":1769519536763,"text":"test 3","date":"27.1.2026 14:12"}],"coachVersion":"2026-01-27T13:12:31.275Z"};
         var webhookUrl = 'https://flow.zoho.eu/20077340494/flow/webhook/incoming?zapikey=1001.3a1905b30f50dd264b19d05d9c1b463a.aa932e68201ea64597b9c071d53b71c3&isdebug=false';
 
         // Init
@@ -1518,10 +1518,24 @@
                     var isNewCoachVersion = !data.savedCoachVersion || 
                         new Date(appData.coachVersion) > new Date(data.savedCoachVersion);
                     
+                    // Die eingebettete History von Tatjana ist die "Wahrheit"
+                    // Wir fügen nur NEUE Browser-Einträge hinzu (die Tatjana noch nicht hat)
+                    var coachHistory = appData.history || [];
+                    var browserHistory = data.history || [];
+                    
+                    // Finde Einträge die im Browser sind aber NICHT in Tatjanas History
+                    // (Das sind Einträge die die Klientin gemacht hat seit dem letzten Publish)
+                    var coachDates = coachHistory.map(function(h) { return h.date; });
+                    var newBrowserEntries = browserHistory.filter(function(h) {
+                        return !coachDates.includes(h.date);
+                    });
+                    
+                    // Kombiniere: Tatjanas History + neue Browser-Einträge
+                    appData.history = coachHistory.concat(newBrowserEntries);
+                    
                     if (isNewCoachVersion) {
                         // Neue Coach-Version: Nur History behalten, Rest resetten
                         console.log('Neue Coach-Version erkannt - Daten werden zurückgesetzt');
-                        if (data.history) appData.history = data.history;
                         showToast('Neue Inhalte von Tatjana! 💜');
                         return;
                     }
@@ -1532,7 +1546,6 @@
                     if (data.mahlzeiten) appData.mahlzeiten = data.mahlzeiten;
                     if (data.clientTasks) appData.clientTasks = data.clientTasks;
                     if (data.clientShopItems) appData.clientShopItems = data.clientShopItems;
-                    if (data.history) appData.history = data.history;
                     if (data.coachTasksDone) {
                         data.coachTasksDone.forEach(function(id) {
                             var task = appData.coachTasks.find(function(t) { return t.id === id; });
@@ -1682,23 +1695,65 @@
                 }).join('') +
             '</div>';
             
-            var sortedHistory = history.slice().reverse().slice(0, 10);
-            listEl.innerHTML = sortedHistory.map(function(entry) {
+            var sortedHistory = history.slice().reverse().slice(0, 14);
+            listEl.innerHTML = sortedHistory.map(function(entry, index) {
                 var tasksDone = entry.tasksCompleted || 0;
                 var tasksTotal = entry.tasksTotal || 0;
                 var emoji = getMoodEmoji(entry.mood);
-                return '<div class="history-entry">' +
+                var hasDetails = entry.mahlzeiten || entry.tasks || entry.reply || entry.motivation || entry.dankbarkeit || entry.reflexion || entry.note || entry.einkauf;
+                
+                var detailsHtml = '';
+                if (hasDetails) {
+                    detailsHtml = '<div class="history-details" id="historyDetails' + index + '" style="display: none; margin-top: 0.75rem; padding-top: 0.75rem; border-top: 1px solid #E8DDD4;">';
+                    
+                    if (entry.reply) {
+                        detailsHtml += '<div class="history-detail-section"><div class="history-detail-label">💬 Nachricht:</div><div class="history-detail-text">' + entry.reply + '</div></div>';
+                    }
+                    if (entry.note && !entry.reply) {
+                        detailsHtml += '<div class="history-detail-section"><div class="history-detail-label">📝 Notiz:</div><div class="history-detail-text">' + entry.note + '</div></div>';
+                    }
+                    if (entry.motivation) {
+                        detailsHtml += '<div class="history-detail-section"><div class="history-detail-label">💪 Motivation:</div><div class="history-detail-text">' + entry.motivation + '</div></div>';
+                    }
+                    if (entry.dankbarkeit) {
+                        detailsHtml += '<div class="history-detail-section"><div class="history-detail-label">🙏 Dankbarkeit:</div><div class="history-detail-text">' + entry.dankbarkeit + '</div></div>';
+                    }
+                    if (entry.reflexion) {
+                        detailsHtml += '<div class="history-detail-section"><div class="history-detail-label">🌙 Reflexion:</div><div class="history-detail-text">' + entry.reflexion + '</div></div>';
+                    }
+                    if (entry.mahlzeiten) {
+                        detailsHtml += '<div class="history-detail-section"><div class="history-detail-label">🍽️ Mahlzeiten:</div><div class="history-detail-text" style="white-space: pre-line;">' + entry.mahlzeiten.replace(/\s*\|\s*/g, '\n') + '</div></div>';
+                    }
+                    if (entry.tasks) {
+                        detailsHtml += '<div class="history-detail-section"><div class="history-detail-label">✅ Aufgaben:</div><div class="history-detail-text" style="white-space: pre-line;">' + entry.tasks.replace(/\s*\|\s*/g, '\n') + '</div></div>';
+                    }
+                    if (entry.einkauf) {
+                        detailsHtml += '<div class="history-detail-section"><div class="history-detail-label">🛒 Einkauf:</div><div class="history-detail-text" style="white-space: pre-line;">' + entry.einkauf.replace(/\s*\|\s*/g, '\n') + '</div></div>';
+                    }
+                    
+                    detailsHtml += '</div>';
+                }
+                
+                return '<div class="history-entry" style="cursor: ' + (hasDetails ? 'pointer' : 'default') + ';" onclick="' + (hasDetails ? 'toggleHistoryDetails(' + index + ')' : '') + '">' +
                     '<div class="history-entry-header">' +
-                        '<span class="history-date">📅 ' + entry.date + '</span>' +
+                        '<span class="history-date">📅 ' + entry.date + (entry.time ? ' ' + entry.time : '') + '</span>' +
                         '<span class="history-mood">' + emoji + ' ' + entry.mood + '/10</span>' +
+                        (hasDetails ? '<span style="color: #8B5CF6; font-size: 0.75rem; margin-left: auto;">▼ Details</span>' : '') +
                     '</div>' +
                     '<div class="history-stats">' +
-                        (tasksTotal > 0 ? '<span class="history-stat ' + (tasksDone === tasksTotal ? 'completed' : '') + '">✅ Aufgaben: ' + tasksDone + '/' + tasksTotal + '</span>' : '') +
+                        (tasksTotal > 0 ? '<span class="history-stat ' + (tasksDone === tasksTotal ? 'completed' : '') + '">✅ ' + tasksDone + '/' + tasksTotal + ' Aufgaben</span>' : '') +
                         (entry.mealsCount ? '<span class="history-stat">🍽️ ' + entry.mealsCount + ' Mahlzeiten</span>' : '') +
                     '</div>' +
-                    (entry.note ? '<div class="history-note">"' + entry.note.substring(0, 100) + (entry.note.length > 100 ? '...' : '') + '"</div>' : '') +
+                    detailsHtml +
                 '</div>';
             }).join('');
+        }
+        
+        function toggleHistoryDetails(index) {
+            var details = document.getElementById('historyDetails' + index);
+            if (details) {
+                details.style.display = details.style.display === 'none' ? 'block' : 'none';
+            }
         }
 
         function renderMessages() {
@@ -1825,20 +1880,42 @@
             appData.mindset.dankbarkeit = document.getElementById('dankbarkeit').value || '';
             appData.mindset.reflexion = document.getElementById('reflexion').value || '';
 
-            // Historie-Eintrag erstellen
+            // Historie-Eintrag erstellen mit ALLEN Details
             var today = new Date().toLocaleDateString('de-CH');
+            var currentTime = new Date().toLocaleTimeString('de-CH', {hour: '2-digit', minute: '2-digit'});
             var tasksTotal = (appData.coachTasks || []).length + (appData.clientTasks || []).length;
             var tasksDone = (appData.coachTasks || []).filter(function(t) { return t.done; }).length +
                            (appData.clientTasks || []).filter(function(t) { return t.done; }).length;
             var mealsCount = (appData.mahlzeiten || []).length;
             
+            var mahlzeitenText = (appData.mahlzeiten || []).map(function(m) {
+                var emoji = {'Frühstück': '🌅', 'Mittag': '☀️', 'Abend': '🌙', 'Snack': '🍎'}[m.type] || '🍽️';
+                return emoji + ' ' + m.type + ' (' + m.time + '): ' + m.description;
+            }).join(' | ');
+            
+            var tasksText = (appData.coachTasks || []).concat(appData.clientTasks || []).map(function(t) {
+                return (t.done ? '✅' : '⬜') + ' ' + t.text;
+            }).join(' | ');
+            
+            var einkaufText = (appData.coachShopItems || []).concat(appData.clientShopItems || []).map(function(i) {
+                return (i.done ? '✅' : '⬜') + ' ' + i.text;
+            }).join(' | ');
+            
             var historyEntry = {
+                timestamp: new Date().toISOString(),
                 date: today,
+                time: currentTime,
                 mood: appData.mindset.mood || 0,
                 tasksCompleted: tasksDone,
                 tasksTotal: tasksTotal,
                 mealsCount: mealsCount,
-                note: appData.mindset.reflexion || appData.clientReply || ''
+                reply: appData.clientReply || '',
+                motivation: appData.mindset.motivation || '',
+                dankbarkeit: appData.mindset.dankbarkeit || '',
+                reflexion: appData.mindset.reflexion || '',
+                mahlzeiten: mahlzeitenText,
+                tasks: tasksText,
+                einkauf: einkaufText
             };
             
             // Prüfen ob heute schon ein Eintrag existiert
@@ -1850,11 +1927,11 @@
                 appData.history.push(historyEntry);
             }
 
-            // Daten aufbauen
+            // Daten aufbauen für E-Mail
             var formData = {
                 clientName: appData.clientName || '',
                 date: today,
-                time: new Date().toLocaleTimeString('de-CH', {hour: '2-digit', minute: '2-digit'}),
+                time: currentTime,
                 mood: appData.mindset.mood || 5,
                 reply: (appData.clientReply || '').substring(0, 1000),
                 motivation: (appData.mindset.motivation || '').substring(0, 1000),
@@ -1863,16 +1940,9 @@
                 tasksCompleted: tasksDone,
                 tasksTotal: tasksTotal,
                 mealsCount: mealsCount,
-                mahlzeiten: (appData.mahlzeiten || []).map(function(m) {
-                    var emoji = {'Frühstück': '🌅', 'Mittag': '☀️', 'Abend': '🌙', 'Snack': '🍎'}[m.type] || '🍽️';
-                    return emoji + ' ' + m.type + ' (' + m.time + '): ' + m.description;
-                }).join(' | ').substring(0, 2000),
-                tasks: (appData.coachTasks || []).concat(appData.clientTasks || []).map(function(t) {
-                    return (t.done ? '✅' : '⬜') + ' ' + t.text;
-                }).join(' | ').substring(0, 2000),
-                einkauf: (appData.coachShopItems || []).concat(appData.clientShopItems || []).map(function(i) {
-                    return (i.done ? '✅' : '⬜') + ' ' + i.text;
-                }).join(' | ').substring(0, 1000)
+                mahlzeiten: mahlzeitenText.substring(0, 2000),
+                tasks: tasksText.substring(0, 2000),
+                einkauf: einkaufText.substring(0, 1000)
             };
 
             showToast('Wird gesendet... 📤');
