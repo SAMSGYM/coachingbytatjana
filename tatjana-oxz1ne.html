@@ -1326,9 +1326,9 @@
         <!-- MINDSET TAB -->
         <div id="mindset" class="tab-content">
             <div class="card" id="mindsetTipsCard">
-                <h2 class="card-title">💡 Mindset-Tips von Tatjana</h2>
+                <h2 class="card-title">💡 Mindset-Tipps von Tatjana</h2>
                 <div id="mindsetTipsList">
-                    <div class="empty-state"><div class="icon">💡</div><p>Noch keine Tips</p></div>
+                    <div class="empty-state"><div class="icon">💡</div><p>Noch keine Tipps</p></div>
                 </div>
             </div>
             <div class="card">
@@ -1354,9 +1354,9 @@
         <!-- MAHLZEITEN TAB -->
         <div id="mahlzeiten" class="tab-content">
             <div class="card" id="foodTipsCard">
-                <h2 class="card-title">🥗 Ernährungs-Tips von Tatjana</h2>
+                <h2 class="card-title">🥗 Ernährungs-Tipps von Tatjana</h2>
                 <div id="foodTipsList">
-                    <div class="empty-state"><div class="icon">🥗</div><p>Noch keine Tips</p></div>
+                    <div class="empty-state"><div class="icon">🥗</div><p>Noch keine Tipps</p></div>
                 </div>
             </div>
             <div class="card">
@@ -1449,7 +1449,7 @@
     </div>
 
     <script>
-        var appData = {"clientName":"Tatjana","lastUpdated":"2026-01-28T12:58:39.204Z","coachMessages":[{"id":1769604702060,"text":"Erinnerung: Du schaffsch das!","date":"28.1.2026 13:51"}],"coachMindsetTips":[{"id":1769605108220,"text":"Du schaffst das","date":"28.1.2026 13:58"}],"coachFoodTips":[{"id":1769604679080,"text":"Frühstück: Skyr mit einer Frucht\nMittag: Gemüse mit Protein und Carbs\nAbendessen: Gemüse und Protein","date":"28.1.2026 13:51"}],"coachTasks":[],"coachShopItems":[{"id":1769604593847,"text":"Bohnen","done":false,"isCoach":true},{"id":1769604598963,"text":"Eier","done":false,"isCoach":true},{"id":1769604606610,"text":"Aufschnitt","done":false,"isCoach":true},{"id":1769604617161,"text":"Gemüse","done":false,"isCoach":true},{"id":1769605090818,"text":"Fleisch","done":false,"isCoach":true}],"clientReply":"","mindset":{"mood":6,"motivation":"Zeit für mich","dankbarkeit":"Für mich","reflexion":"Mehr Geduld"},"mahlzeiten":[],"clientTasks":[],"clientShopItems":[],"history":[{"timestamp":"2026-01-28T12:41:20.605Z","date":"28.1.2026","time":"13:38","mood":5,"tasksCompleted":0,"tasksTotal":1,"mealsCount":2,"reply":"Danle","motivation":"slslsk","dankbarkeit":"dldkfk","reflexion":"xkxlxk","mahlzeiten":"🌅 Frühstück (13:37): Eier | ☀️ Mittag (13:37): Bohnen","tasks":"⬜ Hund","einkauf":"⬜ Bohnen"}],"coachVersion":"2026-01-28T12:58:39.204Z"};
+        var appData = {"clientName":"Tatjana","lastUpdated":"2026-01-28T13:09:13.233Z","coachMessages":[{"id":1769604702060,"text":"Erinnerung: Du schaffsch das!","date":"28.1.2026 13:51"}],"coachMindsetTips":[{"id":1769605108220,"text":"Du schaffst das","date":"28.1.2026 13:58"}],"coachFoodTips":[{"id":1769604679080,"text":"Frühstück: Skyr mit einer Frucht\nMittag: Gemüse mit Protein und Carbs\nAbendessen: Gemüse und Protein","date":"28.1.2026 13:51"}],"coachTasks":[],"coachShopItems":[{"id":1769604593847,"text":"Bohnen","done":false,"isCoach":true},{"id":1769604598963,"text":"Eier","done":false,"isCoach":true},{"id":1769604606610,"text":"Aufschnitt","done":false,"isCoach":true},{"id":1769604617161,"text":"Gemüse","done":false,"isCoach":true},{"id":1769605090818,"text":"Fleisch","done":false,"isCoach":true}],"clientReply":"","mindset":{"mood":6,"motivation":"Zeit für mich","dankbarkeit":"Für mich","reflexion":"Mehr Geduld"},"mahlzeiten":[],"clientTasks":[],"clientShopItems":[],"history":[{"timestamp":"2026-01-28T12:41:20.605Z","date":"28.1.2026","time":"13:38","mood":5,"tasksCompleted":0,"tasksTotal":1,"mealsCount":2,"reply":"Danle","motivation":"slslsk","dankbarkeit":"dldkfk","reflexion":"xkxlxk","mahlzeiten":"🌅 Frühstück (13:37): Eier | ☀️ Mittag (13:37): Bohnen","tasks":"⬜ Hund","einkauf":"⬜ Bohnen"}],"coachVersion":"2026-01-28T13:09:13.235Z"};
         var webhookUrl = 'https://flow.zoho.eu/20077340494/flow/webhook/incoming?zapikey=1001.3a1905b30f50dd264b19d05d9c1b463a.aa932e68201ea64597b9c071d53b71c3&isdebug=false';
 
         // Init
@@ -1625,7 +1625,7 @@
             var tips = appData.coachMindsetTips || [];
             
             if (tips.length === 0) {
-                list.innerHTML = '<div class="empty-state"><div class="icon">💡</div><p>Noch keine Tips</p></div>';
+                list.innerHTML = '<div class="empty-state"><div class="icon">💡</div><p>Noch keine Tipps</p></div>';
                 return;
             }
 
@@ -1645,7 +1645,7 @@
             var tips = appData.coachFoodTips || [];
             
             if (tips.length === 0) {
-                list.innerHTML = '<div class="empty-state"><div class="icon">🥗</div><p>Noch keine Tips</p></div>';
+                list.innerHTML = '<div class="empty-state"><div class="icon">🥗</div><p>Noch keine Tipps</p></div>';
                 return;
             }
 
