@@ -1,0 +1,2033 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Coaching by Tatjana - Melanie</title>
+    
+    <!-- PWA / Install to Homescreen -->
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="default">
+    <meta name="apple-mobile-web-app-title" content="Coaching">
+    <meta name="application-name" content="Coaching by Tatjana">
+    <meta name="theme-color" content="#B8936A">
+    <meta name="msapplication-TileColor" content="#B8936A">
+    
+    <!-- App Icons - Base64 eingebettet für maximale Kompatibilität -->
+    <link rel="manifest" href="data:application/json;base64,eyJuYW1lIjoiQ29hY2hpbmcgYnkgVGF0amFuYSIsInNob3J0X25hbWUiOiJDb2FjaGluZyIsInN0YXJ0X3VybCI6Ii4vIiwiZGlzcGxheSI6InN0YW5kYWxvbmUiLCJiYWNrZ3JvdW5kX2NvbG9yIjoiI0ZERjlGNiIsInRoZW1lX2NvbG9yIjoiI0I4OTM2QSIsImljb25zIjpbeyJzcmMiOiJkYXRhOmltYWdlL3BuZztiYXNlNjQsaVZCT1J3MEtHZ29BQUFBTlNVaEVVZ0FBQU1BQUFBREFDQVlBQUFCUzNHd0hBQUFLOGtsRVFWUjRuTzNkVzJ5VDV4M0g4ZC83K2hBbjhTRXh0bW1DY3lJUUlBd0tyS0djS2xTeGFnRlUycTFUZHpWMTB6YXRZa0tidEp2dGJoZTkyVzVXRFFtdFdpdnRhaGRNZ3FtSE5kSzJUckF5b0NBYWFDRUZVbklnSmljbnNXUHN4SWtQdTBCUUNrbXc4ejcyZTNoK245czJ6L3NnL2I5K1h4OWZCVHJyT25vNHIvY2VTRCtkUjQ0cGVoNi83QWZud05OU3loMUVXUTdHb2FmbEtFY01KVDBBQjU5RUtHVUlKVm1ZZzArbFVJb1FoQzdJd2FkeUVCbUNrSVU0K0tRSEVTR29XaGZnOEpOZVJNeWVwZ0E0L0tRM3JUTzRyRk1JQjUrTWFEbVhSRVdmQVRqOFpGVExtYzJpQXVEd2s5RVZPNk1GQjhEaEo3TW9abFlMQ29ERFQyWlQ2TXhxZmhtVXlNeWVHQUFmL2Ntc0NwbmRKUVBnOEpQWlBXbUdGdzJBdzA5V3NkUXM4emtBU1czQkFQam9UMWF6MkV6ekRFQlNleXdBUHZxVFZTMDAyendEa05TK0ZnQWYvY25xSHAxeG5nRklhZzhDNEtNL3llTGhXZWNaZ0tUR0FFaHFLc0RMSDVMUC9abm5HWUNreGdCSWFneUFwS2J3K3A5a3hqTUFTWTBCa05RWUFFbU5BWkRVR0FCSmpRR1ExQmdBU1kwQmtOUVlBRW1OQVpEVUdBQkpqUUdRMUJnQVNZMEJrTlFZQUVtTkFaRFVHQUJKalFHUTFCZ0FTWTBCa05RWUFFbU5BWkRVR0FCSmpRR1ExQmdBU1kwQmtOUVlBRW1OQVpEVUdBQkpqUUdRMUJnQVNZMEJrTlFZQUVtTkFaRFVHQUJKalFHUTFPeDZiMEJQaXFyQzdhK0ROOVNJYWw4SUxuY3RYSjVhVkZUN1lMTTdZYk03b2RvZFVGUWJjdGtNY3RsNVpOSXBwRk1KcEpOeHBHSmpTTVpHTVQxK0czY25ocEhQNS9UK0oxR1JwQXZBRzJ4QXNIa1RBazN0OEFiRFVHMk9ndjdPWm5mQVpuZkFVVkdGU20vZ3NmK2V6Y3doUHRLUDZHQVBvZ05Ya1ppSUZMV3ZEWHRmUmVPbXZVWDlqUm1kUGY0N1RJOE42cjJOQjZRSXdPWHhvMkhqYnRTdjN3R1h1NllreDdEWm5mQ0gyK0FQdDZGdDEwdElUbzFpK09aRjNQbmlQR2FtSjBweVROTE8wZ0Y0UTQxbzdkaVBZUE1tS0lwUzFtTlgxNjdFbXUwSDBkcHhBT1A5bjJIZzhuOHdPWFNqckh1Z0o3TmtBRlcrQU5idU9JU24xbTREVU43QmY1U2lLQWkxYkVhb1pUTml3N2R3L2N3SnhFYjZkTjBUZmNWaUFTaG8ydkk4Mm5ZZUt2amF2cHhxNmxaalZmc3VCbUFnbGduQTVhN0ZwaGRlZzMvVldyMjNRaVppaVFDOG9VWnNPL2c2S3FwOWVtK0ZUTWIwQVlSYU5tUHp0MzhFbTkycDkxYkloRXdkUUtCcEk3YnMvd2tVMWFiM1ZzaWtUUHRSaU5yNk5kaXkvNmNjZnRMRWxBRlVldnpZZXZCbnNObU45MG9QbVl2cExvRVUxWWFuTzM4TVIwVlZTZFpQUkljd0dlbEZmTFFQcVhnVXM0bEpaT1pua2N2TVE3VTVvTm9kY0ZaNjRQTFVvc29iZ0MvVUJPL0tKbmhXMUpka1AxUmFwZ3RnN1k0WDRWdlpMSFROVEhvR2c1K2ZSdVRhV2FUaTQ0ditmOW5NSExLWk9jelBKcEdjR3NFRWdOdjRMd0Nnb3RxSFFGTTc2dHM2NEErM29kZzM0SHBPSFVmUHFlTWEvaFdQNi9qT0x6VzlMTnh6K2pnR3I1d1N1Q1BqTVZVQWJuOGRtcmZzRTdaZVBwL0Q0SlZUNkQzL1BqSnpzNXJXU2lmamlGdzdpOGkxczNCNS9HamF2QmZoalh0Z2Q3b0U3WlpLd1ZRQnJIL3VlMUJVTVU5YjBzazR1cnZlUm16NGxwRDFIamFibU1UMU15Zng1Y1V1TkcvWmgrYXQrL2d5clVHWkpvQkE0d2FzYUZndlpLM2sxQWd1L1AyUFNDZmpRdFpiVENZOWc5N3o3MlBvODQvUnR1dGwxSzNyS09ueHFIaW1DYUI1NjdlRXJKT0tqK09UazI5aUxwVVFzbDRoWnBNeFhQbm5YM0RueGdYNFFvMWxPeTQ5bVNrQzhLeW9GL0xvbjVtYnhhY2Z2RlhXNFg5WWRPQXFvZ05YZFRrMkxjd1U3d09FTis0V3NzNzFNeWR4ZDNKWXlGcGtEU1lJUUVHb2RZdm1WV0xEdHpCMDlZejI3WkNsR0Q2QW1yb1d1S3ByTks5ejgveDdBUEthMXlGck1Yd0FnY2FObXRlWUhodmsxeEZwUVlZUG9LYXVSZk1hUTlmK0oyQW5aRVdHRGtCUkZQaENUUnBYeVdQMFZyZUk3WkFGR1RxQXFwcVE1bzhTVEk4UDZmYXlKeG1mb1FOWTZBZW9pc1V2b05OU2pCMkF4Njk1alVSMFNNQk95S3FNSFlCWGV3Q3AySmlBblpCVkdUb0FoOHV0ZVkzWkVuL2dqY3pOMEFHSStNcmozQXlmQU5QaURCMkFLdUF6OUxsTVJzQk95S3FNSFlCTis0ZFZjMWtHUUlzemRBQjVBY09yMnZpektiUTRRd2VRemN4cFhrUGxUNmZRRWd3ZXdMem1OWndDWGtraTZ6SjBBUE96U2MxcmxPcU9NR1FOaGc1Z05qR3BlWTBxWDFEQVRzaXFEQjJBaUh0cmVZSmhBVHNocXpKMEFLbnBxT1kxYXA1YUxXQW5aRlhHRGlBMnB2a1gyN3pCTUp5VkhrRTdJcXN4ZEFENWZCN1RZd01hVjFHd1VzQ1g2c21hREIwQUlPYnovS3ZhZHdyWUNWbVI0UU1ZRi9CRFVyNVFFMitlUndzeWZBQ3g0VDRoditHNVpzZUxBblpEVm1QNEFJQThSci9zMXJ4S2JWMHJ3dTI3dEcrSExNVUVBVURZTDdxdDIvTUtxbXRYQ2xtTHJNRVVBU1FtSXBnWXVxNTVIYnZUaGEwSFg0ZXpVcC9QQndVYTI5SGFzVitYWTlQQ1RCRUFBUFJmK3BlUWRhcHJRdWg0K1Jkd1ZwWHZ2WUdLYWg4MnZmQWF2bm5vNTNBSitLSS9pV09hQUtLRDF6QXA0Q3dBQU80VjlkajU2cStGMzJ2c1VYWm5KZFpzUDRqbmZ2QmIxSy9iWHRKajBmS1lKZ0FBNkRuOU4rUnpPU0ZydWR3MWVQYVZYMkhkN3U4S3Y0K1h5MTJEdHAwdlllOFAzMERyOWdPOFBaS0JtZUlHR2ZmZG5SeEdmL2RIYU5rbTVtNHhpcXFpZWVzK3JHcmZpZHVmblVhazV5eFM4ZVY5L3NoWjZVR2dxUjExYlIxWTBiQWVpbExjWFNKSkg2WUtBQUI2ejc4SGYzaXRnTjhNL1lxam9ncXJuK25FNm1jNk1UMStHMU4zZWhFZjZVTXlQbzdaeEJTeTgybmtzdk5RVkR0c0RpZWNsVzY0M0xXbzhnWGdEVGJBdDdJWm5zQXFGSHRyVk5LZjZRTElaVE80M1BVT2RuMy9ON0JYVkFwZjN4dHNnRGZZQUR6OXZQQzF5WGhNOVJ6Z3ZwbnBDWHo2ajdlRWZHV1M1R2JLQUFCZ01uSVRsei84TS9LNXJONWJJUk16YlFEQXZRL0tkWC80dHBCZmp5QTVtVG9BQUJqcnU0SlBUdndCNmRTMDNsc2hFeko5QU1DOWU0Q2RPLzU3VE4zcDFYc3JaREtXQ0FBQVp1OU80Y0xKTjNIOTR4UElaZm5rbUFwam1RQ0FlMStoN08vK044Nzg5UTJNOUY2QzBXNkxHaHUraFFodjJHY29wbnNmb0JDcGVCU1h1OTVCWDZnUmF6b09JTkQ4RGQzZW1jM244NGdPWE1WQTkwZENQdEZLWWxreWdQdW14d1p4NllNL29kTGpSM2pqSHRSdmVGYklUYmNMa1l5TlllVEdSVVMrT0Nmazk0Mm9OQ3dkd0gwemlVbmNQUGN1YnA1N0Y5NWdBNEl0bXhCb2JJYzNHSVpxRS9QanVkbk1IT0lqL1lqZTdrRjA0Q29TMFlpUWRhbTBsSzZqaDQxMW9WeEdpcXJDN2ErSEw5U0lxcG9nWE81YXVOeTFxS2l1Z2MzaGhNM3VnR3B6UUZGdHlPY3l5R1V5bUUrbmtFNU5JNTJNSXhVZlJ6STJpc1Q0RUJJVEVXR2ZWS1h5a2VJTXNKaDhMb2RFZEloM2twU1lwVjRGSWlvV0F5Q3BNUUNTR2dNZ3FURUFraG9ESUtreEFKSWFBeUNwTVFDU0dnTWdxVEVBa2hvRElLa3hBSklhQXlDcE1RQ1NHZ01ncVRFQWtob0RJS2t4QUpJYUF5Q3BNUUNTR2dNZ3FURUFraG9ESUtreEFKS2Eybm5rR08vdFNWTHFQSEpNNFJtQXBNWUFTR29NZ0tTbUF2ZXVoZlRlQ0ZFNTNaOTVuZ0ZJYWd5QXBQWWdBRjRHa1N3ZW5uV2VBVWhxWHd1QVp3R3l1a2RubkdjQWt0cGpBZkFzUUZhMTBHenpERUJTV3pBQW5nWElhaGFiYVo0QlNHcUxCc0N6QUZuRlVyTzg1Qm1BRVpEWlBXbUduM2dKeEFqSXJBcVpYVDRISUtrVkZBRFBBbVEyaGM1c3dXY0FSa0JtVWN5c0ZuVUp4QWpJNklxZDBhS2ZBekFDTXFybHpLYW1ZZTQ2ZWppdjVlK0pSTkR5b0t6cFZTQ2VEVWh2V21kUTg4dWdqSUQwSW1MMmhBNHZMNG1vSEVRKzZKYmswWnNoVUNtVTRtcWpwSmN2RElGRUtPVmxkbG11M3hrQ0xVYzVubCtXL1Frc1k2Q2xsUHRGRmQxZndXRVFjdFA3VmNUL0F5SGhCSFI0OU5rNEFBQUFBRWxGVGtTdVFtQ0MiLCJzaXplcyI6IjE5MngxOTIiLCJ0eXBlIjoiaW1hZ2UvcG5nIn1dfQ==">
+    <link rel="apple-touch-icon" href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAALQAAAC0CAYAAAA9zQYyAAAKPUlEQVR4nO3d2W9U5x3G8efMbo+3sfG+MLaJDXghbBZQoKWlhDZqSaOoVVupF73oBRVVe9l/oO1FlapC4rYXERJSSSFtpdIooMRQ49IQORhjbBdsbA/BNl7G47FnxrP0gkJYvMzMeWfOe14/n9vovOdn56uXM4vP0WCgS6dPJow8P2XG8VNnNKPOnbUTM96NLVuRZ/QkjJhWksm4M7IwQ6ZkZCJsoQsyZEqHyLCFLMSQSQQRYVv0LsCYSRQRLekKmjGTaHqbSmuLZ8iUDelcgqS8QzNmypZ0WkspaMZM2ZZqc0kHzZjJKKm0l1TQjJmMlmyD6wbNmEkWybSo+31oIpmsGTR3Z5LNek2uGjRjJlmt1eaKQTNmkt1qjfIampTyStDcncksVmqVOzQp5YWguTuT2bzcLHdoUsqzoLk7k1k93y53aFIKgyalWABebpD5PW2YOzQphUGTUhg0KYVBk1I0viAklXCHJqUwaFIKgyalMGhSCoMmpTBoUgqDJqUwaFIKgyalMGhSCoMmpTBoUgqDJqUwaFIKgyalMGhSCoMmpTBoUgqDJqUwaFIKgyalMGhSCoMmpTBoUgqDJqUwaFIKgyalMGhSCoMmpTBoUgqDJqUwaFIKgyalMGhSis3oAbJF0yxwF1egsKwObk85XHnFcOV74HIXwmpzwmKzw2qzA5qGeDSKWCyC5aUgwovzCAVmEJybxML0Q/gnHyAc9Bv949AqlA7aXVSGUm8bSr2tKKyofxJsEqx2B6x2BxyuPLg95a/899DCLKbHBjA9egdTD/oQjYSSWrfl6z9GzfYDKf0MZhB47EPXud8YPQYABYO2OVyobNqL2tZDyN9UnZFzuPI8qN62D9Xb9iEei+Lx6B34+rsxNdyLRCKekXNScpQJ2ubMQcOuY6htOwybw5W181qsNpTVt6Osvh2hhTmM9n6Csd7OpHdtEsv0QWuaBXU7vobGPcdhd7kNncWVV4Sm/SfQsOsYbvzlDwhM+wydZyMyddDuojK0Hv0JiirqjR7lBTZnDhy5+cC00ZNsPKYNuqq5A9uP/CjpF3q0MZgy6C0db6Kx49tGj0ESMl3QLUd+iJqWg0aPQZIy1SeFzQffZsy0JtMEXb/rKLyvf8PoMUhyprjk8FQ24rV9J4Sv6598gJnxQfgnRrDon0JoYQ6x5QgS8dj/Py10wpXnQU5BCQpKa1FY7kVRRT0sVlP82jYk6f/P2F1utB//KTSLmH9MopEQxno7MdZ3DUvzq7+vFo2EEI2EEA764Z8YwaOhmwAAq92JTXXbUNXcgVJvW0pz9V05i74rZ3X/DE8d+/lpaFp6v5cb77+L2S/uCZtFFtIH/dq+78LlLhKwUgK+O90Y6LqA5VAw7VViy2FM3OvBxL0eON2F2LzjCOraDsNqdwqYkfSSOuiC0lrUtHxF9zrRSAi3L7+HiXs9+od6Tjjox2DXRYx89hEa9n4Lde2H094xSQypf/tNB96Cpmm61oiGl/Cfi38UHvPzIqEF3L36Z1w/91vMPRrO2HlofdLu0PmbqlFSu1XXGvFYFDf/fgbzk6OCplpbYPohbrz/Lup3fxPxWDQr56QXSRu0d+dR3WvcvXoec1/cFzBN8hKJOO5/+s+snpO+JOUlh9XuQHnjTl1rzIwPYOz2VUETkVlIGXSpt03nl44SuHv1vLB5yDykDLq88XVdx0/c+xyB6YdihiFTkTLo4uomXceP9V0TNAmZjXRB5xZugiMnL+3jI4sBzIzdFTgRmYl0QReW6/vrk8dj/UgkEoKmIbORLui84gpdx8/4BgVNQmYkXdA5+SW6jg9MjQuahMxIvqAL9AUdnJ0QNAmZkXRB63lBuBxeRCwaETgNmY10QVvsjrSPjSwGBE5CZiRd0FZb+kHzC0EkXdB6/rwpHlsWOAmZkXRBJ2KxtI/l3/qRdEHreVFnsfIuShudfEEvh9M+1pGbL3ASMiPpgo4sLaR9rN2Zy3vdbXDSBb3WrQWS4fbo++iczE2+oAP6gs7fVCNoEjIj6YLW+9F1cfUWQZOQGUkXtN7bAJTUbdd96wMyL+mCXvRPIRJK/4WhM7cAxTXNAiciM5EuaACYHR/SdXxt6yFBk5DZSBn0xP0eXceXN+5AXnGlmGHIVKQMenK4V+f3MjRsPfSOsHnIPKQMOrYcxsR/e3StUVK7VciNHslcpAwaAEZ6LuteY9vh76Ow3Kt/mBRomgX1u4/BU8W3D40gbdDzU2OYGR/QtYbFasPu75xEQWmtoKnWlldShY63f4Wm/Sf4zT+DSBs0AAx0XdR9SwK7y4293/slyurbBU218jm2HnoHB37waxRVNmTsPLQ+qbeR+clR+Pqvo2b7AV3r2Bwu7HzzZxjv+xcGuz7AcnhRyHyO3Hxsbj+CuvavZvX54rQ6qYMGgKGuD1C6uQVOd6HOlTTUtBxExZbdGO3txHjfNSwFZlJexWpzoKR2K6qaO1DW0A7NYtU5F4kkfdCR0AJuffgn7HnrF0Ie92Bz5qBhzxto2HMMc49GMOsb+vIpWEE/YsthJOIxWGwO2BwuuNxFyCkoQX5pDQrLvfBUNvAPCSQmfdAAMOMbwlD339C0X+Sj3TQUVdRL9+B70kfqF4XPG775IR58/rHRY5DkTBM08OQRE747140egyRmqqCBBG5fOctnmNCqTBY0ACQw1P1X3L78Hu/DQa8wYdBP+Pq70XXud/BPPjB6FJKIaYMGgODsI/z7/O8x2HUB0fCS0eM8Ew0v8T57BjHF23ZrScTjGP7sI4z3daF+9xuoaztk2HO3Q8E5jN3qxGjvJ4hGQobMsNGZPuinlsOLGOy6gPuf/gNVzR2oaT2E/JKqjJ83HotierQfvrvdmBy+hUQ8nvFz0uqUCfqpaCSE0d5OjPZ2wu0pR6m3DaXeVhRVeIV9whcO+jE9PoDp0X5MjvRKdbmz0WmXTp/cEE/Y0SwW5HkqUVBeB3dRBXLyPXDleeB0F8Jqd8JitT25la+mIR6LIh6NIBIKIrI4j6XADBbnprAw8xDzk6NpfQeEskO5HXo1iXgcgWkfAtM+o0ehDDL1uxxEL2PQpBQGTUph0KQUBk1KYdCkFAZNSmHQpBQGTUph0KQUBk1KYdCkFAZNSmHQpBQGTUph0KQUBk1KYdCkFAZNSmHQpBQGTUqxHD91hk96JyUcP3VGwDMeiCTCoEkpDJqUwqBJKRbgycW00YMQ6fG0Ye7QpBQGTUp5FjQvO8isnm+XOzQp5YWguUuT2bzcLHdoUsorQXOXJrNYqVXu0KSUFYPmLk2yW63RVXdoRk2yWqvNNS85GDXJZr0meQ1NSlk3aO7SJItkWkxqh2bUZLRkG0z6koNRk1FSaS+la2hGTdmWanMpvyhk1JQt6bSmK85Lp08m9BxPtBI9m6aut+24W5NoepvS/T40oyZRRLQkNEZeglA6RG6KGdldGTYlIxP/umf0coFh00oyeZmatetfxr2xZeu1lqEv6Bi5mox8o+B/Q8Dn3veRgQUAAAAASUVORK5CYII=">
+    <link rel="apple-touch-icon" sizes="180x180" href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAALQAAAC0CAYAAAA9zQYyAAAKPUlEQVR4nO3d2W9U5x3G8efMbo+3sfG+MLaJDXghbBZQoKWlhDZqSaOoVVupF73oBRVVe9l/oO1FlapC4rYXERJSSSFtpdIooMRQ49IQORhjbBdsbA/BNl7G47FnxrP0gkJYvMzMeWfOe14/n9vovOdn56uXM4vP0WCgS6dPJow8P2XG8VNnNKPOnbUTM96NLVuRZ/QkjJhWksm4M7IwQ6ZkZCJsoQsyZEqHyLCFLMSQSQQRYVv0LsCYSRQRLekKmjGTaHqbSmuLZ8iUDelcgqS8QzNmypZ0WkspaMZM2ZZqc0kHzZjJKKm0l1TQjJmMlmyD6wbNmEkWybSo+31oIpmsGTR3Z5LNek2uGjRjJlmt1eaKQTNmkt1qjfIampTyStDcncksVmqVOzQp5YWguTuT2bzcLHdoUsqzoLk7k1k93y53aFIKgyalWABebpD5PW2YOzQphUGTUhg0KYVBk1I0viAklXCHJqUwaFIKgyalMGhSCoMmpTBoUgqDJqUwaFIKgyalMGhSCoMmpTBoUgqDJqUwaFIKgyalMGhSCoMmpTBoUgqDJqUwaFIKgyalMGhSCoMmpTBoUgqDJqUwaFIKgyalMGhSCoMmpTBoUgqDJqUwaFIKgyalMGhSis3oAbJF0yxwF1egsKwObk85XHnFcOV74HIXwmpzwmKzw2qzA5qGeDSKWCyC5aUgwovzCAVmEJybxML0Q/gnHyAc9Bv949AqlA7aXVSGUm8bSr2tKKyofxJsEqx2B6x2BxyuPLg95a/899DCLKbHBjA9egdTD/oQjYSSWrfl6z9GzfYDKf0MZhB47EPXud8YPQYABYO2OVyobNqL2tZDyN9UnZFzuPI8qN62D9Xb9iEei+Lx6B34+rsxNdyLRCKekXNScpQJ2ubMQcOuY6htOwybw5W181qsNpTVt6Osvh2hhTmM9n6Csd7OpHdtEsv0QWuaBXU7vobGPcdhd7kNncWVV4Sm/SfQsOsYbvzlDwhM+wydZyMyddDuojK0Hv0JiirqjR7lBTZnDhy5+cC00ZNsPKYNuqq5A9uP/CjpF3q0MZgy6C0db6Kx49tGj0ESMl3QLUd+iJqWg0aPQZIy1SeFzQffZsy0JtMEXb/rKLyvf8PoMUhyprjk8FQ24rV9J4Sv6598gJnxQfgnRrDon0JoYQ6x5QgS8dj/Py10wpXnQU5BCQpKa1FY7kVRRT0sVlP82jYk6f/P2F1utB//KTSLmH9MopEQxno7MdZ3DUvzq7+vFo2EEI2EEA764Z8YwaOhmwAAq92JTXXbUNXcgVJvW0pz9V05i74rZ3X/DE8d+/lpaFp6v5cb77+L2S/uCZtFFtIH/dq+78LlLhKwUgK+O90Y6LqA5VAw7VViy2FM3OvBxL0eON2F2LzjCOraDsNqdwqYkfSSOuiC0lrUtHxF9zrRSAi3L7+HiXs9+od6Tjjox2DXRYx89hEa9n4Lde2H094xSQypf/tNB96Cpmm61oiGl/Cfi38UHvPzIqEF3L36Z1w/91vMPRrO2HlofdLu0PmbqlFSu1XXGvFYFDf/fgbzk6OCplpbYPohbrz/Lup3fxPxWDQr56QXSRu0d+dR3WvcvXoec1/cFzBN8hKJOO5/+s+snpO+JOUlh9XuQHnjTl1rzIwPYOz2VUETkVlIGXSpt03nl44SuHv1vLB5yDykDLq88XVdx0/c+xyB6YdihiFTkTLo4uomXceP9V0TNAmZjXRB5xZugiMnL+3jI4sBzIzdFTgRmYl0QReW6/vrk8dj/UgkEoKmIbORLui84gpdx8/4BgVNQmYkXdA5+SW6jg9MjQuahMxIvqAL9AUdnJ0QNAmZkXRB63lBuBxeRCwaETgNmY10QVvsjrSPjSwGBE5CZiRd0FZb+kHzC0EkXdB6/rwpHlsWOAmZkXRBJ2KxtI/l3/qRdEHreVFnsfIuShudfEEvh9M+1pGbL3ASMiPpgo4sLaR9rN2Zy3vdbXDSBb3WrQWS4fbo++iczE2+oAP6gs7fVCNoEjIj6YLW+9F1cfUWQZOQGUkXtN7bAJTUbdd96wMyL+mCXvRPIRJK/4WhM7cAxTXNAiciM5EuaACYHR/SdXxt6yFBk5DZSBn0xP0eXceXN+5AXnGlmGHIVKQMenK4V+f3MjRsPfSOsHnIPKQMOrYcxsR/e3StUVK7VciNHslcpAwaAEZ6LuteY9vh76Ow3Kt/mBRomgX1u4/BU8W3D40gbdDzU2OYGR/QtYbFasPu75xEQWmtoKnWlldShY63f4Wm/Sf4zT+DSBs0AAx0XdR9SwK7y4293/slyurbBU218jm2HnoHB37waxRVNmTsPLQ+qbeR+clR+Pqvo2b7AV3r2Bwu7HzzZxjv+xcGuz7AcnhRyHyO3Hxsbj+CuvavZvX54rQ6qYMGgKGuD1C6uQVOd6HOlTTUtBxExZbdGO3txHjfNSwFZlJexWpzoKR2K6qaO1DW0A7NYtU5F4kkfdCR0AJuffgn7HnrF0Ie92Bz5qBhzxto2HMMc49GMOsb+vIpWEE/YsthJOIxWGwO2BwuuNxFyCkoQX5pDQrLvfBUNvAPCSQmfdAAMOMbwlD339C0X+Sj3TQUVdRL9+B70kfqF4XPG775IR58/rHRY5DkTBM08OQRE747140egyRmqqCBBG5fOctnmNCqTBY0ACQw1P1X3L78Hu/DQa8wYdBP+Pq70XXud/BPPjB6FJKIaYMGgODsI/z7/O8x2HUB0fCS0eM8Ew0v8T57BjHF23ZrScTjGP7sI4z3daF+9xuoaztk2HO3Q8E5jN3qxGjvJ4hGQobMsNGZPuinlsOLGOy6gPuf/gNVzR2oaT2E/JKqjJ83HotierQfvrvdmBy+hUQ8nvFz0uqUCfqpaCSE0d5OjPZ2wu0pR6m3DaXeVhRVeIV9whcO+jE9PoDp0X5MjvRKdbmz0WmXTp/cEE/Y0SwW5HkqUVBeB3dRBXLyPXDleeB0F8Jqd8JitT25la+mIR6LIh6NIBIKIrI4j6XADBbnprAw8xDzk6NpfQeEskO5HXo1iXgcgWkfAtM+o0ehDDL1uxxEL2PQpBQGTUph0KQUBk1KYdCkFAZNSmHQpBQGTUph0KQUBk1KYdCkFAZNSmHQpBQGTUph0KQUBk1KYdCkFAZNSmHQpBQGTUqxHD91hk96JyUcP3VGwDMeiCTCoEkpDJqUwqBJKRbgycW00YMQ6fG0Ye7QpBQGTUp5FjQvO8isnm+XOzQp5YWguUuT2bzcLHdoUsorQXOXJrNYqVXu0KSUFYPmLk2yW63RVXdoRk2yWqvNNS85GDXJZr0meQ1NSlk3aO7SJItkWkxqh2bUZLRkG0z6koNRk1FSaS+la2hGTdmWanMpvyhk1JQt6bSmK85Lp08m9BxPtBI9m6aut+24W5NoepvS/T40oyZRRLQkNEZeglA6RG6KGdldGTYlIxP/umf0coFh00oyeZmatetfxr2xZeu1lqEv6Bi5mox8o+B/Q8Dn3veRgQUAAAAASUVORK5CYII=">
+    <link rel="icon" type="image/png" sizes="192x192" href="data:image/png;base64,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">
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;1,400&family=Nunito:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        
+        :root {
+            --primary: #B8936A;
+            --primary-light: #E8DDD4;
+            --primary-dark: #9A7A57;
+            --accent: #D4A5A5;
+            --accent-light: #F5E6E6;
+            --text-dark: #3D3D3D;
+            --text-light: #6B6B6B;
+            --bg-cream: #FDF9F6;
+            --bg-white: #FFFFFF;
+            --success: #7FB285;
+            --success-light: #E8F5EA;
+            --coach-color: #8B5CF6;
+            --coach-light: #EDE9FE;
+            --shadow: 0 4px 20px rgba(196, 164, 132, 0.15);
+            --shadow-hover: 0 8px 30px rgba(196, 164, 132, 0.25);
+            --radius: 16px;
+            --radius-sm: 10px;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Nunito', sans-serif;
+            background: var(--bg-cream);
+            color: var(--text-dark);
+            min-height: 100vh;
+            line-height: 1.6;
+        }
+
+        /* Header */
+        .header {
+            background: #B8936A;
+            padding: 1.5rem 1rem;
+            text-align: center;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            box-shadow: var(--shadow);
+        }
+
+        .header.coach-mode {
+            background: linear-gradient(135deg, var(--coach-color) 0%, #A78BFA 100%);
+        }
+
+        .logo {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 1.8rem;
+            font-weight: 600;
+            color: white;
+            letter-spacing: 1px;
+        }
+
+        .logo span {
+            font-style: italic;
+            font-weight: 400;
+        }
+
+        .subtitle {
+            font-size: 0.85rem;
+            color: rgba(255,255,255,0.9);
+            margin-top: 0.25rem;
+            font-weight: 500;
+        }
+
+        .client-name-display {
+            font-size: 1rem;
+            color: white;
+            margin-top: 0.5rem;
+            font-weight: 600;
+            background: rgba(255,255,255,0.2);
+            padding: 0.3rem 1rem;
+            border-radius: 20px;
+            display: inline-block;
+        }
+
+        /* Mode Toggle */
+        .mode-toggle {
+            padding: 0.75rem;
+            background: var(--bg-white);
+            border-bottom: 1px solid var(--primary-light);
+            display: flex;
+            justify-content: center;
+            gap: 0.5rem;
+        }
+
+        .mode-btn {
+            padding: 0.6rem 1.5rem;
+            border: 2px solid var(--primary-light);
+            border-radius: 25px;
+            background: var(--bg-white);
+            font-family: inherit;
+            font-size: 0.9rem;
+            font-weight: 600;
+            color: var(--text-light);
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .mode-btn:hover {
+            border-color: var(--primary);
+        }
+
+        .mode-btn.active {
+            background: var(--primary);
+            border-color: var(--primary);
+            color: white;
+        }
+
+        .mode-btn.coach.active {
+            background: var(--coach-color);
+            border-color: var(--coach-color);
+        }
+
+        /* Client Setup (Coach Mode) */
+        .client-setup {
+            padding: 1rem;
+            background: var(--coach-light);
+            border-bottom: 2px solid var(--coach-color);
+        }
+
+        .client-setup input {
+            width: 100%;
+            max-width: 400px;
+            padding: 0.75rem 1rem;
+            border: 2px solid var(--coach-color);
+            border-radius: var(--radius-sm);
+            font-size: 1rem;
+            font-family: inherit;
+            margin: 0 auto;
+            display: block;
+        }
+
+        .client-setup input:focus {
+            outline: none;
+            box-shadow: 0 0 0 3px rgba(139, 92, 246, 0.2);
+        }
+
+        /* Settings Section */
+        .settings-section {
+            padding: 0.75rem 1rem;
+            background: var(--coach-light);
+            border-bottom: 1px solid var(--coach-color);
+        }
+
+        .settings-row {
+            display: flex;
+            gap: 0.75rem;
+            flex-wrap: wrap;
+        }
+
+        .settings-group {
+            flex: 1;
+            min-width: 150px;
+        }
+
+        .settings-group label {
+            display: block;
+            font-size: 0.75rem;
+            font-weight: 600;
+            color: var(--coach-color);
+            margin-bottom: 0.25rem;
+        }
+
+        .settings-input {
+            width: 100%;
+            padding: 0.5rem 0.75rem;
+            border: 2px solid var(--coach-color);
+            border-radius: var(--radius-sm);
+            font-size: 0.85rem;
+            font-family: inherit;
+            background: var(--bg-white);
+        }
+
+        .settings-input:focus {
+            outline: none;
+            box-shadow: 0 0 0 3px rgba(139, 92, 246, 0.2);
+        }
+
+        .settings-hint {
+            font-size: 0.7rem;
+            color: var(--text-light);
+            margin-top: 0.5rem;
+            text-align: center;
+        }
+
+        .btn-small {
+            padding: 0.5rem 0.75rem;
+            border: none;
+            border-radius: var(--radius-sm);
+            font-family: inherit;
+            font-size: 0.75rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .btn-export {
+            background: var(--success);
+            color: white;
+        }
+
+        .btn-export:hover {
+            background: #6BA071;
+        }
+
+        .btn-import {
+            background: var(--primary);
+            color: white;
+        }
+
+        .btn-import:hover {
+            background: var(--primary-dark);
+        }
+
+        .btn-delete {
+            background: #e74c3c;
+            color: white;
+        }
+
+        .btn-delete:hover {
+            background: #c0392b;
+        }
+
+        /* Verlauf / Historie Styles */
+        .mood-chart {
+            height: 200px;
+            display: flex;
+            align-items: flex-end;
+            justify-content: space-around;
+            gap: 0.5rem;
+            padding: 1rem 0.5rem;
+            background: linear-gradient(to top, var(--primary-light) 0%, transparent 100%);
+            border-radius: var(--radius);
+            position: relative;
+        }
+
+        .mood-chart::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            right: 0;
+            bottom: 50%;
+            border-top: 1px dashed var(--primary);
+            opacity: 0.3;
+        }
+
+        .mood-bar {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            flex: 1;
+            max-width: 50px;
+        }
+
+        .mood-bar-fill {
+            width: 100%;
+            min-width: 30px;
+            border-radius: var(--radius-sm) var(--radius-sm) 0 0;
+            transition: height 0.5s ease;
+            display: flex;
+            align-items: flex-start;
+            justify-content: center;
+            padding-top: 0.25rem;
+            font-size: 0.7rem;
+            font-weight: 600;
+            color: white;
+        }
+
+        .mood-bar-fill.mood-low { background: linear-gradient(to top, #e74c3c, #f39c12); }
+        .mood-bar-fill.mood-medium { background: linear-gradient(to top, #f39c12, #f1c40f); }
+        .mood-bar-fill.mood-high { background: linear-gradient(to top, #2ecc71, #27ae60); }
+
+        .mood-bar-date {
+            font-size: 0.65rem;
+            color: var(--text-light);
+            margin-top: 0.25rem;
+            text-align: center;
+        }
+
+        .history-list {
+            display: flex;
+            flex-direction: column;
+            gap: 0.75rem;
+        }
+
+        .history-entry {
+            background: var(--background);
+            border-radius: var(--radius);
+            padding: 1rem;
+            border-left: 4px solid var(--primary);
+        }
+
+        .history-entry-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 0.5rem;
+        }
+
+        .history-entry-date {
+            font-weight: 600;
+            color: var(--text);
+        }
+
+        .history-entry-mood {
+            display: flex;
+            align-items: center;
+            gap: 0.25rem;
+            font-size: 0.9rem;
+        }
+
+        .history-entry-stats {
+            display: flex;
+            gap: 1rem;
+            font-size: 0.8rem;
+            color: var(--text-light);
+        }
+
+        .history-entry-stat {
+            display: flex;
+            align-items: center;
+            gap: 0.25rem;
+        }
+
+        .history-entry-note {
+            margin-top: 0.5rem;
+            font-size: 0.85rem;
+            color: var(--text-light);
+            font-style: italic;
+        }
+
+        .history-detail-section {
+            margin-bottom: 0.75rem;
+        }
+
+        .history-detail-label {
+            font-size: 0.75rem;
+            font-weight: 600;
+            color: var(--primary);
+            margin-bottom: 0.25rem;
+        }
+
+        .history-detail-text {
+            font-size: 0.85rem;
+            color: var(--text);
+            background: #F9FAFB;
+            padding: 0.5rem 0.75rem;
+            border-radius: 6px;
+            line-height: 1.4;
+        }
+
+        .mood-chart-bars {
+            display: flex;
+            align-items: flex-end;
+            justify-content: space-around;
+            height: 180px;
+            gap: 0.25rem;
+            padding-bottom: 1.5rem;
+        }
+
+        .mood-bar-container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            flex: 1;
+            max-width: 40px;
+        }
+
+        .mood-bar-value {
+            font-size: 1rem;
+            margin-bottom: 0.25rem;
+        }
+
+        .mood-bar-label {
+            font-size: 0.6rem;
+            color: var(--text-light);
+            margin-top: 0.25rem;
+            text-align: center;
+        }
+
+        .history-date {
+            font-weight: 600;
+            color: var(--text);
+        }
+
+        .history-mood {
+            font-size: 0.9rem;
+        }
+
+        .history-stats {
+            display: flex;
+            gap: 1rem;
+            font-size: 0.8rem;
+            color: var(--text-light);
+            margin-top: 0.25rem;
+        }
+
+        .history-stat {
+            display: flex;
+            align-items: center;
+            gap: 0.25rem;
+        }
+
+        .history-stat.completed {
+            color: var(--success);
+        }
+
+        .history-note {
+            margin-top: 0.5rem;
+            font-size: 0.85rem;
+            color: var(--text-light);
+            font-style: italic;
+        }
+
+        /* History / Verlauf Styles */
+        .mood-chart {
+            padding: 1rem 0;
+        }
+
+        .mood-chart-bars {
+            display: flex;
+            align-items: flex-end;
+            justify-content: space-around;
+            height: 120px;
+            padding: 0.5rem;
+            background: var(--bg-cream);
+            border-radius: var(--radius-sm);
+            gap: 0.3rem;
+        }
+
+        .mood-bar-container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            flex: 1;
+            max-width: 40px;
+        }
+
+        .mood-bar {
+            width: 100%;
+            background: linear-gradient(to top, var(--primary), var(--accent));
+            border-radius: 4px 4px 0 0;
+            min-height: 10px;
+            transition: height 0.3s ease;
+        }
+
+        .mood-bar-label {
+            font-size: 0.6rem;
+            color: var(--text-light);
+            margin-top: 0.3rem;
+            text-align: center;
+        }
+
+        .mood-bar-value {
+            font-size: 0.7rem;
+            font-weight: 600;
+            color: var(--text-dark);
+            margin-bottom: 0.2rem;
+        }
+
+        .history-list {
+            display: flex;
+            flex-direction: column;
+            gap: 0.75rem;
+        }
+
+        .history-entry {
+            padding: 1rem;
+            background: var(--bg-cream);
+            border-radius: var(--radius-sm);
+            border-left: 4px solid var(--primary);
+        }
+
+        .history-entry-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 0.5rem;
+        }
+
+        .history-date {
+            font-weight: 600;
+            color: var(--text-dark);
+        }
+
+        .history-mood {
+            font-size: 1.2rem;
+        }
+
+        .history-stats {
+            display: flex;
+            gap: 1rem;
+            flex-wrap: wrap;
+            font-size: 0.85rem;
+            color: var(--text-light);
+        }
+
+        .history-stat {
+            display: flex;
+            align-items: center;
+            gap: 0.3rem;
+        }
+
+        .history-stat.completed {
+            color: var(--success);
+        }
+
+        .history-note {
+            margin-top: 0.5rem;
+            font-size: 0.85rem;
+            color: var(--text-dark);
+            font-style: italic;
+        }
+
+        /* Navigation Tabs */
+        .nav-tabs {
+            display: flex;
+            overflow-x: auto;
+            background: var(--bg-white);
+            padding: 0.5rem;
+            gap: 0.5rem;
+            border-bottom: 1px solid var(--primary-light);
+            -webkit-overflow-scrolling: touch;
+        }
+
+        .nav-tabs::-webkit-scrollbar {
+            display: none;
+        }
+
+        .tab-btn {
+            flex: 1;
+            min-width: 70px;
+            padding: 0.6rem 0.75rem;
+            border: none;
+            background: transparent;
+            border-radius: var(--radius-sm);
+            font-family: inherit;
+            font-size: 0.8rem;
+            font-weight: 600;
+            color: var(--text-light);
+            cursor: pointer;
+            transition: all 0.3s ease;
+            white-space: nowrap;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 0.2rem;
+        }
+
+        .tab-btn .icon {
+            font-size: 1.2rem;
+        }
+
+        .tab-btn:hover {
+            background: var(--primary-light);
+            color: var(--text-dark);
+        }
+
+        .tab-btn.active {
+            background: var(--primary);
+            color: white;
+            box-shadow: var(--shadow);
+        }
+
+        /* Main Content */
+        .main-content {
+            padding: 1rem;
+            max-width: 600px;
+            margin: 0 auto;
+            padding-bottom: 120px;
+        }
+
+        .tab-content {
+            display: none;
+            animation: fadeIn 0.4s ease;
+        }
+
+        .tab-content.active {
+            display: block;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        /* Cards */
+        .card {
+            background: var(--bg-white);
+            border-radius: var(--radius);
+            padding: 1.25rem;
+            margin-bottom: 1rem;
+            box-shadow: var(--shadow);
+            border: 1px solid var(--primary-light);
+        }
+
+        .card.coach-card {
+            border: 2px solid var(--coach-color);
+            background: linear-gradient(to bottom, var(--coach-light) 0%, var(--bg-white) 100%);
+        }
+
+        .card-title {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 1.2rem;
+            font-weight: 600;
+            color: var(--primary-dark);
+            margin-bottom: 1rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .card.coach-card .card-title {
+            color: var(--coach-color);
+        }
+
+        .coach-badge {
+            font-size: 0.7rem;
+            background: var(--coach-color);
+            color: white;
+            padding: 0.2rem 0.5rem;
+            border-radius: 10px;
+            font-family: 'Nunito', sans-serif;
+            font-weight: 600;
+        }
+
+        /* Form Elements */
+        .form-group {
+            margin-bottom: 1rem;
+        }
+
+        .form-label {
+            display: block;
+            font-weight: 600;
+            color: var(--text-dark);
+            margin-bottom: 0.5rem;
+            font-size: 0.9rem;
+        }
+
+        .form-input,
+        .form-textarea,
+        .form-select {
+            width: 100%;
+            padding: 0.75rem 1rem;
+            border: 2px solid var(--primary-light);
+            border-radius: var(--radius-sm);
+            font-family: inherit;
+            font-size: 1rem;
+            transition: all 0.3s ease;
+            background: var(--bg-white);
+        }
+
+        .form-textarea {
+            resize: vertical;
+            min-height: 80px;
+        }
+
+        .form-input:focus,
+        .form-textarea:focus,
+        .form-select:focus {
+            outline: none;
+            border-color: var(--primary);
+            box-shadow: 0 0 0 3px rgba(196, 164, 132, 0.2);
+        }
+
+        .coach-input {
+            border-color: var(--coach-color);
+        }
+
+        .coach-input:focus {
+            box-shadow: 0 0 0 3px rgba(139, 92, 246, 0.2);
+        }
+
+        /* Coach Message Display */
+        .coach-message {
+            background: var(--coach-light);
+            border-left: 4px solid var(--coach-color);
+            padding: 1rem;
+            border-radius: 0 var(--radius-sm) var(--radius-sm) 0;
+            margin-bottom: 1rem;
+        }
+
+        .coach-message-header {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            margin-bottom: 0.5rem;
+            font-weight: 600;
+            color: var(--coach-color);
+            font-size: 0.85rem;
+        }
+
+        .coach-message-text {
+            color: var(--text-dark);
+            white-space: pre-wrap;
+        }
+
+        .coach-message-date {
+            font-size: 0.75rem;
+            color: var(--text-light);
+            margin-top: 0.5rem;
+        }
+
+        /* Mood Rating */
+        .mood-rating {
+            display: flex;
+            gap: 0.4rem;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+
+        .mood-btn {
+            width: 40px;
+            height: 40px;
+            border: 2px solid var(--primary-light);
+            border-radius: 50%;
+            background: var(--bg-white);
+            font-size: 0.9rem;
+            font-weight: 600;
+            color: var(--text-light);
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .mood-btn:hover {
+            border-color: var(--primary);
+            transform: scale(1.1);
+        }
+
+        .mood-btn.selected {
+            background: var(--primary);
+            border-color: var(--primary);
+            color: white;
+            transform: scale(1.15);
+            box-shadow: var(--shadow);
+        }
+
+        /* Checklist Items */
+        .checklist {
+            display: flex;
+            flex-direction: column;
+            gap: 0.6rem;
+        }
+
+        .checklist-item {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            padding: 0.75rem 1rem;
+            background: var(--bg-cream);
+            border-radius: var(--radius-sm);
+            border: 1px solid var(--primary-light);
+            transition: all 0.3s ease;
+        }
+
+        .checklist-item.coach-task {
+            background: var(--coach-light);
+            border-color: var(--coach-color);
+        }
+
+        .checklist-item.completed {
+            background: var(--success-light);
+            border-color: var(--success);
+        }
+
+        .checklist-item.completed .item-text {
+            text-decoration: line-through;
+            color: var(--text-light);
+        }
+
+        .checkbox-custom {
+            width: 24px;
+            height: 24px;
+            border: 2px solid var(--primary);
+            border-radius: 6px;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.3s ease;
+            flex-shrink: 0;
+        }
+
+        .checkbox-custom:hover {
+            background: var(--primary-light);
+        }
+
+        .checkbox-custom.checked {
+            background: var(--success);
+            border-color: var(--success);
+        }
+
+        .checkbox-custom.checked::after {
+            content: '✓';
+            color: white;
+            font-weight: bold;
+            font-size: 0.85rem;
+        }
+
+        .item-content {
+            flex: 1;
+            min-width: 0;
+        }
+
+        .item-text {
+            font-weight: 500;
+            word-break: break-word;
+            font-size: 0.95rem;
+        }
+
+        .item-meta {
+            font-size: 0.75rem;
+            color: var(--text-light);
+            margin-top: 0.2rem;
+        }
+
+        .delete-btn {
+            width: 30px;
+            height: 30px;
+            border: none;
+            background: transparent;
+            color: var(--accent);
+            cursor: pointer;
+            border-radius: 50%;
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.1rem;
+        }
+
+        .delete-btn:hover {
+            background: var(--accent-light);
+            color: var(--primary-dark);
+        }
+
+        /* Priority Badge */
+        .priority-badge {
+            font-size: 0.65rem;
+            padding: 0.15rem 0.4rem;
+            border-radius: 20px;
+            font-weight: 600;
+            text-transform: uppercase;
+        }
+
+        .priority-hoch {
+            background: #FFE5E5;
+            color: #D46A6A;
+        }
+
+        .priority-mittel {
+            background: #FFF3E0;
+            color: #E09C4A;
+        }
+
+        .priority-niedrig {
+            background: var(--success-light);
+            color: var(--success);
+        }
+
+        /* Buttons */
+        .btn {
+            padding: 0.75rem 1.5rem;
+            border: none;
+            border-radius: var(--radius-sm);
+            font-family: inherit;
+            font-size: 0.95rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .btn-primary {
+            background: var(--primary);
+            color: white;
+        }
+
+        .btn-primary:hover {
+            background: var(--primary-dark);
+            box-shadow: var(--shadow);
+        }
+
+        .btn-coach {
+            background: var(--coach-color);
+            color: white;
+        }
+
+        .btn-coach:hover {
+            background: #7C3AED;
+        }
+
+        .btn-success {
+            background: var(--success);
+            color: white;
+        }
+
+        .btn-success:hover {
+            background: #6BA071;
+        }
+
+        .btn-block {
+            width: 100%;
+            padding: 1rem;
+            font-size: 1rem;
+        }
+
+        .btn-icon {
+            padding: 0.75rem;
+            min-width: 44px;
+        }
+
+        .btn-sm {
+            padding: 0.5rem 1rem;
+            font-size: 0.85rem;
+        }
+
+        /* Add Form */
+        .add-form {
+            display: flex;
+            gap: 0.5rem;
+            margin-bottom: 1rem;
+            flex-wrap: wrap;
+        }
+
+        .add-form input {
+            flex: 1;
+            min-width: 120px;
+        }
+
+        /* Meal Type Selector */
+        .meal-type-selector {
+            display: flex;
+            gap: 0.4rem;
+            flex-wrap: wrap;
+            margin-bottom: 1rem;
+        }
+
+        .meal-type-btn {
+            padding: 0.4rem 0.8rem;
+            border: 2px solid var(--primary-light);
+            border-radius: 20px;
+            background: var(--bg-white);
+            font-family: inherit;
+            font-size: 0.8rem;
+            font-weight: 500;
+            color: var(--text-light);
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .meal-type-btn:hover {
+            border-color: var(--primary);
+        }
+
+        .meal-type-btn.selected {
+            background: var(--primary);
+            border-color: var(--primary);
+            color: white;
+        }
+
+        /* Entry List */
+        .entry-list {
+            display: flex;
+            flex-direction: column;
+            gap: 0.6rem;
+        }
+
+        .entry-item {
+            padding: 0.75rem 1rem;
+            background: var(--bg-cream);
+            border-radius: var(--radius-sm);
+            border-left: 4px solid var(--primary);
+        }
+
+        .entry-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            margin-bottom: 0.3rem;
+        }
+
+        .entry-date {
+            font-size: 0.75rem;
+            color: var(--text-light);
+        }
+
+        .entry-text {
+            color: var(--text-dark);
+            font-size: 0.9rem;
+        }
+
+        /* Empty State */
+        .empty-state {
+            text-align: center;
+            padding: 1.5rem;
+            color: var(--text-light);
+        }
+
+        .empty-state .icon {
+            font-size: 2.5rem;
+            margin-bottom: 0.75rem;
+            opacity: 0.5;
+        }
+
+        /* Bottom Actions */
+        .bottom-actions {
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            padding: 1rem;
+            background: linear-gradient(to top, var(--bg-cream) 80%, transparent);
+            display: flex;
+            flex-direction: column;
+            gap: 0.5rem;
+        }
+
+        .bottom-actions .btn {
+            max-width: 600px;
+            margin: 0 auto;
+            width: 100%;
+        }
+
+        /* Success Modal */
+        .modal-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(0,0,0,0.5);
+            display: none;
+            align-items: center;
+            justify-content: center;
+            z-index: 1000;
+            padding: 1rem;
+        }
+
+        .modal-overlay.show {
+            display: flex;
+        }
+
+        .modal {
+            background: var(--bg-white);
+            border-radius: var(--radius);
+            padding: 1.5rem;
+            max-width: 400px;
+            width: 100%;
+            text-align: center;
+            box-shadow: var(--shadow-hover);
+        }
+
+        .modal h3 {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 1.5rem;
+            color: var(--success);
+            margin-bottom: 1rem;
+        }
+
+        .modal .link-box {
+            background: var(--bg-cream);
+            border: 2px solid var(--primary-light);
+            border-radius: var(--radius-sm);
+            padding: 0.75rem;
+            margin: 1rem 0;
+            word-break: break-all;
+            font-size: 0.85rem;
+            color: var(--text-dark);
+        }
+
+        .modal .btn {
+            margin-top: 0.5rem;
+        }
+
+        /* Toast */
+        .toast {
+            position: fixed;
+            bottom: 140px;
+            left: 50%;
+            transform: translateX(-50%) translateY(100px);
+            background: var(--success);
+            color: white;
+            padding: 0.75rem 1.25rem;
+            border-radius: var(--radius);
+            box-shadow: var(--shadow-hover);
+            opacity: 0;
+            transition: all 0.4s ease;
+            z-index: 1000;
+            font-weight: 600;
+            font-size: 0.9rem;
+        }
+
+        .toast.show {
+            transform: translateX(-50%) translateY(0);
+            opacity: 1;
+        }
+
+        /* Hide elements based on mode */
+        .coach-only {
+            display: none;
+        }
+
+        body.coach-mode .coach-only {
+            display: block;
+        }
+
+        body.coach-mode .client-only {
+            display: none;
+        }
+
+        /* Responsive */
+        @media (max-width: 480px) {
+            .logo {
+                font-size: 1.4rem;
+            }
+            
+            .tab-btn {
+                font-size: 0.7rem;
+                padding: 0.5rem;
+            }
+            
+            .tab-btn .icon {
+                font-size: 1rem;
+            }
+
+            .mood-btn {
+                width: 34px;
+                height: 34px;
+                font-size: 0.8rem;
+            }
+        }
+    
+        
+        /* Client-specific overrides */
+        .header {
+            display: flex !important;
+            align-items: center !important;
+            justify-content: space-between !important;
+            padding: 0.6rem 1rem !important;
+            background: #B8936A !important;
+            position: sticky !important;
+            top: 0 !important;
+            z-index: 100 !important;
+        }
+        .header .logo {
+            font-size: 1.2rem !important;
+            flex: 1;
+            text-align: center;
+        }
+        .header .subtitle {
+            display: none !important;
+        }
+        .btn-new-day {
+            background: rgba(255,255,255,0.2);
+            border: 1px solid rgba(255,255,255,0.3);
+            color: white;
+            padding: 0.4rem 0.75rem;
+            border-radius: 20px;
+            font-size: 0.75rem;
+            cursor: pointer;
+            transition: all 0.2s;
+            white-space: nowrap;
+        }
+        .btn-new-day:hover {
+            background: rgba(255,255,255,0.3);
+        }
+        .btn-help-client {
+            background: rgba(255,255,255,0.2);
+            border: 1px solid rgba(255,255,255,0.3);
+            color: white;
+            padding: 0.4rem 0.75rem;
+            border-radius: 20px;
+            font-size: 0.75rem;
+            cursor: pointer;
+            transition: all 0.2s;
+            text-decoration: none;
+            white-space: nowrap;
+        }
+        .btn-help-client:hover {
+            background: rgba(255,255,255,0.3);
+        }
+        .modal-overlay {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(0,0,0,0.5);
+            z-index: 1000;
+            align-items: center;
+            justify-content: center;
+            padding: 1rem;
+        }
+        .modal-overlay.show {
+            display: flex;
+        }
+        .modal-content {
+            background: white;
+            border-radius: 16px;
+            padding: 1.5rem;
+            max-width: 320px;
+            width: 100%;
+            text-align: center;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.2);
+        }
+        .modal-icon {
+            font-size: 3rem;
+            margin-bottom: 0.5rem;
+        }
+        .modal-title {
+            color: #B8936A;
+            margin: 0 0 1rem;
+            font-size: 1.2rem;
+        }
+        .modal-text {
+            color: #666;
+            margin: 0 0 0.5rem;
+            font-size: 0.9rem;
+        }
+        .modal-list {
+            text-align: left;
+            color: #666;
+            font-size: 0.85rem;
+            margin: 0 0 1rem;
+            padding-left: 1.5rem;
+        }
+        .modal-list li {
+            margin: 0.3rem 0;
+        }
+        .modal-note {
+            color: #8B5CF6;
+            font-size: 0.85rem;
+            margin: 0 0 1rem;
+        }
+        .modal-buttons {
+            display: flex;
+            gap: 0.5rem;
+        }
+        .modal-buttons .btn {
+            flex: 1;
+            padding: 0.6rem;
+            font-size: 0.9rem;
+        }
+        .btn-secondary {
+            background: #E8DDD4;
+            color: #666;
+        }
+        .header .logo {
+            font-size: 1.2rem !important;
+        }
+        .header .subtitle {
+            display: none !important;
+        }
+        .nav-tabs {
+            position: sticky !important;
+            top: 0 !important;
+            z-index: 100 !important;
+        }
+        .main-content {
+            padding-top: 0.5rem !important;
+        }
+    </style>
+</head>
+<body>
+    <header class="header">
+        <button class="btn-new-day" onclick="showResetModal()" title="Neuen Tag starten">🌅 Neuer Tag</button>
+        <div class="logo">Coaching <span>by</span> Tatjana</div>
+        <a href="https://samsgym.github.io/coachingbytatjana/hilfe.html" target="_blank" class="btn-help-client" title="Hilfe & Anleitung">❓ Hilfe</a>
+    </header>
+
+    <nav class="nav-tabs">
+        <button class="tab-btn active" data-tab="nachrichten"><span class="icon">💬</span>Nachrichten</button>
+        <button class="tab-btn" data-tab="mindset"><span class="icon">💭</span>Mindset</button>
+        <button class="tab-btn" data-tab="mahlzeiten"><span class="icon">🍽️</span>Mahlzeiten</button>
+        <button class="tab-btn" data-tab="aufgaben"><span class="icon">✅</span>Aufgaben</button>
+        <button class="tab-btn" data-tab="einkauf"><span class="icon">🛒</span>Einkauf</button>
+        <button class="tab-btn" data-tab="verlauf"><span class="icon">📈</span>Verlauf</button>
+    </nav>
+
+    <main class="main-content">
+        <!-- NACHRICHTEN TAB -->
+        <div id="nachrichten" class="tab-content active">
+            <div class="card">
+                <h2 class="card-title">💬 Nachrichten von Tatjana</h2>
+                <div id="messagesList"></div>
+            </div>
+            <div class="card">
+                <h2 class="card-title">✉️ Deine Antwort an Tatjana</h2>
+                <textarea class="form-textarea" id="clientReply" placeholder="Schreibe Tatjana eine Nachricht..."></textarea>
+            </div>
+        </div>
+
+        <!-- MINDSET TAB -->
+        <div id="mindset" class="tab-content">
+            <div class="card" id="mindsetTipsCard">
+                <h2 class="card-title">💡 Mindset-Tipps von Tatjana</h2>
+                <div id="mindsetTipsList">
+                    <div class="empty-state"><div class="icon">💡</div><p>Noch keine Tipps</p></div>
+                </div>
+            </div>
+            <div class="card">
+                <h2 class="card-title">🌟 Wie fühlst du dich heute?</h2>
+                <div class="mood-rating" id="moodRating">
+                    <button class="mood-btn" data-mood="1">1</button><button class="mood-btn" data-mood="2">2</button><button class="mood-btn" data-mood="3">3</button><button class="mood-btn" data-mood="4">4</button><button class="mood-btn" data-mood="5">5</button><button class="mood-btn" data-mood="6">6</button><button class="mood-btn" data-mood="7">7</button><button class="mood-btn" data-mood="8">8</button><button class="mood-btn" data-mood="9">9</button><button class="mood-btn" data-mood="10">10</button>
+                </div>
+            </div>
+            <div class="card">
+                <h2 class="card-title">💪 Was motiviert dich heute?</h2>
+                <textarea class="form-textarea" id="motivation" placeholder="Schreib auf, was dich heute antreibt..."></textarea>
+            </div>
+            <div class="card">
+                <h2 class="card-title">🙏 Wofür bist du dankbar?</h2>
+                <textarea class="form-textarea" id="dankbarkeit" placeholder="3 Dinge, für die du heute dankbar bist..."></textarea>
+            </div>
+            <div class="card">
+                <h2 class="card-title">🌙 Tagesreflexion</h2>
+                <textarea class="form-textarea" id="reflexion" placeholder="Wie war dein Tag? Was hast du gelernt?"></textarea>
+            </div>
+        </div>
+
+        <!-- MAHLZEITEN TAB -->
+        <div id="mahlzeiten" class="tab-content">
+            <div class="card" id="foodTipsCard">
+                <h2 class="card-title">🥗 Ernährungs-Tipps von Tatjana</h2>
+                <div id="foodTipsList">
+                    <div class="empty-state"><div class="icon">🥗</div><p>Noch keine Tipps</p></div>
+                </div>
+            </div>
+            <div class="card">
+                <h2 class="card-title">🍽️ Mahlzeit eintragen</h2>
+                <div class="meal-type-selector" id="mealType">
+                    <button class="meal-type-btn selected" data-type="Frühstück">🌅 Frühstück</button>
+                    <button class="meal-type-btn" data-type="Mittag">☀️ Mittag</button>
+                    <button class="meal-type-btn" data-type="Abend">🌙 Abend</button>
+                    <button class="meal-type-btn" data-type="Snack">🍎 Snack</button>
+                </div>
+                <div class="form-group">
+                    <textarea class="form-textarea" id="mealDescription" placeholder="Was hast du gegessen?"></textarea>
+                </div>
+                <button class="btn btn-primary btn-block" onclick="addMeal()">+ Mahlzeit hinzufügen</button>
+            </div>
+            <div class="card">
+                <h2 class="card-title">📋 Heutige Mahlzeiten</h2>
+                <div class="entry-list" id="mealList"></div>
+            </div>
+        </div>
+
+        <!-- AUFGABEN TAB -->
+        <div id="aufgaben" class="tab-content">
+            <div class="card">
+                <h2 class="card-title">✅ Deine Aufgaben</h2>
+                <div class="checklist" id="taskList"></div>
+            </div>
+            <div class="card">
+                <h2 class="card-title">➕ Eigene Aufgabe</h2>
+                <div class="add-form">
+                    <input type="text" class="form-input" id="clientTask" placeholder="Deine eigene Aufgabe...">
+                    <button class="btn btn-primary btn-icon" onclick="addClientTask()">+</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- EINKAUF TAB -->
+        <div id="einkauf" class="tab-content">
+            <div class="card">
+                <h2 class="card-title">🛒 Einkaufsliste</h2>
+                <div class="add-form">
+                    <input type="text" class="form-input" id="clientShopItem" placeholder="Artikel hinzufügen...">
+                    <button class="btn btn-primary btn-icon" onclick="addClientShopItem()">+</button>
+                </div>
+                <div class="checklist" id="shoppingList"></div>
+            </div>
+        </div>
+
+        <!-- VERLAUF TAB -->
+        <div id="verlauf" class="tab-content">
+            <div class="card">
+                <h2 class="card-title">📈 Mein Stimmungs-Verlauf</h2>
+                <div class="mood-chart" id="moodChart">
+                    <div class="empty-state"><div class="icon">📊</div><p>Noch keine Einträge</p></div>
+                </div>
+            </div>
+            <div class="card">
+                <h2 class="card-title">📋 Meine letzten Einträge</h2>
+                <div class="history-list" id="historyList">
+                    <div class="empty-state"><div class="icon">📅</div><p>Noch keine Historie</p></div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <div class="bottom-actions">
+        <button class="btn btn-success btn-block" onclick="sendToCoach()">📤 An Tatjana senden</button>
+    </div>
+
+    <div class="toast" id="toast"></div>
+    
+    <!-- Reset Modal -->
+    <div class="modal-overlay" id="resetModal">
+        <div class="modal-content">
+            <div class="modal-icon">🌅</div>
+            <h3 class="modal-title">Neuen Tag starten?</h3>
+            <p class="modal-text">Das setzt zurück:</p>
+            <ul class="modal-list">
+                <li>Deine Mahlzeiten</li>
+                <li>Deine Antwort</li>
+                <li>Mindset-Einträge</li>
+                <li>Aufgaben-Status</li>
+            </ul>
+            <p class="modal-note">💜 Tatjanas Inhalte bleiben erhalten.</p>
+            <div class="modal-buttons">
+                <button class="btn btn-secondary" onclick="closeResetModal()">Abbrechen</button>
+                <button class="btn btn-primary" onclick="confirmResetDay()">Neuer Tag</button>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        var appData = {"clientName":"Melanie","lastUpdated":"2026-01-29T12:26:18.400Z","coachMessages":[{"id":1769689344759,"text":"„Nu gad es Täller“ (Portionskontrolle)\n\nTöpfe auf dem Herd lassen: Das Essen wird am Herd auf die Teller gefüllt (Portionieren). Die Töpfe kommen nicht auf den Esstisch. Wer nachnehmen will, muss aufstehen (Hürde erhöhen).\n\nDer Mama-Vorbild-Trick: Sie will ein Vorbild sein. Ein Vorbild zeigt den Kindern: „Ich esse mich satt, aber ich überfresse mich nicht. Ich höre auf meinen Bauch.“\n\nDie 20-Minuten-Pause: Bevor nachgeschöpft wird, müssen 20 Minuten vergehen. Meist ist das Sättigungsgefühl dann da.","date":"29.1.2026 13:22"},{"id":1769689549167,"text":"„Gad schnäll isch nid so schlimm“ (Das Nebenbei-Essen)\n\nDie 10-Minuten-Regel: Wenn der Impuls kommt, schnell etwas in den Mund zu stecken (z.B. Reste vom Kind), muss sie 10 Minuten warten und ein Glas Wasser trinken. Ist der Hunger dann noch da?\n\nEssen nur im Sitzen: Nichts wird im Stehen an der Anrichte gegessen. Wer essen will, muss sich hinsetzen. Das unterbricht den „Gad schnäll“-Automatismus.","date":"29.1.2026 13:25"}],"coachMindsetTips":[],"coachFoodTips":[{"id":1769689109339,"text":"Frühstück: Shake und Frucht, Rührei/Omelett mit Gemüse, Skyr/Magerquark mit Frucht, Brot/Reiswaffel mit Aufschnitt/Hüttenkäse/Ei\nMittag- und Abendessen: Orientiere sich an dem Tellerkompass. Abends kann die Kohlenhydrate Beilage weggelassen werden, da der Körper weniger Energie braucht. Gemüse empfehle ich Abends gekochtes und zu Mittag die Kombi.\nSnack: Shake, Light Babybell (2 Stk), Ei mit Frucht, Skyr mit einer Frucht.","date":"29.1.2026 13:18"}],"coachTasks":[],"coachShopItems":[{"id":1769688709472,"text":"Skyr, Magerquark","done":false,"isCoach":true},{"id":1769688716960,"text":"Hüttenkäse","done":false,"isCoach":true},{"id":1769688724210,"text":"Eier","done":false,"isCoach":true},{"id":1769688730308,"text":"Fleisch","done":false,"isCoach":true},{"id":1769688734698,"text":"Thon","done":false,"isCoach":true},{"id":1769688741807,"text":"Aufschnitt","done":false,"isCoach":true},{"id":1769688769257,"text":"Frisches und Tiefkühlgemüse","done":false,"isCoach":true},{"id":1769688795612,"text":"Brot, Hörnli, Reis, Reiswaffeln","done":false,"isCoach":true},{"id":1769688813704,"text":"Äpfel, Birnen, Kiwi","done":false,"isCoach":true},{"id":1769688821169,"text":"Riegel, Shakes","done":false,"isCoach":true}],"clientReply":"","mindset":{"mood":null,"motivation":"","dankbarkeit":"","reflexion":""},"mahlzeiten":[],"clientTasks":[],"clientShopItems":[],"history":[],"coachVersion":"2026-01-29T12:26:18.402Z"};
+        var webhookUrl = 'https://flow.zoho.eu/20077340494/flow/webhook/incoming?zapikey=1001.3a1905b30f50dd264b19d05d9c1b463a.aa932e68201ea64597b9c071d53b71c3&isdebug=false';
+
+        // Init
+        document.addEventListener('DOMContentLoaded', function() {
+            initTabs();
+            initMoodButtons();
+            initMealTypeButtons();
+            loadFromLocalStorage();
+            renderAll();
+            initAutoSave();
+        });
+
+        function initTabs() {
+            document.querySelectorAll('.tab-btn').forEach(function(btn) {
+                btn.addEventListener('click', function() {
+                    document.querySelectorAll('.tab-btn').forEach(function(b) { b.classList.remove('active'); });
+                    document.querySelectorAll('.tab-content').forEach(function(c) { c.classList.remove('active'); });
+                    btn.classList.add('active');
+                    document.getElementById(btn.dataset.tab).classList.add('active');
+                });
+            });
+        }
+
+        function initMoodButtons() {
+            document.querySelectorAll('.mood-btn').forEach(function(btn) {
+                btn.addEventListener('click', function() {
+                    document.querySelectorAll('.mood-btn').forEach(function(b) { b.classList.remove('selected'); });
+                    btn.classList.add('selected');
+                    appData.mindset.mood = parseInt(btn.dataset.mood);
+                    saveToLocalStorage();
+                });
+            });
+        }
+
+        function initMealTypeButtons() {
+            document.querySelectorAll('.meal-type-btn').forEach(function(btn) {
+                btn.addEventListener('click', function() {
+                    document.querySelectorAll('.meal-type-btn').forEach(function(b) { b.classList.remove('selected'); });
+                    btn.classList.add('selected');
+                });
+            });
+        }
+
+        function initAutoSave() {
+            ['motivation', 'dankbarkeit', 'reflexion', 'clientReply'].forEach(function(id) {
+                var el = document.getElementById(id);
+                if (el) {
+                    el.addEventListener('input', function() {
+                        if (id === 'clientReply') appData.clientReply = el.value;
+                        else appData.mindset[id] = el.value;
+                        saveToLocalStorage();
+                    });
+                }
+            });
+        }
+
+        function getStorageKey() {
+            return 'coaching-' + (appData.clientName || 'default').toLowerCase().replace(/[^a-z0-9]/g, '');
+        }
+
+        function saveToLocalStorage() {
+            var data = {
+                savedAt: new Date().toISOString(),
+                savedCoachVersion: appData.coachVersion,
+                clientReply: appData.clientReply || '',
+                mindset: appData.mindset,
+                mahlzeiten: appData.mahlzeiten || [],
+                clientTasks: appData.clientTasks || [],
+                clientShopItems: appData.clientShopItems || [],
+                coachTasksDone: appData.coachTasks.filter(function(t) { return t.done; }).map(function(t) { return t.id; }),
+                coachShopDone: appData.coachShopItems.filter(function(i) { return i.done; }).map(function(i) { return i.id; }),
+                history: appData.history || []
+            };
+            localStorage.setItem(getStorageKey(), JSON.stringify(data));
+        }
+
+        function loadFromLocalStorage() {
+            try {
+                var saved = localStorage.getItem(getStorageKey());
+                if (saved) {
+                    var data = JSON.parse(saved);
+                    
+                    // Prüfen ob Coach neue Version publiziert hat
+                    var isNewCoachVersion = !data.savedCoachVersion || 
+                        new Date(appData.coachVersion) > new Date(data.savedCoachVersion);
+                    
+                    // Die eingebettete History von Tatjana ist die "Wahrheit"
+                    // Wir fügen nur NEUE Browser-Einträge hinzu (die Tatjana noch nicht hat)
+                    var coachHistory = appData.history || [];
+                    var browserHistory = data.history || [];
+                    
+                    // Finde Einträge die im Browser sind aber NICHT in Tatjanas History
+                    // (Das sind Einträge die die Klientin gemacht hat seit dem letzten Publish)
+                    var coachDates = coachHistory.map(function(h) { return h.date; });
+                    var newBrowserEntries = browserHistory.filter(function(h) {
+                        return !coachDates.includes(h.date);
+                    });
+                    
+                    // Kombiniere: Tatjanas History + neue Browser-Einträge
+                    appData.history = coachHistory.concat(newBrowserEntries);
+                    
+                    if (isNewCoachVersion) {
+                        // Neue Coach-Version: Nur History behalten, Rest resetten
+                        console.log('Neue Coach-Version erkannt - Daten werden zurückgesetzt');
+                        showToast('Neue Inhalte von Tatjana! 💜');
+                        return;
+                    }
+                    
+                    // Gleiche Version: Alle Klienten-Daten laden
+                    appData.clientReply = data.clientReply || '';
+                    if (data.mindset) appData.mindset = data.mindset;
+                    if (data.mahlzeiten) appData.mahlzeiten = data.mahlzeiten;
+                    if (data.clientTasks) appData.clientTasks = data.clientTasks;
+                    if (data.clientShopItems) appData.clientShopItems = data.clientShopItems;
+                    if (data.coachTasksDone) {
+                        data.coachTasksDone.forEach(function(id) {
+                            var task = appData.coachTasks.find(function(t) { return t.id === id; });
+                            if (task) task.done = true;
+                        });
+                    }
+                    if (data.coachShopDone) {
+                        data.coachShopDone.forEach(function(id) {
+                            var item = appData.coachShopItems.find(function(i) { return i.id === id; });
+                            if (item) item.done = true;
+                        });
+                    }
+                }
+            } catch(e) { console.log('LocalStorage error:', e); }
+        }
+        
+        function showResetModal() {
+            document.getElementById('resetModal').classList.add('show');
+        }
+        
+        function closeResetModal() {
+            document.getElementById('resetModal').classList.remove('show');
+        }
+        
+        function confirmResetDay() {
+            closeResetModal();
+            
+            // Mindset zurücksetzen
+            appData.mindset = { mood: null, motivation: '', dankbarkeit: '', reflexion: '' };
+            appData.clientReply = '';
+            appData.mahlzeiten = [];
+            
+            // Nur Status der Aufgaben zurücksetzen, nicht die Aufgaben selbst
+            appData.coachTasks.forEach(function(t) { t.done = false; });
+            appData.clientTasks = [];
+            
+            // Nur Status der Einkäufe zurücksetzen
+            appData.coachShopItems.forEach(function(i) { i.done = false; });
+            appData.clientShopItems = [];
+            
+            // Speichern und neu rendern
+            saveToLocalStorage();
+            renderAll();
+            
+            // UI zurücksetzen
+            document.querySelectorAll('.mood-btn').forEach(function(b) { b.classList.remove('selected'); });
+            document.getElementById('motivation').value = '';
+            document.getElementById('dankbarkeit').value = '';
+            document.getElementById('reflexion').value = '';
+            document.getElementById('clientReply').value = '';
+            
+            showToast('Neuer Tag gestartet! 🌅');
+        }
+
+        function renderMindsetTips() {
+            var list = document.getElementById('mindsetTipsList');
+            if (!list) return;
+            
+            var tips = appData.coachMindsetTips || [];
+            
+            if (tips.length === 0) {
+                list.innerHTML = '<div class="empty-state"><div class="icon">💡</div><p>Noch keine Tipps</p></div>';
+                return;
+            }
+
+            list.innerHTML = tips.map(function(tip) {
+                return '<div class="coach-message">' +
+                    '<div class="coach-message-header">💡 Mindset-Tipp</div>' +
+                    '<div class="coach-message-text">' + tip.text + '</div>' +
+                    '<div class="coach-message-date">' + tip.date + '</div>' +
+                '</div>';
+            }).join('');
+        }
+
+        function renderFoodTips() {
+            var list = document.getElementById('foodTipsList');
+            if (!list) return;
+            
+            var tips = appData.coachFoodTips || [];
+            
+            if (tips.length === 0) {
+                list.innerHTML = '<div class="empty-state"><div class="icon">🥗</div><p>Noch keine Tipps</p></div>';
+                return;
+            }
+
+            list.innerHTML = tips.map(function(tip) {
+                return '<div class="coach-message">' +
+                    '<div class="coach-message-header">🥗 Ernährungs-Tipp</div>' +
+                    '<div class="coach-message-text">' + tip.text + '</div>' +
+                    '<div class="coach-message-date">' + tip.date + '</div>' +
+                '</div>';
+            }).join('');
+        }
+
+        function renderAll() {
+            renderMessages();
+            renderMindsetTips();
+            renderFoodTips();
+            renderTasks();
+            renderShopping();
+            renderMeals();
+            renderHistory();
+            
+            if (appData.mindset.mood) {
+                var btn = document.querySelector('.mood-btn[data-mood="' + appData.mindset.mood + '"]');
+                if (btn) btn.classList.add('selected');
+            }
+            document.getElementById('motivation').value = appData.mindset.motivation || '';
+            document.getElementById('dankbarkeit').value = appData.mindset.dankbarkeit || '';
+            document.getElementById('reflexion').value = appData.mindset.reflexion || '';
+            document.getElementById('clientReply').value = appData.clientReply || '';
+        }
+
+        function getMoodEmoji(mood) {
+            if (!mood) return '😐';
+            if (mood <= 2) return '😢';
+            if (mood <= 4) return '😕';
+            if (mood <= 6) return '😐';
+            if (mood <= 8) return '🙂';
+            return '😄';
+        }
+
+        function renderHistory() {
+            var chartEl = document.getElementById('moodChart');
+            var listEl = document.getElementById('historyList');
+            if (!chartEl || !listEl) return;
+            
+            var history = appData.history || [];
+            
+            if (history.length === 0) {
+                chartEl.innerHTML = '<div class="empty-state"><div class="icon">📊</div><p>Noch keine Einträge</p></div>';
+                listEl.innerHTML = '<div class="empty-state"><div class="icon">📅</div><p>Noch keine Historie</p></div>';
+                return;
+            }
+            
+            var chartData = history.slice(-10);
+            var maxMood = 10;
+            chartEl.innerHTML = '<div class="mood-chart-bars">' + 
+                chartData.map(function(entry) {
+                    var height = (entry.mood / maxMood) * 100;
+                    var emoji = getMoodEmoji(entry.mood);
+                    return '<div class="mood-bar-container">' +
+                        '<div class="mood-bar-value">' + emoji + '</div>' +
+                        '<div class="mood-bar" style="height: ' + height + '%;"></div>' +
+                        '<div class="mood-bar-label">' + entry.date.split('.').slice(0,2).join('.') + '</div>' +
+                    '</div>';
+                }).join('') +
+            '</div>';
+            
+            var sortedHistory = history.slice().reverse().slice(0, 14);
+            listEl.innerHTML = sortedHistory.map(function(entry, index) {
+                var tasksDone = entry.tasksCompleted || 0;
+                var tasksTotal = entry.tasksTotal || 0;
+                var emoji = getMoodEmoji(entry.mood);
+                var hasDetails = entry.mahlzeiten || entry.tasks || entry.reply || entry.motivation || entry.dankbarkeit || entry.reflexion || entry.note || entry.einkauf;
+                
+                var detailsHtml = '';
+                if (hasDetails) {
+                    detailsHtml = '<div class="history-details" id="historyDetails' + index + '" style="display: none; margin-top: 0.75rem; padding-top: 0.75rem; border-top: 1px solid #E8DDD4;">';
+                    
+                    if (entry.reply) {
+                        detailsHtml += '<div class="history-detail-section"><div class="history-detail-label">💬 Nachricht:</div><div class="history-detail-text">' + entry.reply + '</div></div>';
+                    }
+                    if (entry.note && !entry.reply) {
+                        detailsHtml += '<div class="history-detail-section"><div class="history-detail-label">📝 Notiz:</div><div class="history-detail-text">' + entry.note + '</div></div>';
+                    }
+                    if (entry.motivation) {
+                        detailsHtml += '<div class="history-detail-section"><div class="history-detail-label">💪 Motivation:</div><div class="history-detail-text">' + entry.motivation + '</div></div>';
+                    }
+                    if (entry.dankbarkeit) {
+                        detailsHtml += '<div class="history-detail-section"><div class="history-detail-label">🙏 Dankbarkeit:</div><div class="history-detail-text">' + entry.dankbarkeit + '</div></div>';
+                    }
+                    if (entry.reflexion) {
+                        detailsHtml += '<div class="history-detail-section"><div class="history-detail-label">🌙 Reflexion:</div><div class="history-detail-text">' + entry.reflexion + '</div></div>';
+                    }
+                    if (entry.mahlzeiten) {
+                        detailsHtml += '<div class="history-detail-section"><div class="history-detail-label">🍽️ Mahlzeiten:</div><div class="history-detail-text" style="white-space: pre-line;">' + entry.mahlzeiten.replace(/\s*\|\s*/g, '\n') + '</div></div>';
+                    }
+                    if (entry.tasks) {
+                        detailsHtml += '<div class="history-detail-section"><div class="history-detail-label">✅ Aufgaben:</div><div class="history-detail-text" style="white-space: pre-line;">' + entry.tasks.replace(/\s*\|\s*/g, '\n') + '</div></div>';
+                    }
+                    if (entry.einkauf) {
+                        detailsHtml += '<div class="history-detail-section"><div class="history-detail-label">🛒 Einkauf:</div><div class="history-detail-text" style="white-space: pre-line;">' + entry.einkauf.replace(/\s*\|\s*/g, '\n') + '</div></div>';
+                    }
+                    
+                    detailsHtml += '</div>';
+                }
+                
+                return '<div class="history-entry" style="cursor: ' + (hasDetails ? 'pointer' : 'default') + ';" onclick="' + (hasDetails ? 'toggleHistoryDetails(' + index + ')' : '') + '">' +
+                    '<div class="history-entry-header">' +
+                        '<span class="history-date">📅 ' + entry.date + (entry.time ? ' ' + entry.time : '') + '</span>' +
+                        '<span class="history-mood">' + emoji + ' ' + entry.mood + '/10</span>' +
+                        (hasDetails ? '<span style="color: #8B5CF6; font-size: 0.75rem; margin-left: auto;">▼ Details</span>' : '') +
+                    '</div>' +
+                    '<div class="history-stats">' +
+                        (tasksTotal > 0 ? '<span class="history-stat ' + (tasksDone === tasksTotal ? 'completed' : '') + '">✅ ' + tasksDone + '/' + tasksTotal + ' Aufgaben</span>' : '') +
+                        (entry.mealsCount ? '<span class="history-stat">🍽️ ' + entry.mealsCount + ' Mahlzeiten</span>' : '') +
+                    '</div>' +
+                    detailsHtml +
+                '</div>';
+            }).join('');
+        }
+        
+        function toggleHistoryDetails(index) {
+            var details = document.getElementById('historyDetails' + index);
+            if (details) {
+                details.style.display = details.style.display === 'none' ? 'block' : 'none';
+            }
+        }
+
+        function renderMessages() {
+            var list = document.getElementById('messagesList');
+            if (!appData.coachMessages || appData.coachMessages.length === 0) {
+                list.innerHTML = '<div class="empty-state"><div class="icon">💬</div><p>Noch keine Nachrichten</p></div>';
+                return;
+            }
+            list.innerHTML = appData.coachMessages.map(function(msg) {
+                return '<div class="coach-message"><div class="coach-message-header">💜 Tatjana</div><div class="coach-message-text">' + msg.text + '</div><div class="coach-message-date">' + msg.date + '</div></div>';
+            }).join('');
+        }
+
+        function renderTasks() {
+            var list = document.getElementById('taskList');
+            var all = (appData.coachTasks || []).concat(appData.clientTasks || []);
+            if (all.length === 0) {
+                list.innerHTML = '<div class="empty-state"><div class="icon">📝</div><p>Keine Aufgaben</p></div>';
+                return;
+            }
+            list.innerHTML = all.map(function(task) {
+                var isCoach = task.isCoach !== false && appData.coachTasks.some(function(t) { return t.id === task.id; });
+                return '<div class="checklist-item ' + (isCoach ? 'coach-task' : '') + ' ' + (task.done ? 'completed' : '') + '">' +
+                    '<div class="checkbox-custom ' + (task.done ? 'checked' : '') + '" onclick="toggleTask(' + task.id + ')"></div>' +
+                    '<div class="item-content"><div class="item-text">' + task.text + '</div>' +
+                    (isCoach ? '<div class="item-meta">📋 Von Tatjana</div>' : '') + '</div>' +
+                    (!isCoach ? '<button class="delete-btn" onclick="deleteTask(' + task.id + ')">×</button>' : '') +
+                    '</div>';
+            }).join('');
+        }
+
+        function toggleTask(id) {
+            var task = appData.coachTasks.find(function(t) { return t.id === id; }) || appData.clientTasks.find(function(t) { return t.id === id; });
+            if (task) { task.done = !task.done; saveToLocalStorage(); renderTasks(); }
+        }
+
+        function deleteTask(id) {
+            appData.clientTasks = appData.clientTasks.filter(function(t) { return t.id !== id; });
+            saveToLocalStorage(); renderTasks();
+        }
+
+        function addClientTask() {
+            var input = document.getElementById('clientTask');
+            var text = input.value.trim();
+            if (!text) return;
+            appData.clientTasks = appData.clientTasks || [];
+            appData.clientTasks.push({ id: Date.now(), text: text, done: false });
+            input.value = '';
+            saveToLocalStorage(); renderTasks();
+            showToast('Aufgabe hinzugefügt ✓');
+        }
+
+        function renderShopping() {
+            var list = document.getElementById('shoppingList');
+            var all = (appData.coachShopItems || []).concat(appData.clientShopItems || []);
+            if (all.length === 0) {
+                list.innerHTML = '<div class="empty-state"><div class="icon">🛒</div><p>Einkaufsliste leer</p></div>';
+                return;
+            }
+            list.innerHTML = all.map(function(item) {
+                var isCoach = item.isCoach !== false && appData.coachShopItems.some(function(i) { return i.id === item.id; });
+                return '<div class="checklist-item ' + (isCoach ? 'coach-task' : '') + ' ' + (item.done ? 'completed' : '') + '">' +
+                    '<div class="checkbox-custom ' + (item.done ? 'checked' : '') + '" onclick="toggleShop(' + item.id + ')"></div>' +
+                    '<div class="item-content"><div class="item-text">' + item.text + '</div>' +
+                    (isCoach ? '<div class="item-meta">💜 Empfohlen von Tatjana</div>' : '') + '</div>' +
+                    (!isCoach ? '<button class="delete-btn" onclick="deleteShop(' + item.id + ')">×</button>' : '') +
+                    '</div>';
+            }).join('');
+        }
+
+        function toggleShop(id) {
+            var item = appData.coachShopItems.find(function(i) { return i.id === id; }) || appData.clientShopItems.find(function(i) { return i.id === id; });
+            if (item) { item.done = !item.done; saveToLocalStorage(); renderShopping(); }
+        }
+
+        function deleteShop(id) {
+            appData.clientShopItems = appData.clientShopItems.filter(function(i) { return i.id !== id; });
+            saveToLocalStorage(); renderShopping();
+        }
+
+        function addClientShopItem() {
+            var input = document.getElementById('clientShopItem');
+            var text = input.value.trim();
+            if (!text) return;
+            appData.clientShopItems = appData.clientShopItems || [];
+            appData.clientShopItems.push({ id: Date.now(), text: text, done: false });
+            input.value = '';
+            saveToLocalStorage(); renderShopping();
+            showToast('Artikel hinzugefügt ✓');
+        }
+
+        function addMeal() {
+            var typeBtn = document.querySelector('.meal-type-btn.selected');
+            var type = typeBtn ? typeBtn.dataset.type : 'Mahlzeit';
+            var desc = document.getElementById('mealDescription').value.trim();
+            if (!desc) { showToast('Bitte beschreibe die Mahlzeit'); return; }
+            appData.mahlzeiten = appData.mahlzeiten || [];
+            appData.mahlzeiten.push({
+                id: Date.now(),
+                type: type,
+                description: desc,
+                time: new Date().toLocaleTimeString('de-CH', {hour: '2-digit', minute: '2-digit'})
+            });
+            document.getElementById('mealDescription').value = '';
+            saveToLocalStorage(); renderMeals();
+            showToast('Mahlzeit hinzugefügt ✓');
+        }
+
+        function renderMeals() {
+            var list = document.getElementById('mealList');
+            if (!appData.mahlzeiten || appData.mahlzeiten.length === 0) {
+                list.innerHTML = '<div class="empty-state"><div class="icon">🍽️</div><p>Noch keine Mahlzeiten</p></div>';
+                return;
+            }
+            var emojis = {'Frühstück': '🌅', 'Mittag': '☀️', 'Abend': '🌙', 'Snack': '🍎'};
+            list.innerHTML = appData.mahlzeiten.map(function(m) {
+                return '<div class="entry-item"><div class="entry-header"><strong>' + (emojis[m.type] || '🍽️') + ' ' + m.type + '</strong><span class="entry-date">' + m.time + '</span></div><div class="entry-text">' + m.description + '</div></div>';
+            }).join('');
+        }
+
+        function sendToCoach() {
+            appData.clientReply = document.getElementById('clientReply').value || '';
+            appData.mindset.motivation = document.getElementById('motivation').value || '';
+            appData.mindset.dankbarkeit = document.getElementById('dankbarkeit').value || '';
+            appData.mindset.reflexion = document.getElementById('reflexion').value || '';
+
+            // Historie-Eintrag erstellen mit ALLEN Details
+            var today = new Date().toLocaleDateString('de-CH');
+            var currentTime = new Date().toLocaleTimeString('de-CH', {hour: '2-digit', minute: '2-digit'});
+            var tasksTotal = (appData.coachTasks || []).length + (appData.clientTasks || []).length;
+            var tasksDone = (appData.coachTasks || []).filter(function(t) { return t.done; }).length +
+                           (appData.clientTasks || []).filter(function(t) { return t.done; }).length;
+            var mealsCount = (appData.mahlzeiten || []).length;
+            
+            var mahlzeitenText = (appData.mahlzeiten || []).map(function(m) {
+                var emoji = {'Frühstück': '🌅', 'Mittag': '☀️', 'Abend': '🌙', 'Snack': '🍎'}[m.type] || '🍽️';
+                return emoji + ' ' + m.type + ' (' + m.time + '): ' + m.description;
+            }).join(' | ');
+            
+            var tasksText = (appData.coachTasks || []).concat(appData.clientTasks || []).map(function(t) {
+                return (t.done ? '✅' : '⬜') + ' ' + t.text;
+            }).join(' | ');
+            
+            var einkaufText = (appData.coachShopItems || []).concat(appData.clientShopItems || []).map(function(i) {
+                return (i.done ? '✅' : '⬜') + ' ' + i.text;
+            }).join(' | ');
+            
+            var historyEntry = {
+                timestamp: new Date().toISOString(),
+                date: today,
+                time: currentTime,
+                mood: appData.mindset.mood || 0,
+                tasksCompleted: tasksDone,
+                tasksTotal: tasksTotal,
+                mealsCount: mealsCount,
+                reply: appData.clientReply || '',
+                motivation: appData.mindset.motivation || '',
+                dankbarkeit: appData.mindset.dankbarkeit || '',
+                reflexion: appData.mindset.reflexion || '',
+                mahlzeiten: mahlzeitenText,
+                tasks: tasksText,
+                einkauf: einkaufText
+            };
+            
+            // Prüfen ob heute schon ein Eintrag existiert
+            appData.history = appData.history || [];
+            var existingIndex = appData.history.findIndex(function(h) { return h.date === today; });
+            if (existingIndex >= 0) {
+                appData.history[existingIndex] = historyEntry;
+            } else {
+                appData.history.push(historyEntry);
+            }
+
+            // Daten aufbauen für E-Mail
+            var formData = {
+                clientName: appData.clientName || '',
+                date: today,
+                time: currentTime,
+                mood: appData.mindset.mood || 5,
+                reply: (appData.clientReply || '').substring(0, 1000),
+                motivation: (appData.mindset.motivation || '').substring(0, 1000),
+                dankbarkeit: (appData.mindset.dankbarkeit || '').substring(0, 1000),
+                reflexion: (appData.mindset.reflexion || '').substring(0, 1000),
+                tasksCompleted: tasksDone,
+                tasksTotal: tasksTotal,
+                mealsCount: mealsCount,
+                mahlzeiten: mahlzeitenText.substring(0, 2000),
+                tasks: tasksText.substring(0, 2000),
+                einkauf: einkaufText.substring(0, 1000)
+            };
+
+            showToast('Wird gesendet... 📤');
+
+            // Hidden iFrame Form Submit
+            sendViaHiddenForm(webhookUrl, formData, function() {
+                showToast('An Tatjana gesendet! ✓');
+                saveToLocalStorage();
+                renderHistory();
+            });
+        }
+        
+        // Hidden iFrame Form Submit Funktion
+        function sendViaHiddenForm(url, data, callback) {
+            var oldIframe = document.getElementById('hidden-submit-iframe');
+            var oldForm = document.getElementById('hidden-submit-form');
+            if (oldIframe) oldIframe.remove();
+            if (oldForm) oldForm.remove();
+            
+            var iframe = document.createElement('iframe');
+            iframe.id = 'hidden-submit-iframe';
+            iframe.name = 'hidden-submit-iframe';
+            iframe.style.display = 'none';
+            document.body.appendChild(iframe);
+            
+            var form = document.createElement('form');
+            form.id = 'hidden-submit-form';
+            form.method = 'POST';
+            form.action = url;
+            form.target = 'hidden-submit-iframe';
+            form.style.display = 'none';
+            
+            for (var key in data) {
+                if (data.hasOwnProperty(key)) {
+                    var input = document.createElement('input');
+                    input.type = 'hidden';
+                    input.name = key;
+                    input.value = data[key];
+                    form.appendChild(input);
+                }
+            }
+            
+            document.body.appendChild(form);
+            form.submit();
+            
+            setTimeout(function() {
+                if (callback) callback();
+                setTimeout(function() {
+                    if (iframe.parentNode) iframe.remove();
+                    if (form.parentNode) form.remove();
+                }, 5000);
+            }, 500);
+        }
+
+        function showToast(msg) {
+            var toast = document.getElementById('toast');
+            toast.textContent = msg;
+            toast.classList.add('show');
+            setTimeout(function() { toast.classList.remove('show'); }, 3000);
+        }
+
+        document.addEventListener('keypress', function(e) {
+            if (e.key === 'Enter' && e.target.tagName !== 'TEXTAREA') {
+                if (e.target.id === 'clientTask') addClientTask();
+                if (e.target.id === 'clientShopItem') addClientShopItem();
+            }
+        });
+    </script>
+</body>
+</html>
